@@ -4,12 +4,13 @@
 
 #include "input.h"
 
-SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _ResouseManeger)
-	: SceneBase(_ResouseManeger)
-{
-	Text = _ResouseManeger->meshM->getText();
-	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 
+
+SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
+	: SceneBase(_R)
+{
+	Text = _R->meshM->getText();
+	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 }
 
 void SceneTitle::update()

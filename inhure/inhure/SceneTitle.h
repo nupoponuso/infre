@@ -3,10 +3,10 @@
 #include "F_lib/include/SceneManeger.h"
 #include "F_lib/include/Text.h"
 
-class SceneTitle:public F_lib_Fremworker::SceneBase
+class SceneTitle : public F_lib_Fremworker::SceneBase
 {
 public:
-	SceneTitle(F_lib_Fremworker::ResourceManager* _ResouseManeger);
+	SceneTitle(F_lib_Fremworker::ResourceManager* _R);
 
 	void update();
 	void Draw();

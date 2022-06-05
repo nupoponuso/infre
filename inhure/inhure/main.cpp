@@ -11,7 +11,7 @@
 #include <tchar.h>
 #include "MainWindow.h"
 
-#define Name "実験"
+#define Name _T("実験")
 
 //グローバル変数
 //GamwWindowクラスのポインタ
@@ -33,10 +33,10 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 		InitdataGameWindow init;
 		init.hins = hInstance;
 		init.windowName = Name;
-		init.WindowSize = XMFLOAT2(500, 500);
+		init.WindowSize = XMFLOAT2(1280, 800);
 	
 		GWin->InitWindow(init);
-		GWin->InitD3D(init.WindowSize.x, init.WindowSize.y);
+		GWin->InitD3D((INT)init.WindowSize.x, (INT)init.WindowSize.y);
 	
 	}
 	

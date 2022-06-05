@@ -9,6 +9,7 @@
 RM::RM(F_lib_Render::RenderingEngine * _engine) :F_lib_Fremworker::ResourceManager()
 {
 	meshM = new MeshM(_engine);
+	meshM->detaLode(0);
 	TM = new TexM(_engine->getDevice());
 
 	Em = new F_lib_Render::EffekseerManeger(_engine->getDevice(), _engine->getDeviceContext(), (F_lib_Render::Camera_3D*)meshM->getCamera());

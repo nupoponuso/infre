@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "SceneManager.h"
+#include "SceneManager_infure.h"
 #include "input.h"
 
 F_lib_Fremworker::GameWindow* mainwind;

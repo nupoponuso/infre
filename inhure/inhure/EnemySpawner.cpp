@@ -1,6 +1,6 @@
 #include "EnemySpawner.h"
 
-EnemySpawner::EnemySpawner(initEnemySpawner _dat): count(0),countmax(_dat.max)
+EnemySpawner::EnemySpawner(initEnemySpawner _dat) : count(0), countmax(_dat.count)
 {
 }
 

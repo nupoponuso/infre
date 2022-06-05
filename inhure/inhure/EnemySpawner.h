@@ -8,6 +8,8 @@ struct initEnemySpawner
 	F_lib_Fremworker::ResourceManager* R;
 	F_lib_Mover::moverList* list;
 
+	int count;
+
 };
 
 class EnemySpawner

@@ -21,7 +21,7 @@ public:
 	Enemy(initenemydata);
 	
 	void update();
-	void Draw() = 0;
+	void Draw();
 	void terhit(Mover*);
 	void herhit(Mover*);
 

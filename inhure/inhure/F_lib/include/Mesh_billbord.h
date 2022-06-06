@@ -22,6 +22,7 @@ namespace F_lib_Render
 		Mesh_billbord(ID3D11Device * _Device, ID3D11DeviceContext * _DeviceContext, class Camera_3D* _Camera);
 
 		void Draw() override;
+		void RDraw();
 
 		void setPosition(XMFLOAT3 _Pos) { Position = _Pos; }
 

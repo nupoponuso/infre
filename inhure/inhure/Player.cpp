@@ -6,6 +6,7 @@
 #include "input.h"
 
 #include "Wepon_MissileLunther.h"
+#include "WeponSword.h"
 
 class Wepon_MissileLunther;
 
@@ -15,7 +16,7 @@ using namespace F_lib_Render;
 Player::Player(initplayerdata _dat)
 	:Mover(_dat.R, XMFLOAT3(), 0.89f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
 {
-	WeponMaxNum = 3;
+	WeponMaxNum = 1;
 	rotspeed = 4;
 	mesh = _dat.R->meshM->getModel(0);
 	
@@ -36,15 +37,17 @@ Player::Player(initplayerdata _dat)
 	dat.R = Resource;
 	dat.pangle =0;
 	
-	for (int i = 0; i < WeponMaxNum; i++)
-	{
-		dat.pangle += 90;
-		dat.pos.x =Position.x  + 10*sindeg(i*90);
-		dat.pos.z = Position.z + 10 * cosdeg(i * 90);
-		
-		wepon[i] = new Wepon_MissileLunther(dat, myblist);
-	
-	}
+	wepon[0] = new WeponSword(dat);
+
+	//for (int i = 1; i < WeponMaxNum; i++)
+	//{
+	//	dat.pangle += 90;
+	//	dat.pos.x =Position.x  + 10*sindeg(i*90);
+	//	dat.pos.z = Position.z + 10 * cosdeg(i * 90);
+	//	
+	//	wepon[i] = new Wepon_MissileLunther(dat, myblist);
+	//
+	//}
 
 }
 

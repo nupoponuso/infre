@@ -94,7 +94,6 @@ namespace F_lib_Fremworker
 		bool Drawload, isload;
 		F_lib_Fremworker::SceneBase* Scene;
 		F_lib_Fremworker::ResourceManager* Resource;
-		ID3D11ShaderResourceView* Texture;
 		F_lib_Render::Mesh_Sprite* s;
 
 	};

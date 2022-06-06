@@ -1,0 +1,20 @@
+#pragma once
+#include "Wepon.h"
+
+#include "F_lib/include/Mesh_billbord.h"
+
+class WeponSword : public Wepon
+{
+public:
+	WeponSword(initWepondata);
+
+	void Draw();
+	void terhit(Mover*);
+	F_lib_Mover::Colision_2D* getcol();
+private:
+	void ThisAtack();
+
+	F_lib_Render::Mesh_billbord* b;
+
+};
+

@@ -13,8 +13,8 @@
 
 
 //’è”éŒ¾
-#define ANGLEX_MAX (80)
-#define ANGLEX_MIN (-80)
+#define ANGLEX_MAX (100)
+#define ANGLEX_MIN (-100)
 namespace F_lib_Render
 {
 

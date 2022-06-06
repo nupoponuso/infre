@@ -12,11 +12,12 @@ Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, moverList* _bulet
 	dat.atacklist = _dat.EnemyList;
 	dat.speed = 3.0;
 	dat.size = 1;
+	dat.atack = 3;
 
 	mesh = _dat.R->meshM->getModel(3);
-	speed = 1.51f;
+	speed = 2.11f;
 	
-	cooltime = cooltimeMax = 30;
+	cooltime = cooltimeMax = 20;
 	countNow = countMax = 0;
 
 }
@@ -37,22 +38,46 @@ void Wepon_MissileLunther::ThisAtack()
 
 	if (cooltime) return;
 
-	//if (enemylist->getlistNum()>0)
-	//{
+	if (enemylist->getlistNum() > 0)
+	{
 		dat.pos = Position;
 
-		//Mover*ma = enemylist->getlist(0);
-		
-		//XMFLOAT2 thisposold = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
-		//thisposold.x = thisposold.x - Position.x;
-		//thisposold.y = thisposold.y - Position.z;
+		int id = 0;
+		Mover*ma = enemylist->getlist(id);
+		XMFLOAT2 thispos;
+		thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+		thispos.x = thispos.x - Position.x;
+		thispos.y = thispos.y - Position.z;
+		float flen = thispos.x*thispos.x + thispos.y*thispos.y;
 
-		dat.angle = angle.y;//atan2(thisposold.x, thisposold.y)* 180.0f / 3.14f;
+
+		for (int i = 1; i < enemylist->getlistNum(); i++)
+		{ 
+			ma = enemylist->getlist(i);
+			thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+			thispos.x = thispos.x - Position.x;
+			thispos.y = thispos.y - Position.z;
+			float len = thispos.x*thispos.x + thispos.y*thispos.y;
+
+			if (len < flen)
+			{
+				id = i;
+				flen = len;
+
+			}
+
+		}
+		
+		ma = enemylist->getlist(id);
+		thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+		thispos.x = thispos.x - Position.x;
+		thispos.y = thispos.y - Position.z;
+		dat.angle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;//angle.y;
 
 		Mover* m;
 		m = new Bullet(dat);
 		buletlist->listPush(m);
 
-	//}
+	}
 
 }

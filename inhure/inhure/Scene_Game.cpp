@@ -1,7 +1,7 @@
 #include "Scene_Game.h"
 #include "RM.h"
 #include "MeshM.h"
-#include "Enemy.h"
+#include "Enemy_1.h"
 #include "input.h"
 
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
@@ -28,25 +28,21 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 
 	F_lib_Mover::Mover* m;
 	initenemydata datEnemy;
-	datEnemy.pos=XMFLOAT3();
+	datEnemy.pos=XMFLOAT3(0,0,100);
 	datEnemy.R = Resource;
+	datEnemy.speed = 0.81;
+	datEnemy.p = (Player*)p;
+	datEnemy.mylist = elist;
+
+	initEnemySpawner spawn;
+	spawn.dat = datEnemy;
+	spawn.list = elist;
+	spawn.count = 2;
+	spawn.spawnenum = 6;
+	spawner = new EnemySpawner(spawn);
 
 
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
-	//for (int i = 0; i < 20; i++)
-	//{
-	//	for (int j = 0; j < 20; j++)
-	//	{
-	//
-	//		m = new Enemy(datEnemy);
-	//		elist->listPush(m);
-	//
-	//		datEnemy.pos.x = 10 * j;
-	//
-	//	}
-	//
-	//	datEnemy.pos.z = 10 * i;
-	//}
 	
 }
 
@@ -58,7 +54,9 @@ void SceneGame::update()
 	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
 
 	p->update();
+	spawner->update();
 	elist->update();
+	
 	blist->update();
 
 }
@@ -70,9 +68,9 @@ void SceneGame::Draw()
 	s->setSize(500);
 	s->RDraw(false);
 
-	//fild->RDraw();
-	p->Draw();
+	fild->RDraw();
 	elist->Draw();
+	p->Draw();
 	blist->Draw();
 	Text->draw(scenename);
 	

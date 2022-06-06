@@ -13,7 +13,7 @@ using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
 Player::Player(initplayerdata _dat)
-	:Mover(_dat.R, XMFLOAT3(), 1.3f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
+	:Mover(_dat.R, XMFLOAT3(), 0.89f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
 {
 	WeponMaxNum = 3;
 	rotspeed = 4;
@@ -35,7 +35,7 @@ Player::Player(initplayerdata _dat)
 	dat.EnemyList = enemylist;
 	dat.R = Resource;
 	dat.pangle =0;
-
+	
 	for (int i = 0; i < WeponMaxNum; i++)
 	{
 		dat.pangle += 90;
@@ -43,7 +43,7 @@ Player::Player(initplayerdata _dat)
 		dat.pos.z = Position.z + 10 * cosdeg(i * 90);
 		
 		wepon[i] = new Wepon_MissileLunther(dat, myblist);
-
+	
 	}
 
 }

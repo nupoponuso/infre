@@ -7,8 +7,14 @@ struct initEnemySpawner
 {
 	F_lib_Fremworker::ResourceManager* R;
 	F_lib_Mover::moverList* list;
+	initenemydata dat;
 
-	int count;
+	int count, spawnenum;
+	initEnemySpawner()
+	{
+		spawnenum = 1;
+
+	}
 
 };
 
@@ -25,7 +31,7 @@ private:
 
 	F_lib_Mover::moverList* list;
 	initenemydata SpawneData;
-	int count,countmax;
+	int count,countmax,spawnenum;
 
 };
 

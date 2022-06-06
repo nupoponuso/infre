@@ -8,7 +8,7 @@
 struct initenemydata
 {
 	F_lib_Fremworker::ResourceManager * R;
-	F_lib_Mover::moverList* bulletlist;
+	F_lib_Mover::moverList* bulletlist,*mylist;
 	class Player* p;
 	XMFLOAT3 pos;
 	float speed;
@@ -32,7 +32,7 @@ protected:
 
 	class Player* p;
 	F_lib_Render::Mesh_Fbx* mesh;
-	F_lib_Mover::moverList* bulletlist;
+	F_lib_Mover::moverList* bulletlist,*mylist;
 
 };
 

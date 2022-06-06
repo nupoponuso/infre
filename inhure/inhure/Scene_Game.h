@@ -4,6 +4,7 @@
 #include "F_lib/include/Text.h"
 #include "F_lib/include/moverManeger.h"
 #include "Player.h"
+#include "EnemySpawner.h"
 
 class SceneGame :public F_lib_Fremworker::SceneBase
 {
@@ -19,6 +20,7 @@ private:
 	F_lib_Mover::Mover* p;
 	F_lib_Mover::moverList* elist, *eblist,* blist;
 	F_lib_Render::Mesh_Fbx* fild;
+	EnemySpawner* spawner;
 
 };
 

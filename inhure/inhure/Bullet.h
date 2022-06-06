@@ -10,6 +10,7 @@ struct initbulletdata
 	F_lib_Mover::moverList* atacklist;
 	XMFLOAT3 pos;
 	float speed, angle,size;
+	int atack;
 
 }; 
 

@@ -43,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -155,27 +155,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemySpawner.cpp" />
+    <ClCompile Include="Enemy_1.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MeshM.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RM.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneManager_infure.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Scene_Corection.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="TM.cpp" />
+    <ClCompile Include="Wepon.cpp" />
+    <ClCompile Include="Wepon_MissileLunther.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemySpawner.h" />
+    <ClInclude Include="Enemy_1.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="MeshM.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RM.h" />
-    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneManager_infure.h" />
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="Scene_Corection.h" />
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="TM.h" />
+    <ClInclude Include="Wepon.h" />
+    <ClInclude Include="Wepon_MissileLunther.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

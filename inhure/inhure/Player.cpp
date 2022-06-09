@@ -14,16 +14,17 @@ using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
 Player::Player(initplayerdata _dat)
-	:Mover(_dat.R, XMFLOAT3(), 0.89f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
+	:Mover(_dat.R, XMFLOAT3(), 1.85f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
 {
-	WeponMaxNum = 1;
-	rotspeed = 4;
+	WeponMaxNum = 5;
+	//rotspeed = 10;//ï˚å¸êßå‰ÇÃéû
+	rotspeed = 4;//ê˘âÒêßå‰ÇÃéû
 	mesh = _dat.R->meshM->getModel(0);
 	
 	Position = XMFLOAT3();
 
 	cpos = Position;
-	cpos.y += 50;
+	cpos.y += 150;
 	Resource->meshM->getCamera()->setPosition(cpos);
 	Resource->meshM->getCamera()->update();
 
@@ -37,17 +38,17 @@ Player::Player(initplayerdata _dat)
 	dat.R = Resource;
 	dat.pangle =0;
 	
-	wepon[0] = new WeponSword(dat);
+	//wepon[0] = new WeponSword(dat);
 
-	//for (int i = 1; i < WeponMaxNum; i++)
-	//{
-	//	dat.pangle += 90;
-	//	dat.pos.x =Position.x  + 10*sindeg(i*90);
-	//	dat.pos.z = Position.z + 10 * cosdeg(i * 90);
-	//	
-	//	wepon[i] = new Wepon_MissileLunther(dat, myblist);
-	//
-	//}
+	for (int i = 0; i < WeponMaxNum; i++)
+	{
+		dat.pangle += 90;
+		dat.pos.x =Position.x  + 10*sindeg(i*90);
+		dat.pos.z = Position.z + 10 * cosdeg(i * 90);
+		
+		wepon[i] = new Wepon_MissileLunther(dat, myblist);
+	
+	}
 
 }
 
@@ -57,7 +58,7 @@ void Player::update()
 	move();
 
 	cpos = Position;
-	cpos.y += 50;
+	cpos.y += 80;
 
 	for(int i=0;i<WeponMaxNum;i++)
 	wepon[i]->update();
@@ -96,28 +97,28 @@ void Player::move()
 {
 	ismove = true;
 	
-	if (GetKeyPress(VK_W))
-	{
-		if (GetKeyPress(VK_A))movedir = -45;
-		else if (GetKeyPress(VK_D)) movedir = 45;
-		else movedir = 0;
-
-	}
-	else if (GetKeyPress(VK_S))
-	{
-		if (GetKeyPress(VK_A)) movedir = -135;
-		else if (GetKeyPress(VK_D)) movedir = 135;
-		else movedir = 180;
-
-	}
-	else
-	{
-		if (GetKeyPress(VK_A)) movedir = -90;
-		else if (GetKeyPress(VK_D)) movedir = 90;
-		else ismove = false;
-
-	}
-	
+	//ï˚å¸êßå‰
+	//if (GetKeyPress(VK_W))
+	//{
+	//	if (GetKeyPress(VK_A))movedir = -45;
+	//	else if (GetKeyPress(VK_D)) movedir = 45;
+	//	else movedir = 0;
+	//
+	//}
+	//else if (GetKeyPress(VK_S))
+	//{
+	//	if (GetKeyPress(VK_A)) movedir = -135;
+	//	else if (GetKeyPress(VK_D)) movedir = 135;
+	//	else movedir = 180;
+	//
+	//}
+	//else
+	//{
+	//	if (GetKeyPress(VK_A)) movedir = -90;
+	//	else if (GetKeyPress(VK_D)) movedir = 90;
+	//	else ismove = false;
+	//
+	//}
 	//
 	//if (ismove)
 	//{
@@ -139,8 +140,16 @@ void Player::move()
 	//	if (movedirold != movedir)
 	//		movedirold = movedir;
 	//}
+	
+	//ê˘âÒêßå‰
+	if (GetKeyPress(VK_A)) angle.y += -rotspeed;
+	else if (GetKeyPress(VK_D)) angle.y += rotspeed;
+	else if (!GetKeyPress(VK_W))
+		ismove = false;
 
-	angle.y = movedir;
+	
+
+
 	if (ismove)
 	{
 		Position.x += speed * sindeg(angle.y);

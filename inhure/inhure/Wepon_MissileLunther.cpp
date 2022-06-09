@@ -10,14 +10,14 @@ Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, moverList* _bulet
 {
 	dat.R = _dat.R;
 	dat.atacklist = _dat.EnemyList;
-	dat.speed = 3.0;
+	dat.speed = 1.8;
 	dat.size = 1;
 	dat.atack = 3;
 
 	mesh = _dat.R->meshM->getModel(3);
 	speed = 2.11f;
 	
-	cooltime = cooltimeMax = 20;
+	cooltime = cooltimeMax = 5;
 	countNow = countMax = 0;
 
 }

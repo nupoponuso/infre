@@ -19,7 +19,12 @@ WeponSword::WeponSword(initWepondata _dat) :Wepon(_dat)
 
 void WeponSword::Draw()
 {
-	b->setPosition(Position);
+	XMFLOAT3 bpos;
+	bpos = Position;
+	bpos.x + 5;
+	b->reset();
+	b->setPosition(bpos);
+	b->setColor(1, 0.5, 0);
 	b->setSize(1,10);
 	b->RDraw();
 	

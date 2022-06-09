@@ -3,13 +3,14 @@
 #include "MeshM.h"
 #include "Enemy_1.h"
 #include "input.h"
+#include "F_lib/include/Light.h"
 
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
 {
 	Text = _ResouseManeger->meshM->getText();
 	_ResouseManeger->meshM->getCamera()->setangle(XMFLOAT3(-89.99f, 0, 0));
-
+	
 	fild = _ResouseManeger->meshM->getModel(1);
 	elist = new F_lib_Mover::moverList();
 	eblist = new F_lib_Mover::moverList();
@@ -30,7 +31,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	initenemydata datEnemy;
 	datEnemy.pos=XMFLOAT3(0,0,100);
 	datEnemy.R = Resource;
-	datEnemy.speed = 0.81;
+	datEnemy.speed = 0.51;
 	datEnemy.p = (Player*)p;
 	datEnemy.mylist = elist;
 
@@ -38,7 +39,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	spawn.dat = datEnemy;
 	spawn.list = elist;
 	spawn.count = 2;
-	spawn.spawnenum = 6;
+	spawn.spawnenum = 12;
 	spawner = new EnemySpawner(spawn);
 
 

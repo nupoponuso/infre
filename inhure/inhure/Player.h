@@ -29,12 +29,13 @@ protected:
 	void atack();
 
 	class Wepon* wepon[5];
-
+	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
 	F_lib_Mover::moverList* myblist, *eblist, *enemylist;
 	XMFLOAT3 cpos;
 	bool ismove;
 	int WeponNum, WeponMaxNum,rotspeed;
 	float movedir, movedirold;
+
 };
 

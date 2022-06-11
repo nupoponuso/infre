@@ -39,7 +39,6 @@ void WeponSword::terhit(Mover *_m)
 
 F_lib_Mover::Colision_2D * WeponSword::getcol()
 {
-
 	col->getColdata()->pos = XMFLOAT2(Position.x, Position.z);
 	col->getColdata()->size = XMFLOAT2(Position.x, Position.z + 10);
 

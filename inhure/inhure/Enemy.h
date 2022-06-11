@@ -27,6 +27,8 @@ public:
 
 	F_lib_Mover::Colision_2D* getcol();
 
+	class Player* getPlayer() { return p; }
+
 protected:
 	virtual void move() = 0;
 

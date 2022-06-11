@@ -9,7 +9,7 @@ public:
 	WeponSword(initWepondata);
 
 	void Draw();
-	void terhit(Mover*);
+	void terhit(Mover2D*);
 	F_lib_Mover::Colision_2D* getcol();
 private:
 	void ThisAtack();

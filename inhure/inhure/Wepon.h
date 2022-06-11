@@ -1,7 +1,7 @@
 #pragma once
 
-#include "F_lib/include/mover.h"
-#include "F_lib/include/moverManeger.h"
+#include "Mover2D.h"
+#include "MoverList.h"
 #include "F_lib/include/Mesh_Fbxmodel.h"
 #include "Player.h"
 #include "RM.h"
@@ -21,14 +21,14 @@ struct initWepondata
 {
 	F_lib_Fremworker::ResourceManager* R;
 	class Player* p;
-	F_lib_Mover::moverList* EnemyList;
+	MoverList* EnemyList;
 	XMFLOAT3 pos;
 	float pangle;
 
 };
 
 //
-class Wepon :public F_lib_Mover::Mover
+class Wepon :public Mover2D
 {
 public:
 	Wepon(initWepondata);
@@ -36,8 +36,10 @@ public:
 	void update();
 	virtual void Draw() = 0;
 
-	void terhit(Mover*) {};
-	void herhit(Mover*) {};
+	void terhit(Mover2D*) {};
+	void herhit(Mover2D*) {};
+
+	F_lib_Mover::Colision_2D* getcol() { return nullptr; }
 
 protected:
 	virtual void move();
@@ -45,7 +47,7 @@ protected:
 
 	class Player* p;
 	F_lib_Render::Mesh_Fbx * mesh;
-	F_lib_Mover::moverList* enemylist;
+	MoverList* enemylist;
 	F_lib_Mover::Colision_2D* tergetcol;
 	XMFLOAT3 ppos;
 	XMFLOAT2 thisposold;

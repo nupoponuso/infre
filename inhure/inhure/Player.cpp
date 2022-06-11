@@ -14,8 +14,9 @@ using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
 Player::Player(initplayerdata _dat)
-	:Mover(_dat.R, XMFLOAT3(), 1.85f), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
+	:Mover2D(_dat.R), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist)
 {
+	speed = 1.85f;
 	WeponMaxNum = 5;
 	//rotspeed = 10;//ï˚å¸êßå‰ÇÃéû
 	rotspeed = 4;//ê˘âÒêßå‰ÇÃéû
@@ -71,18 +72,18 @@ void Player::Draw()
 	Resource->meshM->getCamera()->update();
 
 	mesh->setPosition(Position);
-	mesh->setangle(angle);
+	mesh->setangle(Angle);
 	mesh->setSize(0.01f);
 	mesh->RDraw();
 	for (int i = 0; i < WeponMaxNum; i++)
 	wepon[i]->Draw();
 }
 
-void Player::terhit(F_lib_Mover::Mover *)
+void Player::terhit(Mover2D *)
 {
 }
 
-void Player::herhit(F_lib_Mover::Mover *)
+void Player::herhit(Mover2D *)
 {
 }
 
@@ -129,12 +130,12 @@ void Player::move()
 	//		
 	//	}
 	//
-	//	 float addmovedir = movedir - angle.y;
+	//	 float addmovedir = movedir - Angle.y;
 	//
 	//	if (addmovedir > 0.1 || addmovedir < -0.1)
 	//	{
 	//		addmovedir = (addmovedir > 0) ? rotspeed : -rotspeed;
-	//		angle.y += addmovedir;
+	//		Angle.y += addmovedir;
 	//
 	//	}
 	//	if (movedirold != movedir)
@@ -142,8 +143,8 @@ void Player::move()
 	//}
 	
 	//ê˘âÒêßå‰
-	if (GetKeyPress(VK_A)) angle.y += -rotspeed;
-	else if (GetKeyPress(VK_D)) angle.y += rotspeed;
+	if (GetKeyPress(VK_A)) Angle.y += -rotspeed;
+	else if (GetKeyPress(VK_D)) Angle.y += rotspeed;
 	else if (!GetKeyPress(VK_W))
 		ismove = false;
 
@@ -152,8 +153,8 @@ void Player::move()
 
 	if (ismove)
 	{
-		Position.x += speed * sindeg(angle.y);
-		Position.z += speed * cosdeg(angle.y);
+		Position.x += speed * sindeg(Angle.y);
+		Position.z += speed * cosdeg(Angle.y);
 
 	}
 

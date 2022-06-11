@@ -8,12 +8,10 @@ BulletHoming::BulletHoming(inithpmingbulletdata _dat) : Bullet(_dat.data), maxro
 void BulletHoming::move()
 {
 	float rotangle;
-	XMFLOAT2 thispos = XMFLOAT2(terget->getthisposition().x, terget->getthisposition().z);
-	thispos.x = thispos.x - Position.x;
-	thispos.y = thispos.y - Position.z;
-	rotangle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;
+	
+	rotangle = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(terget->getPosition().x, terget->getPosition().y));
 
-	if (-maxrotangle < rotangle && rotangle < maxrotangle) angle.y = rotangle;
+	if (-maxrotangle < rotangle && rotangle < maxrotangle) Angle.y = rotangle;
 	else rotangle = (rotangle > maxrotangle) ? maxrotangle : -maxrotangle;
 
 	Bullet::move();

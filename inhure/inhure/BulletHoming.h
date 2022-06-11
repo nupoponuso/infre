@@ -4,7 +4,7 @@
 struct inithpmingbulletdata
 {
 	initbulletdata data;
-	F_lib_Mover::Mover* terget;
+	Mover2D* terget;
 	int maxrotangle;
 
 };
@@ -17,7 +17,7 @@ public:
 private:
 	void move();
 
-	F_lib_Mover::Mover* terget;
+	Mover2D* terget;
 	int maxrotangle;
 
 };

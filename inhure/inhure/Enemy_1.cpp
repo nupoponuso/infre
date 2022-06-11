@@ -5,7 +5,7 @@
 
 Enemy_1::Enemy_1(initenemydata _dat) : Enemy(_dat)
 {
-	hp = 20;
+	//hp = 20;
 }
 
 void Enemy_1::move()
@@ -36,16 +36,13 @@ void Enemy_1::move()
 
 	if (!hit)
 	{
-		XMFLOAT2 thisposold = XMFLOAT2(p->getthisposition().x, p->getthisposition().z);
-		thisposold.x = thisposold.x - Position.x;
-		thisposold.y = thisposold.y - Position.z;
-
-		angle.y = atan2(thisposold.x, thisposold.y)* 180.0f / 3.14f;
+		
+		Angle.y = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(p->getPosition().x, p->getPosition().y));
 
 		if (ismove && !p->getcol()->ishit(this->getcol()))
 		{
-			Position.x += speed * sindeg(angle.y);
-			Position.z += speed * cosdeg(angle.y);
+			Position.x += speed * sindeg(Angle.y);
+			Position.z += speed * cosdeg(Angle.y);
 
 		}
 

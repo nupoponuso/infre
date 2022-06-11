@@ -1,6 +1,6 @@
 #pragma once
 
-#include "F_lib/include/mover.h"
+#include "Mover2D.h"
 
 
 enum ItemType
@@ -19,15 +19,15 @@ struct InitItemData
 
 };
 
-class Item :public F_lib_Mover::Mover
+class Item :public Mover2D
 {
 public:
 	Item(InitItemData);
 	virtual void update();
 	virtual void Draw();
 
-	void terhit(Mover*);
-	void herhit(Mover*);
+	void terhit(Mover2D*);
+	void herhit(Mover2D*);
 
 	F_lib_Mover::Colision_2D* getcol() override;
 

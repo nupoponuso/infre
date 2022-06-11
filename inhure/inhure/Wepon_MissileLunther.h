@@ -8,7 +8,7 @@
 class Wepon_MissileLunther :public Wepon
 {
 public:
-	Wepon_MissileLunther(initWepondata,F_lib_Mover::moverList*);
+	Wepon_MissileLunther(initWepondata,MoverList*);
 
 	void Draw();
 
@@ -17,7 +17,7 @@ private:
 	void ThisAtack();
 
 	initbulletdata dat;
-	F_lib_Mover::moverList* buletlist;
+	MoverList* buletlist;
 
 };
 

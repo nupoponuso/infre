@@ -5,7 +5,7 @@ using namespace F_lib_Mover;
 using namespace F_lib_Fremworker;
 
 
-Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, moverList* _buletlist)
+Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, MoverList* _buletlist)
 	:Wepon(_dat), buletlist(_buletlist)
 {
 	dat.R = _dat.R;
@@ -26,7 +26,7 @@ Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, moverList* _bulet
 void Wepon_MissileLunther::Draw()
 {
 	mesh->setPosition(Position);
-	mesh->setangle(angle);
+	mesh->setangle(Angle);
 	mesh->RDraw();
 
 }
@@ -43,9 +43,9 @@ void Wepon_MissileLunther::ThisAtack()
 		dat.pos = Position;
 
 		int id = 0;
-		Mover*ma = enemylist->getlist(id);
+		Mover2D*ma = enemylist->getlist(id);
 		XMFLOAT2 thispos;
-		thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+		thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
 		thispos.x = thispos.x - Position.x;
 		thispos.y = thispos.y - Position.z;
 		float flen = thispos.x*thispos.x + thispos.y*thispos.y;
@@ -54,7 +54,7 @@ void Wepon_MissileLunther::ThisAtack()
 		for (int i = 1; i < enemylist->getlistNum(); i++)
 		{ 
 			ma = enemylist->getlist(i);
-			thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+			thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
 			thispos.x = thispos.x - Position.x;
 			thispos.y = thispos.y - Position.z;
 			float len = thispos.x*thispos.x + thispos.y*thispos.y;
@@ -69,12 +69,12 @@ void Wepon_MissileLunther::ThisAtack()
 		}
 		
 		ma = enemylist->getlist(id);
-		thispos = XMFLOAT2(ma->getthisposition().x, ma->getthisposition().z);
+		thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
 		thispos.x = thispos.x - Position.x;
 		thispos.y = thispos.y - Position.z;
 		dat.angle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;//angle.y;
 
-		Mover* m;
+		Mover2D* m;
 		m = new Bullet(dat);
 		buletlist->listPush(m);
 

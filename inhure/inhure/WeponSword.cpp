@@ -31,9 +31,9 @@ void WeponSword::Draw()
 
 }
 
-void WeponSword::terhit(Mover *_m)
+void WeponSword::terhit(Mover2D *_m)
 {
-	_m->addhp(-atack);
+	//_m->addhp(-atack);
 
 }
 
@@ -47,8 +47,6 @@ F_lib_Mover::Colision_2D * WeponSword::getcol()
 
 void WeponSword::ThisAtack()
 {
-
 	enemylist->Ishit(this);
-	
 
 }

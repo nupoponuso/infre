@@ -1,17 +1,17 @@
 #pragma once
 
-#include "F_lib/include/mover.h"
-#include "F_lib/include/moverManeger.h"
+#include "Mover2D.h"
+#include "MoverList.h"
 #include "F_lib/include/Mesh_Fbxmodel.h"
 
 struct initplayerdata
 {
-	F_lib_Mover::moverList* buletlist, *enemylist,*ebuletlist;
+	MoverList* buletlist, *enemylist,*ebuletlist;
 	F_lib_Fremworker::ResourceManager* R;
 
 };
 
-class Player:public F_lib_Mover::Mover
+class Player:public Mover2D
 {
 public:
 	Player(initplayerdata);
@@ -19,8 +19,8 @@ public:
 	void update();
 	void Draw();
 
-	void terhit(F_lib_Mover::Mover*);
-	void herhit(F_lib_Mover::Mover*);
+	void terhit(Mover2D*);
+	void herhit(Mover2D*);
 
 	F_lib_Mover::Colision_2D* getcol() override;
 
@@ -31,7 +31,7 @@ protected:
 	class Wepon* wepon[5];
 	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
-	F_lib_Mover::moverList* myblist, *eblist, *enemylist;
+	MoverList* myblist, *eblist, *enemylist;
 	XMFLOAT3 cpos;
 	bool ismove;
 	int WeponNum, WeponMaxNum,rotspeed;

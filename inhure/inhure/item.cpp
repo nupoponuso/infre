@@ -1,6 +1,6 @@
 #include "item.h"
 
-Item::Item(InitItemData _data) :Mover(_data.R, XMFLOAT3(), 0)
+Item::Item(InitItemData _data) :Mover2D(_data.R)
 {
 
 }
@@ -13,11 +13,11 @@ void Item::Draw()
 {
 }
 
-void Item::terhit(Mover *)
+void Item::terhit(Mover2D *)
 {
 }
 
-void Item::herhit(Mover *)
+void Item::herhit(Mover2D *)
 {
 }
 

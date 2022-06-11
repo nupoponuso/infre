@@ -1,12 +1,12 @@
 #pragma once
 
-#include "F_lib/include/moverManeger.h"
+#include "MoverList.h"
 #include "Enemy.h"
 
 struct initEnemySpawner
 {
 	F_lib_Fremworker::ResourceManager* R;
-	F_lib_Mover::moverList* list;
+	MoverList* list;
 	initenemydata dat;
 
 	int count, spawnenum;
@@ -29,7 +29,7 @@ private:
 
 	void Spawne();
 
-	F_lib_Mover::moverList* list;
+	MoverList* list;
 	initenemydata SpawneData;
 	int count,countmax,spawnenum;
 

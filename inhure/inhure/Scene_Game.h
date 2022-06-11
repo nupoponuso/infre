@@ -2,10 +2,12 @@
 
 #include "F_lib/include/SceneManeger.h"
 #include "F_lib/include/Text.h"
-#include "F_lib/include/moverManeger.h"
+#include "MoverList.h"
 #include "Player.h"
 #include "EnemySpawner.h"
 
+
+//
 class SceneGame :public F_lib_Fremworker::SceneBase
 {
 public:
@@ -17,8 +19,8 @@ public:
 private:
 	F_lib_Render::Text* Text;
 	std::wstring scenename,hit;
-	F_lib_Mover::Mover* p;
-	F_lib_Mover::moverList* elist, *eblist,* blist;
+	Mover2D* p;
+	MoverList* elist, *eblist,* blist;
 	F_lib_Render::Mesh_Fbx* fild;
 	EnemySpawner* spawner;
 

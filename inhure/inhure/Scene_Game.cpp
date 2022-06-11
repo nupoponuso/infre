@@ -12,9 +12,9 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	_ResouseManeger->meshM->getCamera()->setangle(XMFLOAT3(-89.99f, 0, 0));
 	
 	fild = _ResouseManeger->meshM->getModel(1);
-	elist = new F_lib_Mover::moverList();
-	eblist = new F_lib_Mover::moverList();
-	blist = new F_lib_Mover::moverList();
+	elist  = new MoverList();
+	eblist = new MoverList();
+	blist  = new MoverList();
 
 	initplayerdata datp;
 	datp.R = _ResouseManeger;
@@ -27,7 +27,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	hit = L"‰½‚©‚µ‚ç‚ªƒvƒŒƒCƒ„[‚É“–‚½‚Á‚Ä‚¢‚é";
 
 
-	F_lib_Mover::Mover* m;
+	Mover2D* m;
 	initenemydata datEnemy;
 	datEnemy.pos=XMFLOAT3(0,0,100);
 	datEnemy.R = Resource;

@@ -28,13 +28,13 @@ void EnemySpawner::Spawne()
 	std::random_device rnd;     
 	std::mt19937 mt(rnd());     
 	std::uniform_int_distribution<> rand100(0, 360);
-	F_lib_Mover::Mover* m;
+	Mover2D* m;
 
 	for (int i = 0; i < spawnenum; i++)
 	{
 		float angle = rand100(mt);
 
-		SpawneData.pos = SpawneData.p->getthisposition();
+		SpawneData.pos = SpawneData.p->getPosition();
 		SpawneData.pos.x += 100 * sindeg(angle);
 		SpawneData.pos.z += 100 * cosdeg(angle);
 

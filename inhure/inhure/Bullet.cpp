@@ -5,10 +5,10 @@
 using namespace F_lib_Mover;
 
 
-Bullet::Bullet(initbulletdata _dat) :Mover(_dat.R, XMFLOAT3(0, _dat.angle, 0), _dat.speed),atacklist(_dat.atacklist)
+Bullet::Bullet(initbulletdata _dat) :Mover2D(_dat.R),atacklist(_dat.atacklist)
 {
 	atack = _dat.atack;
-	myid = mover_bullet;
+	Myid = mover_bullet;
 	Position = _dat.pos;
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = _dat.size;
@@ -32,13 +32,13 @@ void Bullet::update()
 void Bullet::Draw()
 {
 
-	mesh->setangle(angle);
+	mesh->setangle(Angle);
 	mesh->setPosition(Position);
 	mesh->RDraw();
 
 }
 
-void Bullet::terhit(Mover *)
+void Bullet::terhit(Mover2D *)
 {
 	hit = true;
 	Alive = false;
@@ -54,8 +54,8 @@ F_lib_Mover::Colision_2D * Bullet::getcol()
 void Bullet::move()
 {
 
-	Position.x += speed * sindeg(angle.y);
-	Position.z += speed * cosdeg(angle.y);
+	Position.x += speed * sindeg(Angle.y);
+	Position.z += speed * cosdeg(Angle.y);
 
 	count++;
 

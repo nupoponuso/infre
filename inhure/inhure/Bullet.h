@@ -1,13 +1,13 @@
 #pragma once
 
-#include "F_lib/include/mover.h"
-#include "F_lib/include/moverManeger.h"
+#include "Mover2D.h"
+#include "MoverList.h"
 #include "F_lib/include/Mesh_Fbxmodel.h"
 
 struct initbulletdata
 {
 	F_lib_Fremworker::ResourceManager* R;
-	F_lib_Mover::moverList* atacklist;
+	MoverList* atacklist;
 	XMFLOAT3 pos;
 	float speed, angle,size;
 	int atack;
@@ -15,15 +15,15 @@ struct initbulletdata
 }; 
 
 
-class Bullet :public F_lib_Mover::Mover
+class Bullet :public Mover2D
 {
 public:
 	Bullet(initbulletdata);
 	void update();
 	void Draw();
 
-	void terhit(Mover*);
-	void herhit(Mover*) {}
+	void terhit(Mover2D*);
+	void herhit(Mover2D*) {}
 
 	F_lib_Mover::Colision_2D* getcol() override;
 
@@ -32,7 +32,7 @@ protected:
 	void myhit();
 
 	F_lib_Render::Mesh_Fbx* mesh;
-	F_lib_Mover::moverList* atacklist;
+	MoverList* atacklist;
 	
 	//XMFLOAT2 vel;
 	int count;

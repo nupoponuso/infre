@@ -6,9 +6,10 @@
 using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
-Enemy::Enemy(initenemydata _dat) : Mover(_dat.R, XMFLOAT3(), _dat.speed), bulletlist(_dat.bulletlist), p(_dat.p)
+Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletlist(_dat.bulletlist), p(_dat.p)
 {
-	myid = mover_enemy;
+	speed = _dat.speed;
+	Myid = mover_enemy;
 	mylist = _dat.mylist;
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = 1;
@@ -20,7 +21,7 @@ Enemy::Enemy(initenemydata _dat) : Mover(_dat.R, XMFLOAT3(), _dat.speed), bullet
 
 void Enemy::update()
 {
-	if (hp < 0)Alive = false;
+	//if (hp < 0)Alive = false;
 
 	move();
 
@@ -36,20 +37,18 @@ void Enemy::Draw()
 
 }
 
-void Enemy::terhit(Mover * _m)
+void Enemy::terhit(Mover2D * _m)
 {
 
-	switch (_m->getmyid())
+	switch (_m->getMyid())
 	{
 	
 	case mover_enemy:
 		
 		float len, angle;
 		len = col->getColdata()->size.x*0.9f;
-		XMFLOAT2 thispos = XMFLOAT2(_m->getthisposition().x, _m->getthisposition().z);
-		thispos.x = thispos.x - Position.x;
-		thispos.y = thispos.y - Position.z;
-		angle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;
+		
+		angle = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(_m->getPosition().x, _m->getPosition().y));
 
 		Position.x += len * sindeg(-angle);
 		Position.z += len * cosdeg(-angle);
@@ -58,12 +57,12 @@ void Enemy::terhit(Mover * _m)
 	}
 }
 
-void Enemy::herhit(Mover *_m)
+void Enemy::herhit(Mover2D *_m)
 {
-	switch (_m->getmyid())
+	switch (_m->getMyid())
 	{
 	case mover_bullet:
-		hp -= _m->getatack();
+	//	hp -= _m->getatack();
 
 		break;
 
@@ -71,11 +70,8 @@ void Enemy::herhit(Mover *_m)
 
 		float len, angle;
 		len = col->getColdata()->size.x*0.1f;
-		XMFLOAT2 thispos = XMFLOAT2(_m->getthisposition().x, _m->getthisposition().z);
-		thispos.x = thispos.x - Position.x;
-		thispos.y = thispos.y - Position.z;
-		angle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;
-		
+		angle = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(_m->getPosition().x, _m->getPosition().y));
+
 		Position.x += len * sindeg(-angle);
 		Position.z += len * cosdeg(-angle);
 		break;

@@ -2,9 +2,9 @@
 
 
 
-Obstacle::Obstacle(initObstacledata _dat) : Mover(_dat.R, XMFLOAT3(), 0)
+Obstacle::Obstacle(initObstacledata _dat) : Mover2D(_dat.R)
 {
-	myid = mover_Obstacle;
+	Myid = mover_obstacle;
 	Position = _dat.pos;
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "F_lib/include/mover.h"
+#include "Mover2D.h"
 
 enum Obstacletype
 {
@@ -18,7 +18,7 @@ struct initObstacledata
 };
 
 
-class Obstacle : public F_lib_Mover::Mover
+class Obstacle : public Mover2D
 {
 public:
 	Obstacle(initObstacledata);

@@ -7,6 +7,8 @@ using namespace F_lib_Mover;
 
 Bullet::Bullet(initbulletdata _dat) :Mover2D(_dat.R),atacklist(_dat.atacklist)
 {
+	Angle.y = _dat.angle;
+	speed = _dat.speed;
 	atack = _dat.atack;
 	Myid = mover_bullet;
 	Position = _dat.pos;
@@ -38,10 +40,12 @@ void Bullet::Draw()
 
 }
 
-void Bullet::terhit(Mover2D *)
+void Bullet::terhit(Mover2D * _m)
 {
 	hit = true;
 	Alive = false;
+
+	_m->Alive = false;
 
 }
 

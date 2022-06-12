@@ -50,7 +50,6 @@ void Wepon_MissileLunther::ThisAtack()
 		thispos.y = thispos.y - Position.z;
 		float flen = thispos.x*thispos.x + thispos.y*thispos.y;
 
-
 		for (int i = 1; i < enemylist->getlistNum(); i++)
 		{ 
 			ma = enemylist->getlist(i);
@@ -69,10 +68,7 @@ void Wepon_MissileLunther::ThisAtack()
 		}
 		
 		ma = enemylist->getlist(id);
-		thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
-		thispos.x = thispos.x - Position.x;
-		thispos.y = thispos.y - Position.z;
-		dat.angle = atan2(thispos.x, thispos.y)* 180.0f / 3.14f;//angle.y;
+		dat.angle = getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(ma->getPosition().x, ma->getPosition().z));
 
 		Mover2D* m;
 		m = new Bullet(dat);

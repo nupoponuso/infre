@@ -20,7 +20,7 @@ private:
 	F_lib_Render::Text* Text;
 	std::wstring scenename,hit;
 	Mover2D* p;
-	MoverList* elist, *eblist,* blist;
+	MoverList* elist, *eblist,* blist,*Itemlist;
 	F_lib_Render::Mesh_Fbx* fild;
 	EnemySpawner* spawner;
 

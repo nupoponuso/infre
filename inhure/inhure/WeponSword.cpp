@@ -33,7 +33,8 @@ void WeponSword::Draw()
 
 void WeponSword::terhit(Mover2D *_m)
 {
-	//_m->addhp(-atack);
+	//
+	_m->Alive = false;
 
 }
 

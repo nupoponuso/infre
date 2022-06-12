@@ -4,9 +4,11 @@
 #include "MoverList.h"
 #include "F_lib/include/Mesh_Fbxmodel.h"
 
+#include "Wepon.h"
+
 struct initplayerdata
 {
-	MoverList* buletlist, *enemylist,*ebuletlist;
+	MoverList* buletlist, *enemylist,*ebuletlist,*ItemList, *Olist;
 	F_lib_Fremworker::ResourceManager* R;
 
 };
@@ -25,16 +27,23 @@ public:
 	F_lib_Mover::Colision_2D* getcol() override;
 
 protected:
-	void move();
-	void atack();
+	void Move();
+	void UseWepon();
 
-	class Wepon* wepon[5];
+	bool CreateWepon(enum Weponid);
+	void CreateRelic();
+
+	class Wepon** wepon;
+	class Wepon* waitWepon;
 	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
-	MoverList* myblist, *eblist, *enemylist;
+	MoverList* myblist, *eblist, *enemylist, *ItemList,*Olist;
 	XMFLOAT3 cpos;
+
+	//initWepondata datInitWepon;
+
 	bool ismove;
-	int WeponNum, WeponMaxNum,rotspeed;
+	int WeponNum, WeponMaxNum,rotspeed,ChengeWeponNum,MainWeponNum;
 	float movedir, movedirold;
 
 };

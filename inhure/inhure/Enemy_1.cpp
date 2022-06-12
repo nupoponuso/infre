@@ -37,7 +37,7 @@ void Enemy_1::move()
 	if (!hit)
 	{
 		
-		Angle.y = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(p->getPosition().x, p->getPosition().y));
+		Angle.y = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(p->getPosition().x, p->getPosition().z));
 
 		if (ismove && !p->getcol()->ishit(this->getcol()))
 		{

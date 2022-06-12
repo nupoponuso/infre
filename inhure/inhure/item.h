@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Mover2D.h"
+#include "Wepon.h"
+#include "Equipment.h"
+#include "F_lib/include/Mesh_billbord.h"
 
 
 enum ItemType
@@ -14,8 +17,7 @@ enum ItemType
 struct InitItemData
 {
 	F_lib_Fremworker::ResourceManager* R;
-	ItemType type;
-
+	XMFLOAT3 pos;
 
 };
 
@@ -26,11 +28,27 @@ public:
 	virtual void update();
 	virtual void Draw();
 
-	void terhit(Mover2D*);
-	void herhit(Mover2D*);
+	void terhit(Mover2D*) {}
+	void herhit(Mover2D*) {}
 
 	F_lib_Mover::Colision_2D* getcol() override;
+	ItemType getItemtype() { return type; }
 
+protected:
+	F_lib_Render::Mesh_billbord* b;
+	ItemType type;
 
+	
 };
 
+class ItemWepon :public Item
+{
+public:
+	ItemWepon(InitItemData,Weponid);
+	
+	Weponid getWeponId() { return Id; }
+
+protected:
+	Weponid Id;
+
+};

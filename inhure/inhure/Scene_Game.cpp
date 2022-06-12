@@ -4,6 +4,7 @@
 #include "Enemy_1.h"
 #include "input.h"
 #include "F_lib/include/Light.h"
+#include "item.h"
 
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
@@ -15,19 +16,23 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	elist  = new MoverList();
 	eblist = new MoverList();
 	blist  = new MoverList();
+	Itemlist = new MoverList();
 
 	initplayerdata datp;
 	datp.R = _ResouseManeger;
 	datp.enemylist = elist;
 	datp.buletlist = blist;
 	datp.ebuletlist = eblist;
+	datp.ItemList = Itemlist;
 
 	p = new Player(datp);
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 	hit = L"何かしらがプレイヤーに当たっている";
 
+	InitItemData itemdata;
+	itemdata.R = Resource;
+	itemdata.pos = XMFLOAT3(50, 0, 0);
 
-	Mover2D* m;
 	initenemydata datEnemy;
 	datEnemy.pos=XMFLOAT3(0,0,100);
 	datEnemy.R = Resource;
@@ -39,9 +44,8 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	spawn.dat = datEnemy;
 	spawn.list = elist;
 	spawn.count = 2;
-	spawn.spawnenum = 12;
+	spawn.spawnenum = 6;
 	spawner = new EnemySpawner(spawn);
-
 
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
 	
@@ -54,10 +58,20 @@ void SceneGame::update()
 	if (GetKeyTrigger(VK_T))next = F_lib_Fremworker::Scene_title;
 	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
 
+	if (GetKeyTrigger(VK_P))
+	{
+		InitItemData itemdata;
+		itemdata.R = Resource;
+		itemdata.pos = XMFLOAT3(50, 0, 0);
+
+		Itemlist->listPush(new ItemWepon(itemdata, Wepon_missilelunther));
+
+	}
+
 	p->update();
 	spawner->update();
 	elist->update();
-	
+	Itemlist->update();
 	blist->update();
 
 }
@@ -71,6 +85,7 @@ void SceneGame::Draw()
 
 	fild->RDraw();
 	elist->Draw();
+	Itemlist->Draw();
 	p->Draw();
 	blist->Draw();
 	Text->draw(scenename);

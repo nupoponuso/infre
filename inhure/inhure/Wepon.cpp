@@ -22,8 +22,6 @@ void Wepon::update()
 
 void Wepon::move()
 {
-
-	
 	ppos = p->getPosition();
 
 	ppos.x += 7 * sindeg(p->getAngle().y - a2);

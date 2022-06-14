@@ -160,6 +160,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Enemy_1.cpp" />
+    <ClCompile Include="Enemy_2.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Scene_Corection.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="TM.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Wepon.cpp" />
     <ClCompile Include="WeponSword.cpp" />
     <ClCompile Include="Wepon_MissileLunther.cpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enemy_1.h" />
+    <ClInclude Include="Enemy_2.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="item.h" />
@@ -200,6 +203,7 @@
     <ClInclude Include="Scene_Corection.h" />
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="TM.h" />
+    <ClInclude Include="UI.h" />
     <ClInclude Include="Wepon.h" />
     <ClInclude Include="WeponSword.h" />
     <ClInclude Include="Wepon_MissileLunther.h" />

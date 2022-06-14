@@ -13,147 +13,213 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル\mover">
+      <UniqueIdentifier>{f049cbf8-7bd0-49d5-9b6b-d64ba1b88c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\mover\bullet">
+      <UniqueIdentifier>{29b746c1-d898-4af1-892b-8c93aab48648}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\mover\player">
+      <UniqueIdentifier>{2e5221bf-3fe1-4f2d-ab01-91487ea87d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\mover\enemy">
+      <UniqueIdentifier>{2d42b375-f31f-4d02-b883-5e155c0a3580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\mover\Obstract">
+      <UniqueIdentifier>{f909d15d-4dcf-4565-bd86-6356f53e5f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\mover\item">
+      <UniqueIdentifier>{9442a133-2873-441f-b033-e7bc38301a2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\comon">
+      <UniqueIdentifier>{0c7ab7ee-182b-41a7-9708-89f6e85d0870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ui">
+      <UniqueIdentifier>{4b4ee15a-fb1c-4bba-9d76-271fa8ddba1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\scene">
+      <UniqueIdentifier>{47eca74d-7b8e-426e-8586-debb86dd4faa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\comon">
+      <UniqueIdentifier>{3c28c517-77e1-445e-a212-de6c87d3bbc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover">
+      <UniqueIdentifier>{baa8b39f-07cc-478b-874d-be2c9cb31c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\scene">
+      <UniqueIdentifier>{e259f222-1bbf-4ead-b463-04748c675689}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ui">
+      <UniqueIdentifier>{acc70d05-f368-4f30-8c74-3bc935bdec38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\enemy">
+      <UniqueIdentifier>{f31a53af-1016-438b-a4a4-b2981115c95f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\bullet">
+      <UniqueIdentifier>{b7040a2d-334b-4151-b632-574c98dbe6ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\player">
+      <UniqueIdentifier>{00c6ccb9-b075-463f-9231-711dbf7e677a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\obstruct">
+      <UniqueIdentifier>{fb29fd54-cabf-46cc-b0cc-0f6df13599be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\item">
+      <UniqueIdentifier>{f666a77d-3f67-4186-806d-4a99bed1618a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="RM.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshM.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="TM.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Game.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Corection.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="input.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager_infure.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Wepon.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Wepon_MissileLunther.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_1.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemySpawner.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponSword.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\mover\bullet</Filter>
     </ClCompile>
     <ClCompile Include="BulletHoming.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\mover\bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_1.cpp">
+      <Filter>ソース ファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_2.cpp">
+      <Filter>ソース ファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>ソース ファイル\mover\enemy</Filter>
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>ソース ファイル\comon</Filter>
     </ClCompile>
     <ClCompile Include="item.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\mover\item</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>ソース ファイル\comon</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>ソース ファイル\mover\obstruct</Filter>
     </ClCompile>
     <ClCompile Include="MoverList.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\mover</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Corection.cpp">
+      <Filter>ソース ファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager_infure.cpp">
+      <Filter>ソース ファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Game.cpp">
+      <Filter>ソース ファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>ソース ファイル\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon.cpp">
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon_MissileLunther.cpp">
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="TM.cpp">
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponSword.cpp">
+      <Filter>ソース ファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshM.cpp">
+      <Filter>ソース ファイル\comon</Filter>
+    </ClCompile>
+    <ClCompile Include="RM.cpp">
+      <Filter>ソース ファイル\comon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainWindow.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="RM.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshM.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="TM.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Game.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Corection.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager_infure.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Wepon.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Wepon_MissileLunther.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_1.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySpawner.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponSword.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\mover\bullet</Filter>
     </ClInclude>
     <ClInclude Include="BulletHoming.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\mover\bullet</Filter>
     </ClInclude>
-    <ClInclude Include="Obstacle.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダー ファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_1.h">
+      <Filter>ヘッダー ファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_2.h">
+      <Filter>ヘッダー ファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>ヘッダー ファイル\mover\enemy</Filter>
     </ClInclude>
     <ClInclude Include="Equipment.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\mover\player</Filter>
     </ClInclude>
     <ClInclude Include="item.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="MoverList.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\mover\item</Filter>
     </ClInclude>
     <ClInclude Include="Mover2D.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\mover</Filter>
+    </ClInclude>
+    <ClInclude Include="MoverList.h">
+      <Filter>ヘッダー ファイル\mover</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>ヘッダー ファイル\mover\Obstract</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダー ファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon.h">
+      <Filter>ヘッダー ファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponSword.h">
+      <Filter>ヘッダー ファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon_MissileLunther.h">
+      <Filter>ヘッダー ファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>ヘッダー ファイル\comon</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <Filter>ヘッダー ファイル\comon</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshM.h">
+      <Filter>ヘッダー ファイル\comon</Filter>
+    </ClInclude>
+    <ClInclude Include="RM.h">
+      <Filter>ヘッダー ファイル\comon</Filter>
+    </ClInclude>
+    <ClInclude Include="TM.h">
+      <Filter>ヘッダー ファイル\comon</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Corection.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Game.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager_infure.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>ヘッダー ファイル\ui</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

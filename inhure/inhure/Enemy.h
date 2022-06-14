@@ -34,7 +34,9 @@ protected:
 
 	class Player* p;
 	F_lib_Render::Mesh_Fbx* mesh;
-	MoverList* bulletlist,*mylist;
+	MoverList* bulletList,*myList;
+	int hp, atack, defense;
+	float speed;
 
 };
 

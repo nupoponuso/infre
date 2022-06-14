@@ -1,11 +1,12 @@
 #include "EnemySpawner.h"
 
 #include "Enemy_1.h"
+#include "Enemy_2.h"
 #include <random>
 #include "Player.h"
 
 EnemySpawner::EnemySpawner(initEnemySpawner _dat) : count(0), countmax(_dat.count * 60)
-, SpawneData(_dat.dat), list(_dat.list), spawnenum(_dat.spawnenum)
+, SpawneData(_dat.dat), list(_dat.list), spawnenum(_dat.spawnenum), SpowneLen(_dat.SpowneLen)
 {
 
 }
@@ -32,13 +33,13 @@ void EnemySpawner::Spawne()
 
 	for (int i = 0; i < spawnenum; i++)
 	{
-		float angle = rand100(mt);
+		float angle = (float)rand100(mt);
 
 		SpawneData.pos = SpawneData.p->getPosition();
-		SpawneData.pos.x += 100 * sindeg(angle);
-		SpawneData.pos.z += 100 * cosdeg(angle);
+		SpawneData.pos.x += SpowneLen * sindeg(angle);
+		SpawneData.pos.z += SpowneLen * cosdeg(angle);
 
-		m = new Enemy_1(SpawneData);
+		m = new Enemy_2(SpawneData);
 
 		list->listPush(m);
 

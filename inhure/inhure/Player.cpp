@@ -16,12 +16,12 @@ using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
 Player::Player(initplayerdata _dat)
-	:Mover2D(_dat.R), enemylist(_dat.enemylist), myblist(_dat.buletlist), eblist(_dat.ebuletlist), ItemList(_dat.ItemList), Olist(_dat.Olist)
+	:Mover2D(_dat.R), enemyList(_dat.enemyList), mybList(_dat.bulletList), ebList(_dat.enemybList), itemList(_dat.itemList), oList(_dat.oList)
 {
 	Position = XMFLOAT3();
 	mesh = _dat.R->meshM->getModel(0);
 	speed = 1.85f;
-	rotspeed = 10;//•ûŒü§Œä‚ÌŽž
+	speedRot = 10;//•ûŒü§Œä‚ÌŽž
 	//rotspeed = 4;//ù‰ñ§Œä‚ÌŽž
 	
 	cpos = Position;
@@ -32,15 +32,15 @@ Player::Player(initplayerdata _dat)
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = 1;
 	
-
+	weponNum = 0;
+	
 	//Œp³‚µ‚½‚Æ‚«‚É‚±‚±‚Ìƒpƒ‰ƒ[ƒ^Ý’è‚È‚Ç‚ð”h¶ƒNƒ‰ƒX‚É‰f‚·
-	WeponNum = 2;
-	WeponMaxNum = 6;
-	wepon = new Wepon*[WeponMaxNum];
+	weponMaxNum = 6;
+	wepon = new Wepon*[weponMaxNum];
 
-	ChengeWeponNum = MainWeponNum = 2;
-	CreateWepon(Weponid::Wepon_showd);
-	CreateWepon(Weponid::Wepon_missilelunther);
+	chengeWeponNum = mainWeponNum = 1;
+	CreateWepon(weponId::Wepon_showd);
+	//CreateWepon(Weponid::Wepon_missilelunther);
 
 }
 
@@ -49,6 +49,7 @@ void Player::update()
 	Move();
 
 	UseWepon();
+
 	cpos = Position;
 	cpos.y += 80;
 
@@ -64,7 +65,7 @@ void Player::Draw()
 	mesh->setSize(0.01f);
 	mesh->RDraw();
 
-	for (int i = MainWeponNum; i < WeponNum; i++)
+	for (int i = 0; i < weponNum; i++)
 	wepon[i]->Draw();
 
 }
@@ -123,31 +124,31 @@ Colision_2D * Player::getcol()
 
 void Player::Move()
 {
-	ismove = true;
+	isMove = true;
 	
 	//•ûŒü§Œä
 	if (GetKeyPress(VK_W))
 	{
-		if (GetKeyPress(VK_A))movedir = -45;
-		else if (GetKeyPress(VK_D)) movedir = 45;
-		else movedir = 0;
+		if (GetKeyPress(VK_A))moveDir = -45;
+		else if (GetKeyPress(VK_D)) moveDir = 45;
+		else moveDir = 0;
 	
 	}
 	else if (GetKeyPress(VK_S))
 	{
-		if (GetKeyPress(VK_A)) movedir = -135;
-		else if (GetKeyPress(VK_D)) movedir = 135;
-		else movedir = 180;
+		if (GetKeyPress(VK_A)) moveDir = -135;
+		else if (GetKeyPress(VK_D)) moveDir = 135;
+		else moveDir = 180;
 	
 	}
 	else
 	{
-		if (GetKeyPress(VK_A)) movedir = -90;
-		else if (GetKeyPress(VK_D)) movedir = 90;
-		else ismove = false;
+		if (GetKeyPress(VK_A)) moveDir = -90;
+		else if (GetKeyPress(VK_D)) moveDir = 90;
+		else isMove = false;
 	
 	}
-	Angle.y = movedir;
+	Angle.y = moveDir;
 	
 	//if (ismove)
 	//{
@@ -176,14 +177,14 @@ void Player::Move()
 	//else if (!GetKeyPress(VK_W))
 	//	ismove = false;
 
-	if (ismove)
+	if (isMove)
 	{
 		Position.x += speed * sindeg(Angle.y);
 		Position.z += speed * cosdeg(Angle.y);
 
 	}
 
-	ItemList->Ishit(this);
+	itemList->Ishit(this);
 
 }
 
@@ -193,20 +194,20 @@ void Player::UseWepon()
 	//StrengtheningDataPlayer pdataOll;
 	//StrengtheningDataPlayer* pdata;
 
-	if (WeponNum == WeponMaxNum)
+	if (weponNum == weponMaxNum)
 	{
 		if (GetKeyTrigger(VK_LEFT))
-			ChengeWeponNum = ((ChengeWeponNum + 1) % (WeponMaxNum - MainWeponNum)) + MainWeponNum;
+			chengeWeponNum = ((chengeWeponNum + 1) % (weponMaxNum - mainWeponNum)) + mainWeponNum;
 		else if (GetKeyTrigger(VK_9))
 		{
-			delete wepon[ChengeWeponNum];
-			wepon[ChengeWeponNum] = nullptr;
+			delete wepon[chengeWeponNum];
+			wepon[chengeWeponNum] = nullptr;
 
-			for (int i = ChengeWeponNum; i < WeponMaxNum; i++)
+			for (int i = chengeWeponNum; i < weponMaxNum; i++)
 				wepon[i] = wepon[i + 1];
 
-			wepon[WeponMaxNum] = nullptr;
-			WeponNum--;
+			wepon[weponMaxNum] = nullptr;
+			weponNum--;
 
 		}
 
@@ -228,7 +229,7 @@ void Player::UseWepon()
 
 	}
 
-	for (int i = MainWeponNum; i < WeponNum; i++)
+	for (int i = 0; i < weponNum; i++)
 	{
 		wepon[i]->update();
 
@@ -237,21 +238,21 @@ void Player::UseWepon()
 
 }
 
-bool Player::CreateWepon(Weponid _id)
+bool Player::CreateWepon(weponId _id)
 {
-	if (WeponNum < WeponMaxNum)
+	if (weponNum < weponMaxNum)
 	{
 		initWepondata datInitWepon;
 		datInitWepon.p = this;
 		datInitWepon.pos = Position;
-		datInitWepon.EnemyList = enemylist;
+		datInitWepon.EnemyList = enemyList;
 		datInitWepon.R = Resource;
 		datInitWepon.pangle = 0;
 
 		switch (_id)
 		{
 		case Wepon_missilelunther:
-			waitWepon = new Wepon_MissileLunther(datInitWepon, myblist);
+			waitWepon = new Wepon_MissileLunther(datInitWepon, mybList);
 			break;
 		case Wepon_lyzer:
 			//waitWepon=new
@@ -268,9 +269,9 @@ bool Player::CreateWepon(Weponid _id)
 
 		}
 
-		wepon[WeponNum] = waitWepon;
+		wepon[weponNum] = waitWepon;
 		waitWepon = nullptr;
-		WeponNum++;
+		weponNum++;
 		return true;
 
 	}

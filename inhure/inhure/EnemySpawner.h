@@ -10,10 +10,11 @@ struct initEnemySpawner
 	initenemydata dat;
 
 	int count, spawnenum;
+	float SpowneLen;
 	initEnemySpawner()
 	{
 		spawnenum = 1;
-
+		SpowneLen = 100;
 	}
 
 };
@@ -32,6 +33,7 @@ private:
 	MoverList* list;
 	initenemydata SpawneData;
 	int count,countmax,spawnenum;
+	float SpowneLen;
 
 };
 

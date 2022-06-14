@@ -36,7 +36,7 @@ F_lib_Mover::Colision_2D * Item::getcol()
 	return col;
 }
 
-ItemWepon::ItemWepon(InitItemData _data, Weponid _id) :Item(_data)
+ItemWepon::ItemWepon(InitItemData _data, weponId _id) :Item(_data)
 {
 	type= Item_Wepon;
 	Id = _id;

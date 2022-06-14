@@ -44,11 +44,11 @@ protected:
 class ItemWepon :public Item
 {
 public:
-	ItemWepon(InitItemData,Weponid);
+	ItemWepon(InitItemData,weponId);
 	
-	Weponid getWeponId() { return Id; }
+	weponId getWeponId() { return Id; }
 
 protected:
-	Weponid Id;
+	weponId Id;
 
 };

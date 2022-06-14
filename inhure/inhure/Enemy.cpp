@@ -6,11 +6,11 @@
 using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
-Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletlist(_dat.bulletlist), p(_dat.p)
+Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist), p(_dat.p)
 {
 	speed = _dat.speed;
 	Myid = mover_enemy;
-	mylist = _dat.mylist;
+	myList = _dat.mylist;
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = 1;
 
@@ -25,8 +25,8 @@ void Enemy::update()
 
 	move();
 
-	if (mylist->getlistNum() > 0)
-		mylist->Ishit(this);
+	if (myList->getlistNum() > 0)
+		myList->Ishit(this);
 }
 
 void Enemy::Draw()

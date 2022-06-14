@@ -21,7 +21,7 @@ void WeponSword::Draw()
 {
 	XMFLOAT3 bpos;
 	bpos = Position;
-	bpos.x + 5;
+	bpos.x += 5;
 	b->reset();
 	b->setPosition(bpos);
 	b->setColor(1, 0.5, 0);

@@ -20,10 +20,10 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 
 	initplayerdata datp;
 	datp.R = _ResouseManeger;
-	datp.enemylist = elist;
-	datp.buletlist = blist;
-	datp.ebuletlist = eblist;
-	datp.ItemList = Itemlist;
+	datp.enemyList = elist;
+	datp.bulletList = blist;
+	datp.enemybList = eblist;
+	datp.itemList = Itemlist;
 
 	p = new Player(datp);
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
@@ -45,6 +45,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	spawn.list = elist;
 	spawn.count = 2;
 	spawn.spawnenum = 6;
+	spawn.SpowneLen = 25;
 	spawner = new EnemySpawner(spawn);
 
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か

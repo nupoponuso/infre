@@ -1,5 +1,6 @@
 #include "Wepon_MissileLunther.h"
 #include "MeshM.h"
+#include "BulletHoming.h"
 
 using namespace F_lib_Mover;
 using namespace F_lib_Fremworker;
@@ -10,7 +11,7 @@ Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, MoverList* _bulet
 {
 	dat.R = _dat.R;
 	dat.atacklist = _dat.EnemyList;
-	dat.speed = 1.8;
+	dat.speed = 0.9f;//1.8;
 	dat.size = 1;
 	dat.atack = 3;
 
@@ -68,10 +69,15 @@ void Wepon_MissileLunther::ThisAtack()
 		}
 		
 		ma = enemylist->getlist(id);
-		dat.angle = getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(ma->getPosition().x, ma->getPosition().z));
+		dat.angle = Angle.y;
+		//getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(ma->getPosition().x, ma->getPosition().z));
 
+		inithpmingbulletdata data;
+		data.data = dat;
+		data.terget = ma;
+		data.maxrotangle = 10;
 		Mover2D* m;
-		m = new Bullet(dat);
+		m = new BulletHoming(data);
 		buletlist->listPush(m);
 
 	}

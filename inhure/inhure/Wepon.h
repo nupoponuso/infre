@@ -6,7 +6,7 @@
 #include "Player.h"
 #include "RM.h"
 
-enum Weponid
+enum weponId
 {
 	Wepon_missilelunther,
 	Wepon_lyzer,
@@ -51,10 +51,12 @@ protected:
 	F_lib_Mover::Colision_2D* tergetcol;
 	XMFLOAT3 ppos;
 	XMFLOAT2 thisposold;
-	bool cooltime;
-	int clnokBack, cooltimeNow, cooltimeMax, countNow ,countMax;
-	float atackelea,pangle,a2,nowspeed;
 
+	bool cooltime;
+	int cooltimeNow, cooltimeMax, countNow ,countMax;
+	float atackelea,pangle,a2,nowspeed;
+	int atack, lockOn, nockBack;
+	float atackLen;
 
 };
 

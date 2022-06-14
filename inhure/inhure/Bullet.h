@@ -28,8 +28,8 @@ public:
 	F_lib_Mover::Colision_2D* getcol() override;
 
 protected:
-	void move();
-	void myhit();
+	virtual void move();
+	virtual void myhit();
 
 	F_lib_Render::Mesh_Fbx* mesh;
 	MoverList* atacklist;

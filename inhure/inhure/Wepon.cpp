@@ -5,7 +5,7 @@ using namespace F_lib_Mover;
 Wepon::Wepon(initWepondata _dat) :Mover2D(_dat.R), enemylist(_dat.EnemyList), p(_dat.p)
 {
 	Position = _dat.pos;
-	Position.y - 10;
+	Position.y -= 10;
 	a2 = _dat.pangle;
 
 }

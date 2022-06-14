@@ -4,12 +4,16 @@
 
 struct StrengtheningDataPlayer
 {
+	float hp,speed;
+	int atack, defense, ep;
 
 };
 
 
 struct StrengtheningDataWepon
 {
+	int atack;
+	float lockOn;
 
 };
 

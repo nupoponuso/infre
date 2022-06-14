@@ -8,7 +8,7 @@
 
 struct initplayerdata
 {
-	MoverList* buletlist, *enemylist,*ebuletlist,*ItemList, *Olist;
+	MoverList* bulletList, *enemyList,*enemybList,*itemList, *oList;
 	F_lib_Fremworker::ResourceManager* R;
 
 };
@@ -30,21 +30,22 @@ protected:
 	void Move();
 	void UseWepon();
 
-	bool CreateWepon(enum Weponid);
+	bool CreateWepon(enum weponId);
 	void CreateRelic();
 
 	class Wepon** wepon;
 	class Wepon* waitWepon;
 	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
-	MoverList* myblist, *eblist, *enemylist, *ItemList,*Olist;
+	MoverList* mybList, *ebList, *enemyList, *itemList,*oList;
 	XMFLOAT3 cpos;
 
 	//initWepondata datInitWepon;
 
-	bool ismove;
-	int WeponNum, WeponMaxNum,rotspeed,ChengeWeponNum,MainWeponNum;
-	float movedir, movedirold;
+	bool isMove;
+	int hp, atack, defense, ep;
+	int weponNum, weponMaxNum, speedRot, chengeWeponNum, mainWeponNum;
+	float moveDir, moveDirOld;
 
 };
 

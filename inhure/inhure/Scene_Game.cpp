@@ -65,7 +65,7 @@ void SceneGame::update()
 		itemdata.R = Resource;
 		itemdata.pos = XMFLOAT3(50, 0, 0);
 
-		Itemlist->listPush(new ItemWepon(itemdata, Wepon_boomerang));
+		Itemlist->listPush(new ItemWepon(itemdata, Wepon_flamethrower));
 
 	}
 

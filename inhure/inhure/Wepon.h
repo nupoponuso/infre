@@ -52,7 +52,7 @@ protected:
 	XMFLOAT3 pPos;
 	XMFLOAT2 thisPosOld;
 
-	int cooltimeNow, cooltimeMax, countNow ,countMax;
+	int cooltimeNow, cooltimeMax, countNow ,countMax,rotspeed;
 	int atack, lockOn, nockBack;
 	float atackArea,pAngle,a2,nowSpeed;
 	float atackLen;

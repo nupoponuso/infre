@@ -46,6 +46,11 @@ F_lib_Mover::Colision_2D * WeponSword::getcol()
 	return col;
 }
 
+void WeponSword::move()
+{
+	Wepon::move();
+}
+
 void WeponSword::ThisAtack()
 {
 	enemyList->Ishit(this);

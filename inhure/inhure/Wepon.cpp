@@ -7,6 +7,7 @@ Wepon::Wepon(initWepondata _dat) :Mover2D(_dat.R), enemyList(_dat.EnemyList), p(
 	Position = _dat.pos;
 	Position.y -= 10;
 	a2 = _dat.pangle;
+	rotspeed = 4;
 
 }
 
@@ -37,7 +38,7 @@ void Wepon::move()
 	pAngle = pAngle * 180.0f / 3.14f;
 	Angle.y = pAngle;
 
-	a2 += 4;
+	a2 += rotspeed;
 	Position.x += nowSpeed * sindeg(Angle.y);
 	Position.z += nowSpeed * cosdeg(Angle.y);
 	

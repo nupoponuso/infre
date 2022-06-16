@@ -7,6 +7,7 @@ public:
 	
 private:
 	void move();
+	void myAtack();
 	bool ismove;
 
 };

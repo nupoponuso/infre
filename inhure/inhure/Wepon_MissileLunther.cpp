@@ -18,7 +18,7 @@ Wepon_MissileLunther::Wepon_MissileLunther(initWepondata _dat, MoverList* _bulet
 	mesh = _dat.R->meshM->getModel(3);
 	speed = 2.11f;
 	
-	cooltime = cooltimeMax = 5;
+	coolTime = cooltimeMax = 5;
 	countNow = countMax = 0;
 
 }
@@ -37,23 +37,23 @@ void Wepon_MissileLunther::ThisAtack()
 {
 	Wepon::ThisAtack();
 
-	if (cooltime) return;
+	if (coolTime) return;
 
-	if (enemylist->getlistNum() > 0)
+	if (enemyList->getlistNum() > 0)
 	{
 		dat.pos = Position;
 
 		int id = 0;
-		Mover2D*ma = enemylist->getlist(id);
+		Mover2D*ma = enemyList->getlist(id);
 		XMFLOAT2 thispos;
 		thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
 		thispos.x = thispos.x - Position.x;
 		thispos.y = thispos.y - Position.z;
 		float flen = thispos.x*thispos.x + thispos.y*thispos.y;
 
-		for (int i = 1; i < enemylist->getlistNum(); i++)
+		for (int i = 1; i < enemyList->getlistNum(); i++)
 		{ 
-			ma = enemylist->getlist(i);
+			ma = enemyList->getlist(i);
 			thispos = XMFLOAT2(ma->getPosition().x, ma->getPosition().z);
 			thispos.x = thispos.x - Position.x;
 			thispos.y = thispos.y - Position.z;
@@ -68,7 +68,7 @@ void Wepon_MissileLunther::ThisAtack()
 
 		}
 		
-		ma = enemylist->getlist(id);
+		ma = enemyList->getlist(id);
 		dat.angle = Angle.y;
 		//getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(ma->getPosition().x, ma->getPosition().z));
 

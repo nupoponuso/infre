@@ -39,7 +39,7 @@ void EnemySpawner::Spawne()
 		SpawneData.pos.x += SpowneLen * sindeg(angle);
 		SpawneData.pos.z += SpowneLen * cosdeg(angle);
 
-		m = new Enemy_2(SpawneData);
+		m = new Enemy_1(SpawneData);
 
 		list->listPush(m);
 

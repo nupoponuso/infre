@@ -2,5 +2,6 @@
 
 Enemy_2::Enemy_2(initenemydata _dat) : Enemy(_dat)
 {
-	//hp = 20;
+	hp = 90;
+
 }

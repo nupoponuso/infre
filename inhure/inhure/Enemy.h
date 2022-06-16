@@ -28,15 +28,22 @@ public:
 	F_lib_Mover::Colision_2D* getcol();
 
 	class Player* getPlayer() { return p; }
+	int getHp()		 { return hp; }
+	int getDefence() { return defense; }
+
+	void addHp(int _add) { hp += _add; }
 
 protected:
-	virtual void move() = 0;
+	virtual void move()=0;
+	virtual void myAtack()=0;
 
 	class Player* p;
 	F_lib_Render::Mesh_Fbx* mesh;
+	F_lib_Mover::Colision_2D* atackCol;
 	MoverList* bulletList,*myList;
 	int hp, atack, defense;
 	float speed;
+	bool isAtack;
 
 };
 

@@ -47,16 +47,16 @@ protected:
 
 	class Player* p;
 	F_lib_Render::Mesh_Fbx * mesh;
-	MoverList* enemylist;
-	F_lib_Mover::Colision_2D* tergetcol;
-	XMFLOAT3 ppos;
-	XMFLOAT2 thisposold;
+	MoverList* enemyList;
+	F_lib_Mover::Colision_2D* tergetCol;
+	XMFLOAT3 pPos;
+	XMFLOAT2 thisPosOld;
 
-	bool cooltime;
 	int cooltimeNow, cooltimeMax, countNow ,countMax;
-	float atackelea,pangle,a2,nowspeed;
 	int atack, lockOn, nockBack;
+	float atackArea,pAngle,a2,nowSpeed;
 	float atackLen;
+	bool coolTime;
 
 };
 

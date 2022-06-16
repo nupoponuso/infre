@@ -48,6 +48,6 @@ F_lib_Mover::Colision_2D * WeponSword::getcol()
 
 void WeponSword::ThisAtack()
 {
-	enemylist->Ishit(this);
+	enemyList->Ishit(this);
 
 }

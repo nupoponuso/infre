@@ -7,6 +7,10 @@
 
 #include "Wepon_MissileLunther.h"
 #include "WeponSword.h"
+#include "WeponBoomerang.h"
+#include "WeponFlamethrower.h"
+#include "WeponLyzer.h"
+
 #include "Equipment.h"
 #include "item.h"
 
@@ -24,9 +28,9 @@ Player::Player(initplayerdata _dat)
 	speedRot = 10;//•ûŒü§Œä‚ÌŽž
 	//rotspeed = 4;//ù‰ñ§Œä‚ÌŽž
 	
-	cpos = Position;
-	cpos.y += 150;
-	Resource->meshM->getCamera()->setPosition(cpos);
+	cPos = Position;
+	cPos.y += 150;
+	Resource->meshM->getCamera()->setPosition(cPos);
 	Resource->meshM->getCamera()->update();
 
 	col = new Colision_2D(Colision_2D::Col_crecle);
@@ -50,14 +54,14 @@ void Player::update()
 
 	UseWepon();
 
-	cpos = Position;
-	cpos.y += 80;
+	cPos = Position;
+	cPos.y += 80;
 
 }
 
 void Player::Draw()
 {
-	Resource->meshM->getCamera()->setPosition(cpos);
+	Resource->meshM->getCamera()->setPosition(cPos);
 	Resource->meshM->getCamera()->update();
 
 	mesh->setPosition(Position);
@@ -148,6 +152,7 @@ void Player::Move()
 		else isMove = false;
 	
 	}
+
 	Angle.y = moveDir;
 	
 	//if (ismove)
@@ -242,6 +247,7 @@ bool Player::CreateWepon(weponId _id)
 {
 	if (weponNum < weponMaxNum)
 	{
+		Wepon* waitWepon = nullptr;;
 		initWepondata datInitWepon;
 		datInitWepon.p = this;
 		datInitWepon.pos = Position;
@@ -255,22 +261,21 @@ bool Player::CreateWepon(weponId _id)
 			waitWepon = new Wepon_MissileLunther(datInitWepon, mybList);
 			break;
 		case Wepon_lyzer:
-			//waitWepon=new
+			waitWepon = new WeponLyzer(datInitWepon);
 			break;
 		case Wepon_flamethrower:
-			//waitWepon=new
+			waitWepon = new WeponFlamethrower(datInitWepon);
 			break;
 		case Wepon_showd:
 			waitWepon = new WeponSword(datInitWepon);
 			break;
 		case Wepon_boomerang:
-			//waitWepon=new
-			break;
+			waitWepon = new WeponBoomerang(datInitWepon);
 
+			break;
 		}
 
 		wepon[weponNum] = waitWepon;
-		waitWepon = nullptr;
 		weponNum++;
 		return true;
 

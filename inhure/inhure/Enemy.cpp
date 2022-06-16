@@ -14,6 +14,7 @@ Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist),
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = 1;
 
+
 	Position = _dat.pos;
 	mesh = _dat.R->meshM->getModel(2);
 
@@ -21,9 +22,10 @@ Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist),
 
 void Enemy::update()
 {
-	//if (hp < 0)Alive = false;
+	if (hp < 0)Alive = false;
 
 	move();
+	myAtack();
 
 	if (myList->getlistNum() > 0)
 		myList->Ishit(this);

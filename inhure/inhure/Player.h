@@ -26,7 +26,15 @@ public:
 
 	F_lib_Mover::Colision_2D* getcol() override;
 
+	int getHp()		 { return hp; }
+	int getAtack()   { return atack; }
+	int getDefense() { return defense; }
+	int getEp()		 { return ep; }
+
+	void addHp(int _add) { hp += _add; }
+
 protected:
+
 	void Move();
 	void UseWepon();
 
@@ -34,11 +42,10 @@ protected:
 	void CreateRelic();
 
 	class Wepon** wepon;
-	class Wepon* waitWepon;
 	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
 	MoverList* mybList, *ebList, *enemyList, *itemList,*oList;
-	XMFLOAT3 cpos;
+	XMFLOAT3 cPos;
 
 	//initWepondata datInitWepon;
 

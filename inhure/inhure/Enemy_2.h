@@ -7,5 +7,7 @@ public:
 
 private:
 	void move() { Position.z+=0.2f; }
+	void myAtack() {};
+
 };
 

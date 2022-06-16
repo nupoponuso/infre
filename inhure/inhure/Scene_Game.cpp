@@ -11,7 +11,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 {
 	Text = _ResouseManeger->meshM->getText();
 	_ResouseManeger->meshM->getCamera()->setangle(XMFLOAT3(-89.99f, 0, 0));
-	
+	Resource->TM->loadTex();
 	fild = _ResouseManeger->meshM->getModel(1);
 	elist  = new MoverList();
 	eblist = new MoverList();
@@ -65,11 +65,14 @@ void SceneGame::update()
 		itemdata.R = Resource;
 		itemdata.pos = XMFLOAT3(50, 0, 0);
 
-		Itemlist->listPush(new ItemWepon(itemdata, Wepon_missilelunther));
+		Itemlist->listPush(new ItemWepon(itemdata, Wepon_boomerang));
 
 	}
 
-	p->update();
+	if (GetKeyTrigger(VK_C))
+		 p->update();
+	else p->update();
+
 	spawner->update();
 	elist->update();
 	Itemlist->update();
@@ -91,5 +94,7 @@ void SceneGame::Draw()
 	blist->Draw();
 	Text->draw(scenename);
 	
-
+	ID3D11ShaderResourceView* Textrue;
+	Textrue = Resource->TM->gettex(0);
+	
 }

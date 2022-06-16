@@ -67,6 +67,12 @@
     <Filter Include="ソース ファイル\mover\item">
       <UniqueIdentifier>{f666a77d-3f67-4186-806d-4a99bed1618a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\mover\Wepon">
+      <UniqueIdentifier>{937f4189-cf29-4ada-aa6e-3d69c710640e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\wepon">
+      <UniqueIdentifier>{9c6b2352-61ce-4983-9bfa-c73f0cf53cc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -126,22 +132,31 @@
     <ClCompile Include="UI.cpp">
       <Filter>ソース ファイル\ui</Filter>
     </ClCompile>
-    <ClCompile Include="Wepon.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
-    <ClCompile Include="Wepon_MissileLunther.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
-    <ClCompile Include="TM.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponSword.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
     <ClCompile Include="MeshM.cpp">
       <Filter>ソース ファイル\comon</Filter>
     </ClCompile>
     <ClCompile Include="RM.cpp">
+      <Filter>ソース ファイル\comon</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponBoomerang.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponFlamethrower.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponLyzer.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon_MissileLunther.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponSword.cpp">
+      <Filter>ソース ファイル\mover\wepon</Filter>
+    </ClCompile>
+    <ClCompile Include="TM.cpp">
       <Filter>ソース ファイル\comon</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,15 +197,6 @@
     <ClInclude Include="Player.h">
       <Filter>ヘッダー ファイル\mover\player</Filter>
     </ClInclude>
-    <ClInclude Include="Wepon.h">
-      <Filter>ヘッダー ファイル\mover\player</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponSword.h">
-      <Filter>ヘッダー ファイル\mover\player</Filter>
-    </ClInclude>
-    <ClInclude Include="Wepon_MissileLunther.h">
-      <Filter>ヘッダー ファイル\mover\player</Filter>
-    </ClInclude>
     <ClInclude Include="input.h">
       <Filter>ヘッダー ファイル\comon</Filter>
     </ClInclude>
@@ -220,6 +226,24 @@
     </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>ヘッダー ファイル\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponBoomerang.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponFlamethrower.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponLyzer.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponSword.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon_MissileLunther.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon.h">
+      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

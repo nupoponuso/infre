@@ -2,7 +2,7 @@
 
 using namespace F_lib_Mover;
 
-Wepon::Wepon(initWepondata _dat) :Mover2D(_dat.R), enemylist(_dat.EnemyList), p(_dat.p)
+Wepon::Wepon(initWepondata _dat) :Mover2D(_dat.R), enemyList(_dat.EnemyList), p(_dat.p)
 {
 	Position = _dat.pos;
 	Position.y -= 10;
@@ -22,35 +22,35 @@ void Wepon::update()
 
 void Wepon::move()
 {
-	ppos = p->getPosition();
+	pPos = p->getPosition();
 
-	ppos.x += 7 * sindeg(p->getAngle().y - a2);
-	ppos.z += 7 * cosdeg(p->getAngle().y - a2);
+	pPos.x += 7 * sindeg(p->getAngle().y - a2);
+	pPos.z += 7 * cosdeg(p->getAngle().y - a2);
 
-	thisposold = XMFLOAT2(ppos.x - Position.x, ppos.z - Position.z);
+	thisPosOld = XMFLOAT2(pPos.x - Position.x, pPos.z - Position.z);
 
-	if (thisposold.x*thisposold.x + thisposold.y*thisposold.y > 15)
-		 nowspeed = speed;
-	else nowspeed = speed * 0.2f;
+	if (thisPosOld.x*thisPosOld.x + thisPosOld.y*thisPosOld.y > 15)
+		 nowSpeed = speed;
+	else nowSpeed = speed * 0.2f;
 
-	pangle = atan2(thisposold.x, thisposold.y);
-	pangle = pangle * 180.0f / 3.14f;
-	Angle.y = pangle;
+	pAngle = atan2(thisPosOld.x, thisPosOld.y);
+	pAngle = pAngle * 180.0f / 3.14f;
+	Angle.y = pAngle;
 
 	a2 += 4;
-	Position.x += nowspeed * sindeg(Angle.y);
-	Position.z += nowspeed * cosdeg(Angle.y);
+	Position.x += nowSpeed * sindeg(Angle.y);
+	Position.z += nowSpeed * cosdeg(Angle.y);
 	
 
 }
 
 void Wepon::ThisAtack()
 {
-	if (cooltime)
+	if (coolTime)
 	{
 		if (cooltimeNow <= 0)
 		{
-			cooltime = false;
+			coolTime = false;
 			cooltimeNow = cooltimeMax;
 
 		}
@@ -61,7 +61,7 @@ void Wepon::ThisAtack()
 	{
 		if (countNow <= 0)
 		{
-			cooltime = true;
+			coolTime = true;
 			countNow = countMax;
 
 		}

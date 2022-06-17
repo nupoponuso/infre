@@ -10,10 +10,21 @@
 #include "RenderingEngine.h"
 #include <vector>
 
+enum TextColor
+{
+	Color_White,
+	Color_Black,
+	Color_Red,
+	Color_Blue,
+	Color_Green,
+	Color_MAX
+};
+
 struct textdat
 {
 	std::wstring text;
 	D2D1_RECT_F ref;
+	TextColor color;
 	float alpa;
 	int id;
 
@@ -21,6 +32,7 @@ struct textdat
 	{
 		alpa = 1.0f;
 		id = 0;
+		
 
 	}
 
@@ -54,9 +66,13 @@ namespace F_lib_Render
 
 		void setalpa(float _a) { alpa = _a; }
 		void setPosition(XMFLOAT2 _pos) { Position = _pos; }
+		void setColor(TextColor _color);
 		void setfont(int);
 		
 	private:
+
+		void setColorData(TextColor);
+
 		ID2D1Factory* D2DFactory;
 		IDWriteFactory* DWriteFactory;
 		IDWriteTextFormat* TextFormat;
@@ -70,6 +86,7 @@ namespace F_lib_Render
 
 		float alpa, size;
 		int fontid;
+		TextColor color;
 
 		std::vector<textdat> list;
 		std::vector<IDWriteTextFormat*> fontlist;

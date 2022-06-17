@@ -10,12 +10,12 @@ WeponFlamethrower::WeponFlamethrower(initWepondata _dat, MoverList*_blist)
 	dat.atacklist = _dat.EnemyList;
 	dat.speed = 0.4;
 	dat.size = 1;
-	dat.atack = 10;
+	dat.atack = 1;
 
 	Size.x = 2.5f;
 	speed = 3;
 
-	rotspeed = 0;
+	//rotspeed = 0;
 
 	cooltimeNow = cooltimeMax = 60;
 	countNow = countMax = 60;

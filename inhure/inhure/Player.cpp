@@ -24,34 +24,42 @@ Player::Player(initplayerdata _dat)
 {
 	Position = XMFLOAT3();
 	mesh = _dat.R->meshM->getModel(0);
-	speed = 1.85f;
+
+	
+	speed = 1.25f;
 	speedRot = 10;//方向制御の時
 	//rotspeed = 4;//旋回制御の時
+	wepon.weponNum = 0;
+	isLevelUp = false;
+	stetas.hp = stetas.hpMax = 1000;
+	stetas.epMax = 100;
+	stetas.ep = 0;
+	stetas.defense = 0;
+	stetas.level = 1;
+	atack = 0;
+
+	col = new Colision_2D(Colision_2D::Col_crecle);
+	col->getColdata()->size.x = 1;
 	
 	cPos = Position;
 	cPos.y += 150;
 	Resource->meshM->getCamera()->setPosition(cPos);
 	Resource->meshM->getCamera()->update();
-
-	col = new Colision_2D(Colision_2D::Col_crecle);
-	col->getColdata()->size.x = 1;
-	
-	weponNum = 0;
 	
 	//継承したときにここのパラメータ設定などを派生クラスに映す
-	weponMaxNum = 6;
-	wepon = new Wepon*[weponMaxNum];
+	wepon.weponMaxNum = 6;
+	wepon.wepon = new Wepon*[wepon.weponMaxNum];
 
-	chengeWeponNum = mainWeponNum = 1;
-	CreateWepon(weponId::Wepon_showd);
-	//CreateWepon(Weponid::Wepon_missilelunther);
+	wepon.chengeWeponNum = wepon.mainWeponNum = 2;
+	CreateWepon(weponId::Wepon_boomerang);
+	CreateWepon(weponId::Wepon_flamethrower);
 
 }
 
 void Player::update()
 {
+	levelManagement();
 	Move();
-
 	UseWepon();
 
 	cPos = Position;
@@ -69,8 +77,8 @@ void Player::Draw()
 	mesh->setSize(0.01f);
 	mesh->RDraw();
 
-	for (int i = 0; i < weponNum; i++)
-	wepon[i]->Draw();
+	for (int i = 0; i < wepon.weponNum; i++)
+		wepon.wepon[i]->Draw();
 
 }
 
@@ -199,20 +207,19 @@ void Player::UseWepon()
 	//StrengtheningDataPlayer pdataOll;
 	//StrengtheningDataPlayer* pdata;
 
-	if (weponNum == weponMaxNum)
+	if (wepon.weponNum == wepon.weponMaxNum)
 	{
 		if (GetKeyTrigger(VK_LEFT))
-			chengeWeponNum = ((chengeWeponNum + 1) % (weponMaxNum - mainWeponNum)) + mainWeponNum;
+			wepon.chengeWeponNum = ((wepon.chengeWeponNum + 1) % (wepon.weponMaxNum - wepon.mainWeponNum)) + wepon.mainWeponNum;
 		else if (GetKeyTrigger(VK_9))
 		{
-			delete wepon[chengeWeponNum];
-			wepon[chengeWeponNum] = nullptr;
+			delete wepon.wepon[wepon.chengeWeponNum];
 
-			for (int i = chengeWeponNum; i < weponMaxNum; i++)
-				wepon[i] = wepon[i + 1];
+			for (int i = wepon.chengeWeponNum; i < wepon.weponMaxNum; i++)
+				wepon.wepon[i] = wepon.wepon[i + 1];
 
-			wepon[weponMaxNum] = nullptr;
-			weponNum--;
+			wepon.wepon[wepon.weponMaxNum] = nullptr;
+			wepon.weponNum--;
 
 		}
 
@@ -234,18 +241,43 @@ void Player::UseWepon()
 
 	}
 
-	for (int i = 0; i < weponNum; i++)
+	for (int i = 0; i < wepon.weponNum; i++)
+		wepon.wepon[i]->update();
+
+
+}
+
+void Player::levelManagement()
+{
+	if (!isLevelUp)
 	{
-		wepon[i]->update();
+		if (stetas.ep > stetas.epMax)
+		{
+			isLevelUp = true;
+			stetas.ep -= stetas.epMax;
+			stetas.level++;
+
+		}
 
 	}
 
+	if (isLevelUp)//ここでレベルアップ時のパラメータアップを行う継承時ここは派生クラスで書く
+	{
+		if (stetas.level < 30) 
+		{
+			isLevelUp = false;
+
+			speed += 0.02;
+			stetas.epMax += 50;
+
+		}
+	}
 
 }
 
 bool Player::CreateWepon(weponId _id)
 {
-	if (weponNum < weponMaxNum)
+	if (wepon.weponNum < wepon.weponMaxNum)
 	{
 		Wepon* waitWepon = nullptr;;
 		initWepondata datInitWepon;
@@ -275,8 +307,8 @@ bool Player::CreateWepon(weponId _id)
 			break;
 		}
 
-		wepon[weponNum] = waitWepon;
-		weponNum++;
+		wepon.wepon[wepon.weponNum] = waitWepon;
+		wepon.weponNum++;
 		return true;
 
 	}

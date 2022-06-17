@@ -6,7 +6,7 @@
 Enemy_1::Enemy_1(initenemydata _dat) : Enemy(_dat)
 {
 	hp = 20;
-
+	ep = 10;
 }
 
 void Enemy_1::move()

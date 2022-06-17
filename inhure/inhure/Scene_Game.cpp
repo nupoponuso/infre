@@ -6,6 +6,8 @@
 #include "F_lib/include/Light.h"
 #include "item.h"
 
+#include "UIPlayer.h"
+
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
 {
@@ -48,6 +50,8 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	spawn.SpowneLen = 25;
 	spawner = new EnemySpawner(spawn);
 
+	pui = new UIPlayer(_ResouseManeger, dynamic_cast<Player*>( p));
+
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
 	
 }
@@ -64,37 +68,30 @@ void SceneGame::update()
 		InitItemData itemdata;
 		itemdata.R = Resource;
 		itemdata.pos = XMFLOAT3(50, 0, 0);
-
-		Itemlist->listPush(new ItemWepon(itemdata, Wepon_flamethrower));
-
+	
+		Itemlist->listPush(new ItemWepon(itemdata, Wepon_boomerang));
+	
 	}
 
-	if (GetKeyTrigger(VK_C))
+	//if (GetKeyTrigger(VK_C))
 		 p->update();
-	else p->update();
+	//else p->update();
 
 	spawner->update();
 	elist->update();
 	Itemlist->update();
 	blist->update();
 
+	pui->Update();
 }
 
 void SceneGame::Draw()
 {
-
-	s->reset();
-	s->setSize(500);
-	s->RDraw(false);
-
 	fild->RDraw();
 	elist->Draw();
 	Itemlist->Draw();
 	p->Draw();
 	blist->Draw();
-	Text->draw(scenename);
-	
-	ID3D11ShaderResourceView* Textrue;
-	Textrue = Resource->TM->gettex(0);
+	pui->Draw();
 	
 }

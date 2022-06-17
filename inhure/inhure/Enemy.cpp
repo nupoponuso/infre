@@ -2,27 +2,39 @@
 
 #include "RM.h"
 #include "F_lib/include/mover.h"
+//#include "Bullet.h"
+#include "Player.h"
 
 using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
+
 Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist), p(_dat.p)
 {
+	ep = 0;
+
 	speed = _dat.speed;
 	Myid = mover_enemy;
 	myList = _dat.mylist;
 	col = new Colision_2D(Colision_2D::Col_crecle);
 	col->getColdata()->size.x = 1;
 
-
 	Position = _dat.pos;
 	mesh = _dat.R->meshM->getModel(2);
 
 }
 
+Enemy::~Enemy()
+{
+	p->addEp(ep);
+
+
+}
+
 void Enemy::update()
 {
-	if (hp < 0)Alive = false;
+	if (hp < 0)
+		Alive = false;
 
 	move();
 	myAtack();
@@ -64,15 +76,14 @@ void Enemy::herhit(Mover2D *_m)
 	switch (_m->getMyid())
 	{
 	case mover_bullet:
-	//	hp -= _m->getatack();
-
+	
 		break;
 
 	case mover_enemy:
 
 		float len, angle;
 		len = col->getColdata()->size.x*0.1f;
-		angle = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().y), XMFLOAT2(_m->getPosition().x, _m->getPosition().y));
+		angle = F_lib_Mover::getLockAngle_2D(XMFLOAT2(this->getPosition().x, this->getPosition().z), XMFLOAT2(_m->getPosition().x, _m->getPosition().z));
 
 		Position.x += len * sindeg(-angle);
 		Position.z += len * cosdeg(-angle);
@@ -84,6 +95,7 @@ void Enemy::herhit(Mover2D *_m)
 F_lib_Mover::Colision_2D * Enemy::getcol()
 {
 	col->getColdata()->pos = XMFLOAT2(Position.x, Position.z);
-
+	
 	return col;
+
 }

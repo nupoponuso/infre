@@ -14,7 +14,7 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 
-private:
+protected:
 	F_lib_Fremworker::ResourceManager* R;	//リソース
 	F_lib_Render::Mesh_Sprite* s;			//スプライト
 

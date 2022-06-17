@@ -12,7 +12,7 @@ WeponBoomerang::WeponBoomerang(initWepondata _dat)
 	col->getColdata()->size.x = Size.x /2;
 	atack = 100;
 
-	speed = 1.11f;
+	speed = 1.71f;
 	cooltimeNow = cooltimeMax = 60;
 	countNow = countMax = 60;
 
@@ -108,7 +108,7 @@ void WeponBoomerang::ThisAtack()
 			}
 
 		}
-		else enemyList->Ishit(this);
+		else  enemyList->Ishit(this);
 
 	}
 }

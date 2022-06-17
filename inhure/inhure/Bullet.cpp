@@ -1,6 +1,7 @@
 #include "Bullet.h"
 
 #include "RM.h"
+#include "Enemy.h"
 
 using namespace F_lib_Mover;
 
@@ -45,7 +46,12 @@ void Bullet::terhit(Mover2D * _m)
 	hit = true;
 	Alive = false;
 
-	_m->Alive = false;
+	if (_m->getMyid() == mover_enemy)
+	{
+		Enemy* e = dynamic_cast<Enemy*>(_m);
+		e->addHp(-atack);
+
+	}
 
 }
 

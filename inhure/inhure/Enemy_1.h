@@ -9,6 +9,6 @@ private:
 	void move();
 	void myAtack();
 	bool ismove;
-
+	float speedAtack;
 };
 

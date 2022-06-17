@@ -10,7 +10,7 @@ HRESULT TexM::loadTex()
 
 	ID3D11ShaderResourceView* tex;
 
-	CreateTextureFromFile(Device, L"data/t/number_f.png", &tex);
+	CreateTextureFromFile(Device, L"data/t/UI‰¼.png", &tex);
 	list.push_back(tex);
 
 

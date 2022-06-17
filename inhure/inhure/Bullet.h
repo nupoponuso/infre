@@ -26,6 +26,7 @@ public:
 	void herhit(Mover2D*) {}
 
 	F_lib_Mover::Colision_2D* getcol() override;
+	int getAtack() { return atack; }
 
 protected:
 	virtual void move();
@@ -33,7 +34,6 @@ protected:
 
 	F_lib_Render::Mesh_Fbx* mesh;
 	MoverList* atacklist;
-	
 	//XMFLOAT2 vel;
 	int count;
 

@@ -159,6 +159,9 @@
     <ClCompile Include="TM.cpp">
       <Filter>ソース ファイル\comon</Filter>
     </ClCompile>
+    <ClCompile Include="UIPlayer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h">
@@ -244,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="Wepon.h">
       <Filter>ヘッダー ファイル\mover\Wepon</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPlayer.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

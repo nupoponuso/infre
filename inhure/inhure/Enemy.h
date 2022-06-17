@@ -19,7 +19,8 @@ class Enemy:public Mover2D
 {
 public:
 	Enemy(initenemydata);
-	
+	~Enemy();
+
 	void update();
 	void Draw();
 	void terhit(Mover2D*);
@@ -41,7 +42,7 @@ protected:
 	F_lib_Render::Mesh_Fbx* mesh;
 	F_lib_Mover::Colision_2D* atackCol;
 	MoverList* bulletList,*myList;
-	int hp, atack, defense;
+	int hp, atack, defense, ep;
 	float speed;
 	bool isAtack;
 

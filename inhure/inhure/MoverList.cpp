@@ -3,20 +3,24 @@
 
 void MoverList::update()
 {
-	for (auto m : list)
+	for (int i=0;i<list.size();i++ /*list*/)
 	{
-		if (!m->Alive)
+		Mover2D* m = list[i];
+		if (m->Alive)
+			m->update();
+
+		if(!m->Alive)
 		{
-			auto iter = std::find(list.begin(), list.end(), m);
-			if (iter != list.end())
-			{
+			auto iter = std::find(list.begin(), list.end() - 1, m);
+			
+			if (iter != list.end() - 1)
 				std::iter_swap(iter, list.end() - 1);
-				list.pop_back();
 
-			}
-
+			delete list.back();
+			list.pop_back();
+			
 		}
-		else m->update();
+
 
 	}
 
@@ -24,8 +28,8 @@ void MoverList::update()
 
 void MoverList::Draw()
 {
-	for (auto m : list)
-		m->Draw();
+	for (Mover2D* m : list)
+		if (m->Alive) m->Draw();
 
 }
 
@@ -40,16 +44,16 @@ bool MoverList::Ishit(Mover2D * _is)
 	F_lib_Mover::Colision_2D* Col1, *Col2;
 	Col1 = _is->getcol();
 	
-	for (int i = 0; i < list.size(); i++)
+	for (Mover2D* m: list)
 	{
-		if (list[i] == _is)
+		if (m == _is)
 			continue;
 	
-		Col2 = list[i]->getcol();
+		Col2 = m->getcol();
 		if ((Col1 != nullptr&&Col2 != nullptr) && Col2->ishit(Col1))
 		{
-			list[i]->herhit(_is);
-			_is->terhit(list[i]);
+			m->herhit(_is);
+			_is->terhit(m);
 
 			ref = true;
 		}

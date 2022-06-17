@@ -25,6 +25,8 @@ class Item :public Mover2D
 {
 public:
 	Item(InitItemData);
+
+
 	virtual void update();
 	virtual void Draw();
 

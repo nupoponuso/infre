@@ -177,7 +177,11 @@
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="TM.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UIPlayer.cpp" />
     <ClCompile Include="Wepon.cpp" />
+    <ClCompile Include="WeponBoomerang.cpp" />
+    <ClCompile Include="WeponFlamethrower.cpp" />
+    <ClCompile Include="WeponLyzer.cpp" />
     <ClCompile Include="WeponSword.cpp" />
     <ClCompile Include="Wepon_MissileLunther.cpp" />
   </ItemGroup>
@@ -204,7 +208,11 @@
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="TM.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UIPlayer.h" />
     <ClInclude Include="Wepon.h" />
+    <ClInclude Include="WeponBoomerang.h" />
+    <ClInclude Include="WeponFlamethrower.h" />
+    <ClInclude Include="WeponLyzer.h" />
     <ClInclude Include="WeponSword.h" />
     <ClInclude Include="Wepon_MissileLunther.h" />
   </ItemGroup>

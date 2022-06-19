@@ -170,6 +170,26 @@ namespace F_lib_Render
 	}
 
 
+	// addRenderBillList関数　 
+	// ビルボードを描画リストに登録
+	void RenderingEngine::addRenderBillList(Mesh_billbord * _b)
+	{
+		RenderingDat_Billbord dat;
+
+		dat.pos = _b->getPosition();
+		dat.size = XMFLOAT2(_b->getsize().x, _b->getsize().y);
+		dat.angle = _b->getangle().z;
+		dat.UV = _b->getUV();
+		dat.UVF = _b->getUVF();
+		dat.Color = _b->getColor();
+		dat.Shader = _b->getShader();
+		dat.textre = _b->getTexture();
+
+		RenderBillList.push_back(dat);
+
+	}
+
+
 	// addRenderList_2D関数　 
 	// 2Dモデルを描画リストに登録
 	void RenderingEngine::addRenderList_2D(Mesh_Sprite* _s, bool _flont)
@@ -206,6 +226,7 @@ namespace F_lib_Render
 
 		listRender_3D();
 		Efect->Draw();
+		listRender_Billbord();
 
 		listRender_2D(true);
 
@@ -220,14 +241,14 @@ namespace F_lib_Render
 		s->setSize(windowsize);
 		s->setPosition(0, 0);
 		s->Draw();
-		s->setTexture(nullptr);
-
+		
 		text->render();
 
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	
 		Render3DList.clear();
 		Render2DListBack.clear();
 		Render2DListFlont.clear();
+		RenderBillList.clear();
 
 	}
 
@@ -271,7 +292,7 @@ namespace F_lib_Render
 
 
 	//listRender関数
-	//リスト内の前描画
+	//リスト内の３Dモデル描画
 	void RenderingEngine::listRender_3D()
 	{
 		setBlend(BLEND_NONE);
@@ -291,6 +312,36 @@ namespace F_lib_Render
 
 	}
 
+
+	//listRender_Billbord関数
+	//リスト内のビルボード描画
+	void RenderingEngine::listRender_Billbord()
+	{
+		setRasterrize(RASTER_BACK);
+		setZBffer(false);
+		setBlend(BLEND_ALPHABLEND);
+		b->reset();
+
+		for (auto dat : RenderBillList)
+		{
+			b->setPosition(dat.pos);
+			b->setangle(dat.angle);
+			b->setColor(dat.Color);
+			b->setTexture(dat.textre);
+			b->setShader(dat.Shader);
+			b->setSize(dat.size);
+			b->setangle(dat.angle);
+			b->setUV(dat.UV);
+			b->setUVF(dat.UVF);
+			b->Draw();
+
+		}
+
+	}
+
+
+	//listRender_2D関数
+	//リスト内のスプライト描画
 	void RenderingEngine::listRender_2D(bool _flont)
 	{
 		setRasterrize(RASTER_BACK);

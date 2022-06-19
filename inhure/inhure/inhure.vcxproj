@@ -142,7 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\tomoy\Desktop\学校\CL\inhure\F_lib\include;..\..\DirectXTex</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\F_lib\include;..\..\DirectXTex</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -162,6 +162,29 @@
     <ClCompile Include="Enemy_1.cpp" />
     <ClCompile Include="Enemy_2.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="F_lib\include\RenderingEngine.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Camera.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\colision.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\EffekseerManeger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Fpsmaneger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Light.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Mesh.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\MeshManeger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Mesh_billbord.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Mesh_Fbxmodel.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Mesh_ShaderDat.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Mesh_Sprite.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\mover.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\moverManeger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\RenderingEngine.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\ResderTerget.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\ResourceManager.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\SceneManeger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\sound.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Text.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\texture.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\TextureManeger.cpp" />
+    <ClCompile Include="F_lib\lib_cpp\Window.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -177,7 +200,11 @@
     <ClCompile Include="Scene_Game.cpp" />
     <ClCompile Include="TM.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UIPlayer.cpp" />
     <ClCompile Include="Wepon.cpp" />
+    <ClCompile Include="WeponBoomerang.cpp" />
+    <ClCompile Include="WeponFlamethrower.cpp" />
+    <ClCompile Include="WeponLyzer.cpp" />
     <ClCompile Include="WeponSword.cpp" />
     <ClCompile Include="Wepon_MissileLunther.cpp" />
   </ItemGroup>
@@ -189,6 +216,32 @@
     <ClInclude Include="Enemy_1.h" />
     <ClInclude Include="Enemy_2.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="F_lib\include\Camera.h" />
+    <ClInclude Include="F_lib\include\Colision.h" />
+    <ClInclude Include="F_lib\include\comon.h" />
+    <ClInclude Include="F_lib\include\datemaneger.h" />
+    <ClInclude Include="F_lib\include\EffekseerManeger.h" />
+    <ClInclude Include="F_lib\include\Fpsmaneger.h" />
+    <ClInclude Include="F_lib\include\Light.h" />
+    <ClInclude Include="F_lib\include\Mesh.h" />
+    <ClInclude Include="F_lib\include\MeshManeger.h" />
+    <ClInclude Include="F_lib\include\Mesh_billbord.h" />
+    <ClInclude Include="F_lib\include\Mesh_Fbxmodel.h" />
+    <ClInclude Include="F_lib\include\Mesh_ShaderDat.h" />
+    <ClInclude Include="F_lib\include\Mesh_Sprite.h" />
+    <ClInclude Include="F_lib\include\mover.h" />
+    <ClInclude Include="F_lib\include\moverManeger.h" />
+    <ClInclude Include="F_lib\include\paramerter.h" />
+    <ClInclude Include="F_lib\include\RenderingEngine.h" />
+    <ClInclude Include="F_lib\include\ResderTerget.h" />
+    <ClInclude Include="F_lib\include\ResourceManager.h" />
+    <ClInclude Include="F_lib\include\SceneManeger.h" />
+    <ClInclude Include="F_lib\include\singlton.h" />
+    <ClInclude Include="F_lib\include\sound.h" />
+    <ClInclude Include="F_lib\include\Text.h" />
+    <ClInclude Include="F_lib\include\texture.h" />
+    <ClInclude Include="F_lib\include\TextureManeger.h" />
+    <ClInclude Include="F_lib\include\Window.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="MainWindow.h" />
@@ -204,7 +257,11 @@
     <ClInclude Include="Scene_Game.h" />
     <ClInclude Include="TM.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="UIPlayer.h" />
     <ClInclude Include="Wepon.h" />
+    <ClInclude Include="WeponBoomerang.h" />
+    <ClInclude Include="WeponFlamethrower.h" />
+    <ClInclude Include="WeponLyzer.h" />
     <ClInclude Include="WeponSword.h" />
     <ClInclude Include="Wepon_MissileLunther.h" />
   </ItemGroup>

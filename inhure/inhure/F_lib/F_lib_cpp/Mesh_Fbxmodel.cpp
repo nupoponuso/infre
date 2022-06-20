@@ -78,8 +78,7 @@ namespace F_lib_Render
 		fbxImporter->Import(fbxScene);
 
 		master = new Mesh_Fbx_anime(fbxImporter);
-		//FbxAxisSystem::DirectX.ConvertScene(fbxScene);
-
+	
 		FbxNode* rootnode = fbxScene->GetRootNode();
 		std::vector<FbxMesh*> meshlist;
 

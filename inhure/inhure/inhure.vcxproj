@@ -106,14 +106,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\F_lib\include;..\..\DirectXTex</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)F_lib\include;..\..\DirectXTex;$(ProjectDir)Effekseer;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)\F_lib\lib\Debug;..\..\DirectXTex\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Fuji_lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\DirectXTex\$(PlatformTarget)\$(Configuration);C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\lib\vs2017\$(PlatformTarget)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk-mt.lib;libxml2-mt.lib;zlib-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -162,29 +162,28 @@
     <ClCompile Include="Enemy_1.cpp" />
     <ClCompile Include="Enemy_2.cpp" />
     <ClCompile Include="Equipment.cpp" />
-    <ClCompile Include="F_lib\include\RenderingEngine.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Camera.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\colision.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\EffekseerManeger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Fpsmaneger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Light.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Mesh.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\MeshManeger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Mesh_billbord.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Mesh_Fbxmodel.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Mesh_ShaderDat.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Mesh_Sprite.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\mover.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\moverManeger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\RenderingEngine.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\ResderTerget.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\ResourceManager.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\SceneManeger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\sound.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Text.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\texture.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\TextureManeger.cpp" />
-    <ClCompile Include="F_lib\lib_cpp\Window.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Camera.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\colision.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\EffekseerManeger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Fpsmaneger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Light.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\MeshManeger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_billbord.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Fbxmodel.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_ShaderDat.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Sprite.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\mover.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\moverManeger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\RenderingEngine.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\ResderTerget.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\ResourceManager.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\sound.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Text.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\texture.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp" />
+    <ClCompile Include="F_lib\F_lib_cpp\Window.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />

@@ -36,7 +36,8 @@ namespace F_lib_Render
 		initdata_textfont dat;
 		CreateTextFormat(dat);
 		
-		RnderTerget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::Black), &SolidBrush);
+		RnderTerget->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), &SolidBrush);
+		color = TextColor::Color_White;
 
 		HDC hdc = GetDC(_hWnd);
 		TEXTMETRIC tm;
@@ -62,7 +63,7 @@ namespace F_lib_Render
 	{
 		textdat dat;
 		text = _text;
-
+		dat.color = color;
 		if (alpa != 1.0f)dat.alpa = alpa;
 		if (fontid != 0) dat.id = fontid;
 		dat.ref = D2D1::RectF(Position.x, Position.y, ref.right, Position.y + fontlist[fontid]->GetFontSize());
@@ -81,12 +82,15 @@ namespace F_lib_Render
 
 		for (auto dat : list)
 		{
-			ref = dat.ref;
-			SolidBrush->SetOpacity(dat.alpa);
-			
 			if (dat.id != fontid)
 				fontid = dat.id;
+
+			ref = dat.ref;
+
+			if (color != dat.color)
+				setColor(dat.color);
 			
+			SolidBrush->SetOpacity(dat.alpa);
 			RnderTerget->DrawText(dat.text.c_str(), dat.text.size(), fontlist[fontid], ref, SolidBrush, D2D1_DRAW_TEXT_OPTIONS_NONE);
 
 		}
@@ -98,6 +102,12 @@ namespace F_lib_Render
 	}
 
 
+	void Text::setColor(TextColor _color)
+	{
+		color = _color;
+
+	}
+
 	//
 	void Text::setfont(int _id)
 	{
@@ -105,5 +115,30 @@ namespace F_lib_Render
 
 	}
 
+	void Text::setColorData(TextColor _color)
+	{
+		switch (_color)
+		{
+		case Color_White:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::White));
+			break;
+		case TextColor::Color_Black:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::Black));
+			break;
+		case TextColor::Color_Red:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::Red));
+			break;
+		case TextColor::Color_Blue:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::Blue));
+			break;
+		case TextColor::Color_Green:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::Green));
+			break;
+		default:
+			SolidBrush->SetColor(D2D1::ColorF(D2D1::ColorF::White));
+			break;
+		}
+
+	}
 	
 }

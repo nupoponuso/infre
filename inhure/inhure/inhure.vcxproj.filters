@@ -171,74 +171,71 @@
     <ClCompile Include="WeponFlamethrower.cpp">
       <Filter>ソース ファイル\mover\wepon</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\colision.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\EffekseerManeger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_billbord.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Fpsmaneger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Fbxmodel.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Light.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_ShaderDat.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Mesh.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Sprite.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Mesh_billbord.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\MeshManeger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Mesh_Fbxmodel.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\mover.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Mesh_ShaderDat.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\moverManeger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Mesh_Sprite.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\RenderingEngine.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\MeshManeger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\ResderTerget.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\mover.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\ResourceManager.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\moverManeger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\RenderingEngine.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Text.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\ResderTerget.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\ResourceManager.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Window.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\SceneManeger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Camera.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\sound.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\colision.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Text.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\EffekseerManeger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\texture.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Fpsmaneger.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\TextureManeger.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\Light.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Window.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\sound.cpp">
       <Filter>F_lib\cpp</Filter>
     </ClCompile>
-    <ClCompile Include="F_lib\lib_cpp\Camera.cpp">
+    <ClCompile Include="F_lib\F_lib_cpp\texture.cpp">
       <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\include\RenderingEngine.cpp">
-      <Filter>F_lib\h</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -329,18 +326,6 @@
     <ClInclude Include="WeponFlamethrower.h">
       <Filter>ヘッダー ファイル\mover\Wepon</Filter>
     </ClInclude>
-    <ClInclude Include="F_lib\include\comon.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\datemaneger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\EffekseerManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Fpsmaneger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
     <ClInclude Include="F_lib\include\Light.h">
       <Filter>F_lib\h</Filter>
     </ClInclude>
@@ -405,6 +390,18 @@
       <Filter>F_lib\h</Filter>
     </ClInclude>
     <ClInclude Include="F_lib\include\Colision.h">
+      <Filter>F_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\comon.h">
+      <Filter>F_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\datemaneger.h">
+      <Filter>F_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\EffekseerManeger.h">
+      <Filter>F_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Fpsmaneger.h">
       <Filter>F_lib\h</Filter>
     </ClInclude>
   </ItemGroup>

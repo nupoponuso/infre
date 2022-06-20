@@ -18,34 +18,12 @@ namespace F_lib_Mover
 
 	// コンストラクタ：Taskクラスコンストラクタの初期化リスト付き
 	//	メンバ変数の初期化　引数：タスクリスト,初期座標xy,角度,スピード,テクスチャマネージャー
-	Mover::Mover(F_lib_Fremworker::ResourceManager* _Resource, XMFLOAT3 _angle, float _speed)
-		: Resource(_Resource), angle(_angle), speed(_speed), Alive(true), col(nullptr), hit(false)
+	MoverBase::MoverBase(F_lib_Fremworker::ResourceManager* _R)
+		: Resource(_R), Alive(true)
 	{
 		Size = XMFLOAT3(1, 1, 1);
+		Angle = XMFLOAT3();
 
-	}
-
-
-	//getcol関数
-	//クラスメンバの当たり判定クラス
-	Colision_2D * Mover::getcol()
-	{
-		if (col != nullptr)
-		{
-			Coldata_2D* dat = col->getColdata();
-			dat->pos = XMFLOAT2(Position.x, Position.y);
-
-		}
-
-		return col;
-	}
-
-
-	//addhp関数
-	//hpへ引数の加算
-	void Mover::addhp(int _add)
-	{
-		if (hp >= 0) hp += _add;
 	}
 
 	//-----------------------------------------
@@ -63,6 +41,7 @@ namespace F_lib_Mover
 		return angle;
 	}
 
+	
 	//getlockangle関数
 	//第一引数＊の位置から第二引数＊の位置の角度を取得
 	//XMFLOAT3 getlockangle_3D(Mover * _this, Mover * _terget)

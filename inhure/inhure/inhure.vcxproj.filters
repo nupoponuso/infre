@@ -82,6 +82,12 @@
     <Filter Include="F_lib\h">
       <UniqueIdentifier>{85950120-3ec9-4cf2-a589-e1740f465cad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\additional">
+      <UniqueIdentifier>{d506e9e0-3078-41c0-b2bb-0277080b44f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\additional">
+      <UniqueIdentifier>{df1124ae-7ffd-449e-824f-6593c1befd25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -236,6 +242,27 @@
     </ClCompile>
     <ClCompile Include="F_lib\F_lib_cpp\texture.cpp">
       <Filter>F_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DFunctions.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomInput.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DRenderTargetsAndDWrite.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DText.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DTextManager.cpp">
+      <Filter>ソース ファイル\additional</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -403,6 +430,27 @@
     </ClInclude>
     <ClInclude Include="F_lib\include\Fpsmaneger.h">
       <Filter>F_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DFunctions.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomInput.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DRenderTargetsAndDWrite.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DText.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DTextManager.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,6 +5,8 @@
 #include "Mesh_ShaderDat.h"
 #include "Text.h"
 
+#include "../D2DText.h"
+#include "../D2DFunctions.h"
 
 namespace F_lib_Render
 {
@@ -27,6 +29,15 @@ namespace F_lib_Render
 
 	}
 
+	// 追加
+	RenderingEngine::~RenderingEngine()
+	{
+		::F_lib_Render::D2DText::UninitText();
+		::D2DFunctions::D2DFuncComponent::UninitD2DFunc();
+		delete D2DTextMng;
+		delete D2DTargets;
+	}
+	// ここまで
 
 	//初期化
 	//スワップチェインやデバイスコンテキストなどの作成
@@ -149,6 +160,21 @@ namespace F_lib_Render
 		text = new Text();
 		text->init(_hWnd, this);
 
+		// 追加
+		// D2D機能用レンダーターゲットとDWrite用ファクトリの作成
+		D2DTargets = new D2DRenderTargetsandDWrite();
+		D2DTargets->Init(SwapChain, _hWnd);
+		D2DText::InitText(D2DTargets->GetDWriteFactory(), D2DTargets->GetDxgiRenderTarget());
+		D2DTextMng = new ::F_lib_Render::D2DTextMng();
+		/*
+		*	DxgiRenaderTargetでしか機能しない。
+		*	HwndRenderTarget,DCRenderTargetへの対応はしていないので注意
+		*	(今利用しているRenderingEngine(藤岡製)のRenderTerget.hの設定に依っている)
+		*/
+		::D2DFunctions::D2DFuncComponent::InitD2DFunc(D2DTargets->GetD2DFactory(), D2DTargets->GetDxgiRenderTarget());
+
+		// ここまで
+
 	}
 
 
@@ -231,7 +257,8 @@ namespace F_lib_Render
 		listRender_2D(true);
 
 		Mainterget->RenderClser(DeviceContext);		//ノンスクリーンレンダリングした物をスプライトで描画
-
+		D2DTargets->GetDxgiRenderTarget()->BeginDraw();	// D2Dの描画開始
+														// 呼出はレンダーターゲットのクリア後~SwapChain.Present()の間に1回のみ
 		setRasterrize(RASTER_BACK);
 		setBlend(BLEND_ALPHABLEND);
 		setZBffer(false);
@@ -243,13 +270,19 @@ namespace F_lib_Render
 		s->Draw();
 		
 		text->render();
+		D2DTextMng->Render();
 
+		D2DFunctions::D2DGauge* gauge = new D2DFunctions::D2DGauge();
+		gauge->DrawCircleGauge();
+		gauge->DrawRoundRectangle();
+
+		D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	
 		Render3DList.clear();
 		Render2DListBack.clear();
 		Render2DListFlont.clear();
 		RenderBillList.clear();
-
+		delete gauge;
 	}
 
 

@@ -20,6 +20,7 @@
 
 //グローバル変数
 F_lib_Fremworker::GameWindow* Pwindow = nullptr;
+POINT ClientMousePos = { -1,-1 };
 
 
 //-------------------------------------------------------
@@ -121,12 +122,19 @@ namespace F_lib_Fremworker
 		switch (iMsg)
 		{
 		case WM_KEYDOWN:
-			switch ((char)wParam)
-			{
-			case VK_HOME:
-				PostQuitMessage(0);
+			switch ((char)wParam) {
+			case VK_ESCAPE:
+				int ret = MessageBox(hWnd, TEXT("終了しますか?"), TEXT("終了確認"), MB_OKCANCEL);
+				if (ret == IDOK) {
+					//PostQuitMessage(0);
+					DestroyWindow(hWnd);
+				}
 				break;
 			}
+			break;
+		case WM_MOUSEMOVE:
+			ClientMousePos.x = LOWORD(lParam);
+			ClientMousePos.y = HIWORD(lParam);
 			break;
 		case WM_DESTROY:
 			PostQuitMessage(0);
@@ -216,4 +224,10 @@ namespace F_lib_Fremworker
 
 	}
 
+}
+
+
+POINT GetClientMousePos()
+{
+	return ClientMousePos;
 }

@@ -12,6 +12,12 @@
 #include "Mesh_billbord.h"
 #include "EffekseerManeger.h"
 
+//í«â¡ÅAÉpÉXÇÕå„ÇŸÇ«èCê≥ÇÃÇ±Ç∆
+#include "../D2DRenderTargetsAndDWrite.h"
+#include "../D2DTextManager.h"
+
+// Ç±Ç±Ç‹Ç≈
+
 //
 struct RenderingDat_3D
 {
@@ -64,6 +70,7 @@ namespace F_lib_Render
 	{
 	public:
 		RenderingEngine();
+		~RenderingEngine();	// í«â¡
 
 		void Iint(HWND, int _width,int _height);
 
@@ -86,6 +93,8 @@ namespace F_lib_Render
 		IDXGISwapChain*	getSwapChain() { return SwapChain; }
 		XMFLOAT2 getWindowsize() { return windowsize; }
 		class Text* getText() { return text; }
+		F_lib_Render::D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }	// í«â¡
+		F_lib_Render::D2DTextMng* getD2DTextMng() { return D2DTextMng; } //í«â¡
 
 	private:
 		void listRender_3D();
@@ -113,6 +122,10 @@ namespace F_lib_Render
 		EffekseerManeger* Efect;
 		Mesh_ShaderDat*Shader;
 		XMFLOAT2 windowsize;
-
+		
+		// í«â¡
+		F_lib_Render::D2DRenderTargetsandDWrite* D2DTargets;
+		F_lib_Render::D2DTextMng* D2DTextMng;
+		// Ç±Ç±Ç‹Ç≈
 	};
 }

@@ -76,3 +76,5 @@ namespace F_lib_Fremworker
 	};
 
 }
+
+POINT GetClientMousePos();

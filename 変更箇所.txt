@@ -2,7 +2,68 @@
 RenderingEngine.cppを削除(おそらく古いデータ)
 
 
+# 共通懸念項目
+コンストラクタでの初期化がされていないメンバ変数が多い
+newの後deleteされていないものが多い
 
 
 
+# 追加ファイル一覧
+- sln>additionalフィルター内(パス関係は一時的なもの)
+CustomInput(h,cpp)
+D2DFunctions(h,cpp)
+D2DRenderTargetAndDWrite(h,cpp)
+D2Text(h,cpp)
+GameTimer(h,cpp)
+Shop(h,cpp)
 
+
+
+# F_libの変更箇所
+- Window(h,cpp)
+ - h
+ 	関数:GetClientMousePos()追加
+ - cpp
+	グローバル変数
+ 		ClientMousePos追加
+ 	関数:GetClientMousePosの実装
+ 	MsgProc()
+ 		デバッグ用にESCAPEで終了確認メッセージを出力
+ 		マウス位置の取得
+ 	
+- RenderingEngine(h,cpp)
+ - h
+ 	include追加
+ 	デストラクタ追加
+ 	D2DRenderTargetのポインタ、及びgetter
+ 	D2DTextMngのポインタ、及びgetter
+ - cpp
+ 	デストラクタ()
+ 		D2DRenderTargetのdelete
+ 		D2DText関係のdelete
+ 	Init()
+ 		D2DRenderTargetの初期化
+ 		D2DTextの初期化、レンダー用リスト管理クラスTextMngの生成
+ 	Renderring()
+ 		D2D描画の記述(BeginDraw,EndDraw)
+ 		D2DText描画
+
+- Mesh(cpp)
+ - cpp
+ 	コンストラクタ
+ 		angleの初期化：バグ防止のため
+ 		
+
+
+# ソースファイルの変更箇所
+- SceneTitle(h,cpp)
+ - h
+ 	デストラクタの追加
+ - cpp
+ 	デストラクタでD2DTextMng.RemoveAll()：シーン内文字を削除命令
+ 
+ 
+ 
+ 
+ 
+ 

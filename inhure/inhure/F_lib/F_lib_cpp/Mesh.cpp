@@ -19,7 +19,7 @@ namespace F_lib_Render
 	{
 		Position = XMFLOAT3(0.0, 0.0, 0.0);
 		Size = XMFLOAT3(1.0, 1.0, 1.0);
-
+		angle = XMFLOAT3(0.0, 0.0, 0.0);
 	}
 
 }

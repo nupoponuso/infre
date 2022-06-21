@@ -157,6 +157,11 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletHoming.cpp" />
+    <ClCompile Include="CustomInput.cpp" />
+    <ClCompile Include="D2DFunctions.cpp" />
+    <ClCompile Include="D2DRenderTargetsAndDWrite.cpp" />
+    <ClCompile Include="D2DText.cpp" />
+    <ClCompile Include="D2DTextManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Enemy_1.cpp" />
@@ -184,6 +189,7 @@
     <ClCompile Include="F_lib\F_lib_cpp\texture.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\Window.cpp" />
+    <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -197,6 +203,9 @@
     <ClCompile Include="SceneTitle.cpp" />
     <ClCompile Include="Scene_Corection.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
+    <ClCompile Include="Shop.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="TM.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UIPlayer.cpp" />
@@ -210,6 +219,11 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletHoming.h" />
+    <ClInclude Include="CustomInput.h" />
+    <ClInclude Include="D2DFunctions.h" />
+    <ClInclude Include="D2DRenderTargetsAndDWrite.h" />
+    <ClInclude Include="D2DText.h" />
+    <ClInclude Include="D2DTextManager.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enemy_1.h" />
@@ -241,6 +255,7 @@
     <ClInclude Include="F_lib\include\texture.h" />
     <ClInclude Include="F_lib\include\TextureManeger.h" />
     <ClInclude Include="F_lib\include\Window.h" />
+    <ClInclude Include="GameTimer.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="MainWindow.h" />
@@ -254,6 +269,9 @@
     <ClInclude Include="SceneTitle.h" />
     <ClInclude Include="Scene_Corection.h" />
     <ClInclude Include="Scene_Game.h" />
+    <ClInclude Include="Shop.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="TM.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UIPlayer.h" />

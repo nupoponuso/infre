@@ -1,6 +1,8 @@
 #include "GameTimer.h"
 
 #include "RenderingEngine.h"
+#include "D2DDrawMng.h"
+#include "D2DText.h"
 #include "input.h"
 
 // –¼‘O‹óŠÔ‚ÌéŒ¾
@@ -12,12 +14,10 @@ GameTimer::GameTimer()
 {
 	restart();
 	CountText = new D2DText();
-	getEngine()->getD2DTextMng()->Add(CountText);
 }
 
 GameTimer::~GameTimer()
 {
-	getEngine()->getD2DTextMng()->Remove(CountText);
 }
 
 void GameTimer::restart()

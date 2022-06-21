@@ -1,4 +1,7 @@
-#include "D2DTextManager.h"
+#include "D2DDrawMng.h"
+
+#include "D2DText.h"
+#include "D2DFunctions.h"
 
 namespace F_lib_Render
 {
@@ -55,13 +58,15 @@ namespace F_lib_Render
 	{
 		if (List.size()) {
 			for (auto&& t : List) {
-				t->GetRenderTarget()->DrawText(
-					t->GetText(),
-					t->GetTextSize(),
-					t->GetTextFormat(),
-					t->GetDrawRect(),
-					t->GetSolidBrush(),
-					D2D1_DRAW_TEXT_OPTIONS_NONE);
+				if (t->GetDrawFlag()) {	// •`‰æŽwŽ¦‚³‚ê‚½‚Ì‚à‚¾‚¯•`‰æ‚·‚é
+					t->GetRenderTarget()->DrawText(
+						t->GetText(),
+						t->GetTextLength(),
+						t->GetTextFormat(),
+						t->GetDrawRect(),
+						t->GetSolidBrush(),
+						D2D1_DRAW_TEXT_OPTIONS_NONE);
+				}
 			}
 		}
 	}

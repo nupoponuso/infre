@@ -5,6 +5,9 @@
 #include "Mesh_ShaderDat.h"
 #include "Text.h"
 
+#include "../D2DRenderTargetsAndDWrite.h"
+#include "../D2DDrawMng.h"
+#include "../RenderTargetResources.h"
 #include "../D2DText.h"
 #include "../D2DFunctions.h"
 
@@ -32,8 +35,9 @@ namespace F_lib_Render
 	// 追加
 	RenderingEngine::~RenderingEngine()
 	{
-		::F_lib_Render::D2DText::UninitText();
-		::D2DFunctions::D2DFuncComponent::UninitD2DFunc();
+		::F_lib_Render::D2DText::Uninit();
+		::D2DFunctions::D2DFuncComponent::Uninit();
+		::F_lib_Render::RenderTargetResources::DeleteResources();
 		delete D2DTextMng;
 		delete D2DTargets;
 	}
@@ -164,14 +168,15 @@ namespace F_lib_Render
 		// D2D機能用レンダーターゲットとDWrite用ファクトリの作成
 		D2DTargets = new D2DRenderTargetsandDWrite();
 		D2DTargets->Init(SwapChain, _hWnd);
-		D2DText::InitText(D2DTargets->GetDWriteFactory(), D2DTargets->GetDxgiRenderTarget());
-		D2DTextMng = new ::F_lib_Render::D2DTextMng();
 		/*
 		*	DxgiRenaderTargetでしか機能しない。
 		*	HwndRenderTarget,DCRenderTargetへの対応はしていないので注意
 		*	(今利用しているRenderingEngine(藤岡製)のRenderTerget.hの設定に依っている)
 		*/
-		::D2DFunctions::D2DFuncComponent::InitD2DFunc(D2DTargets->GetD2DFactory(), D2DTargets->GetDxgiRenderTarget());
+		RenderTargetResources::Create(D2DTargets->GetDxgiRenderTarget());
+		D2DTextMng = new ::F_lib_Render::D2DTextMng();
+		D2DText::Init(D2DTargets->GetDWriteFactory(), D2DTextMng);
+		::D2DFunctions::D2DFuncComponent::Init(D2DTargets->GetD2DFactory());
 
 		// ここまで
 
@@ -272,17 +277,12 @@ namespace F_lib_Render
 		text->render();
 		D2DTextMng->Render();
 
-		D2DFunctions::D2DGauge* gauge = new D2DFunctions::D2DGauge();
-		gauge->DrawCircleGauge();
-		gauge->DrawRoundRectangle();
-
 		D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	
 		Render3DList.clear();
 		Render2DListBack.clear();
 		Render2DListFlont.clear();
 		RenderBillList.clear();
-		delete gauge;
 	}
 
 

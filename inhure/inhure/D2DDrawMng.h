@@ -1,24 +1,15 @@
 #pragma once
 
 #include <vector>
-#include <DirectXColors.h>
-#include <d2d1.h>
-#include <dwrite.h>
 
-#include "D2DText.h"
-#include "D2DFunctions.h"
-
-// libw’è
-#pragma comment(lib,"d2d1.lib")
-#pragma comment(lib,"dwrite.lib")
-
-
+// ‘O•ûéŒ¾
 namespace F_lib_Render
 {
-	// ‘O•ûéŒ¾
 	class D2DText;
-	//class D2DFuncComponent;
-
+	class D2DFucnComponent;
+}
+namespace F_lib_Render
+{
 	class D2DTextMng
 	{
 	public:

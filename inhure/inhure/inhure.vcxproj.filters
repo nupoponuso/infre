@@ -261,7 +261,10 @@
     <ClCompile Include="D2DText.cpp">
       <Filter>ソース ファイル\additional</Filter>
     </ClCompile>
-    <ClCompile Include="D2DTextManager.cpp">
+    <ClCompile Include="RenderTargetResources.cpp">
+      <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DDrawMng.cpp">
       <Filter>ソース ファイル\additional</Filter>
     </ClCompile>
   </ItemGroup>
@@ -449,7 +452,10 @@
     <ClInclude Include="D2DText.h">
       <Filter>ヘッダー ファイル\additional</Filter>
     </ClInclude>
-    <ClInclude Include="D2DTextManager.h">
+    <ClInclude Include="RenderTargetResources.h">
+      <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DDrawMng.h">
       <Filter>ヘッダー ファイル\additional</Filter>
     </ClInclude>
   </ItemGroup>

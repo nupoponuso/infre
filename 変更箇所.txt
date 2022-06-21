@@ -14,7 +14,9 @@ CustomInput(h,cpp)
 D2DFunctions(h,cpp)
 D2DRenderTargetAndDWrite(h,cpp)
 D2Text(h,cpp)
+D2DDrawMng(h,cpp)
 GameTimer(h,cpp)
+RenderTargetResource(h,cpp)
 Shop(h,cpp)
 
 
@@ -33,7 +35,7 @@ Shop(h,cpp)
  	
 - RenderingEngine(h,cpp)
  - h
- 	include追加
+ 	前方宣言を追加
  	デストラクタ追加
  	D2DRenderTargetのポインタ、及びgetter
  	D2DTextMngのポインタ、及びgetter
@@ -41,12 +43,17 @@ Shop(h,cpp)
  	デストラクタ()
  		D2DRenderTargetのdelete
  		D2DText関係のdelete
+ 		D2DFunction関係のdelete
+ 		RenderTargetResourceのdelete
  	Init()
- 		D2DRenderTargetの初期化
+ 		D2DRenderTargetsの初期化
+ 		RenderTargetResourceの初期化
  		D2DTextの初期化、レンダー用リスト管理クラスTextMngの生成
+ 		D2DFunctionの初期化、レンダー用リスト管理クラスFuncMngの生成(途中)
  	Renderring()
  		D2D描画の記述(BeginDraw,EndDraw)
  		D2DText描画
+ 		D2DFunc描画
 
 - Mesh(cpp)
  - cpp

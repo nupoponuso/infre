@@ -12,12 +12,6 @@
 #include "Mesh_billbord.h"
 #include "EffekseerManeger.h"
 
-//追加、パスは後ほど修正のこと
-#include "../D2DRenderTargetsAndDWrite.h"
-#include "../D2DTextManager.h"
-
-// ここまで
-
 //
 struct RenderingDat_3D
 {
@@ -58,6 +52,12 @@ struct RenderingDat_Billbord
 
 };
 
+// 前方宣言
+namespace F_lib_Render
+{
+	class D2DRenderTargetsandDWrite;
+	class D2DTextMng;
+}
 
 namespace F_lib_Render
 {
@@ -93,8 +93,8 @@ namespace F_lib_Render
 		IDXGISwapChain*	getSwapChain() { return SwapChain; }
 		XMFLOAT2 getWindowsize() { return windowsize; }
 		class Text* getText() { return text; }
-		F_lib_Render::D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }	// 追加
-		F_lib_Render::D2DTextMng* getD2DTextMng() { return D2DTextMng; } //追加
+		D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }	// 追加
+		D2DTextMng* getD2DTextMng() { return D2DTextMng; } //追加
 
 	private:
 		void listRender_3D();
@@ -124,8 +124,8 @@ namespace F_lib_Render
 		XMFLOAT2 windowsize;
 		
 		// 追加
-		F_lib_Render::D2DRenderTargetsandDWrite* D2DTargets;
-		F_lib_Render::D2DTextMng* D2DTextMng;
+		D2DRenderTargetsandDWrite* D2DTargets;
+		D2DTextMng* D2DTextMng;
 		// ここまで
 	};
 }

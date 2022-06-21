@@ -4,7 +4,8 @@
 
 #include "input.h"
 
-
+#include "RenderingEngine.h"
+#include "D2DDrawMng.h"
 #include "D2DText.h"
 using namespace F_lib_Render;
 
@@ -17,10 +18,9 @@ SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
 	D2DText* d2dtext;
 	//std::wstring wstr = L"d2dtext test line.";
 	const WCHAR* wstr = L"d2dtext test line.";
-	D2D1_RECT_F trect = { 100,200,300,400 };
+	D2D1_RECT_F trect = { 0,0,300,400 };
 
 	d2dtext = new D2DText(wstr, trect);
-	getEngine()->getD2DTextMng()->Add(d2dtext);
 
 	GTimer = new GameTimer();
 }

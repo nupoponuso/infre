@@ -1,6 +1,8 @@
 #include "D2DText.h"
 
-#include <assert.h>
+#include "D2DDrawMng.h"
+
+#include "RenderingEngine.h"
 
 #define SAFE_RELEASE(x) if(x) {x->Release(); x=nullptr;}
 
@@ -10,88 +12,54 @@ namespace F_lib_Render
 	// クラス内static変数群
 	// 利用するインターフェース
 	IDWriteFactory*		D2DText::DWriteFactory = nullptr;
-	ID2D1RenderTarget*	D2DText::RenderTarget = nullptr;
 	// デフォルトフォントパラメータ
 	const WCHAR*		D2DText::defFontFamiry	= L"メイリオ";
 	const float			D2DText::defFontSize	= 20.0f;
 	D2D1_COLOR_F		D2DText::defFontColor	= { 1.0F, 1.0F, 1.0F, 1.0F };
 	IDWriteTextFormat*	D2DText::defTextFormat	= nullptr;
-	// デフォルトブラシ
-	ID2D1SolidColorBrush*	D2DText::BlackBrush = nullptr;
-	ID2D1SolidColorBrush*	D2DText::BlueBrush  = nullptr;
-	ID2D1SolidColorBrush*	D2DText::GreenBrush = nullptr;
-	ID2D1SolidColorBrush*	D2DText::RedBrush   = nullptr;
-	// Init済みFlag
-	bool D2DText::InitedFlag = false;		// true:済み/false:未初期化
 	// デフォルト描画順
 	const int D2DText::defDrawOrder = 100;
+	// 描画管理クラス
+	//D2DTextMng* Manager = nullptr;
 
 #pragma region D2DTextInitialize
-HRESULT D2DText::InitText(IDWriteFactory* factory, ID2D1RenderTarget* target)
+HRESULT D2DText::Init(IDWriteFactory* factory, D2DTextMng* drawer)
 {
 	HRESULT hr = S_OK;
 
-	if (InitedFlag == false) {
-		// 必須インターフェースのポインタを取得
-		if (factory == nullptr) hr = E_FAIL;
+	// 必須インターフェースのポインタを取得
+	if (DWriteFactory == nullptr) {
 		DWriteFactory = factory;
-		if (target == nullptr) hr = E_FAIL;
-		RenderTarget = target;
-
 		DWriteFactory->AddRef();
-		RenderTarget->AddRef();
-		InitedFlag = true;
-
-		if (defTextFormat == nullptr) {
-			DWriteFactory->CreateTextFormat(
-				defFontFamiry,
-				nullptr,
-				DWRITE_FONT_WEIGHT_NORMAL,
-				DWRITE_FONT_STYLE_NORMAL,
-				DWRITE_FONT_STRETCH_NORMAL,
-				defFontSize,
-				L"",
-				&defTextFormat
-			);
-			defTextFormat->AddRef();
-		}
-		if (BlackBrush == nullptr) {
-			hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(1.0F, 1.0F, 1.0F, 1.0F), &BlackBrush);
-			if (FAILED(hr)) return hr;
-		}
-		if (BlueBrush == nullptr) {
-			hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(0.0F, 0.0F, 1.0F, 1.0F), &BlueBrush);
-			if (FAILED(hr)) return hr;
-		}
-		if (GreenBrush == nullptr) {
-			hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(0.0F, 1.0F, 0.0F, 1.0F), &GreenBrush);
-			if (FAILED(hr)) return hr;
-		}
-		if (RedBrush == nullptr) {
-			hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(1.0F, 0.0F, 0.0F, 1.0F), &RedBrush);
-			if (FAILED(hr)) return hr;
-		}
-	} else {
-		// なにもしない
 	}
+
+	if (defTextFormat == nullptr) {
+		hr = DWriteFactory->CreateTextFormat(
+			defFontFamiry,
+			nullptr,
+			DWRITE_FONT_WEIGHT_NORMAL,
+			DWRITE_FONT_STYLE_NORMAL,
+			DWRITE_FONT_STRETCH_NORMAL,
+			defFontSize,
+			L"",
+			&defTextFormat
+		);
+		if (FAILED(hr))
+			return hr;
+	}
+
+	//if (Manager == nullptr) {
+	//	Manager = drawer;
+	//}
 
 	return hr;
 }
 
-void D2DText::UninitText()
+void D2DText::Uninit()
 {
-	if (InitedFlag == true) {
-		SAFE_RELEASE(DWriteFactory);
-		SAFE_RELEASE(RenderTarget);
-		SAFE_RELEASE(defTextFormat);
-		SAFE_RELEASE(BlackBrush);
-		SAFE_RELEASE(BlueBrush);
-		SAFE_RELEASE(GreenBrush);
-		SAFE_RELEASE(RedBrush);
-		InitedFlag = false;
-	} else {
-		// なにもしない
-	}
+	SAFE_RELEASE(DWriteFactory);
+	SAFE_RELEASE(defTextFormat);
+	//Manager = nullptr;
 }
 #pragma endregion D2DTextInitialize
 
@@ -100,22 +68,31 @@ void D2DText::UninitText()
 
 #pragma region TextLine
 	D2DText::D2DText()
-		: Text(nullptr)
+		: RenderTargetResources()
+		, Text(nullptr)
 		, TextLength(0)
 		, DrawRect(D2D1_RECT_F{ 0,0,10.0f,10.0f })
 		, DrawOrder(defDrawOrder)
+		, DrawFlag(true)
 	{
-		assert(InitedFlag == true);	// IniteText()が一度も呼ばれていないとエラー
+		if (DWriteFactory) {
+			DWriteFactory->AddRef();
+		}
+		if (defTextFormat) {
+			TextFormat = defTextFormat;
+			TextFormat->AddRef();
+		}
+		if (BlackBrush) {
+			SolidBrush = BlackBrush;
+			SolidBrush->AddRef();
+		}
 
-		//DWriteFactory = DWriteFactory;
-		//RenderTarget = RenderTarget;
-		TextFormat = defTextFormat;
-		SolidBrush = BlackBrush;
-		
-		DWriteFactory->AddRef();
-		RenderTarget->AddRef();
-		TextFormat->AddRef();
-		SolidBrush->AddRef();
+		// 生成したら即登録
+		//if (Manager) {
+		//	Manager->Add(this);
+		//}
+		Manager = getEngine()->getD2DTextMng();
+		Manager->Add(this);
 	}
 
 	D2DText::D2DText(const std::wstring str, D2D1_RECT_F rect, int drawOrder) : D2DText()
@@ -138,8 +115,8 @@ void D2DText::UninitText()
 
 	D2DText::~D2DText()
 	{
+		Manager->Remove(this);
 		SAFE_RELEASE(DWriteFactory);
-		SAFE_RELEASE(RenderTarget);
 		SAFE_RELEASE(TextFormat);
 		SAFE_RELEASE(SolidBrush);
 	}
@@ -148,6 +125,12 @@ void D2DText::UninitText()
 	{
 		HRESULT hr = S_OK;
 		
+		// Init()で設定し忘れていた場合はエラー
+		if (DWriteFactory == nullptr) {
+			return E_POINTER;
+		}
+
+		// 利用しているデフォルトブラシの参照カウンタを減らすor現状のリソース解放
 		SAFE_RELEASE(TextFormat);
 
 		 hr = DWriteFactory->CreateTextFormat(
@@ -164,7 +147,7 @@ void D2DText::UninitText()
 			 return hr;
 
 		TextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING);
-		TextFormat->AddRef();
+
 		return hr;
 	}
 
@@ -172,21 +155,27 @@ void D2DText::UninitText()
 	{
 		HRESULT hr = S_OK;
 
+		// 利用しているデフォルトブラシの参照カウンタを減らすor現状のリソース解放
 		SAFE_RELEASE(SolidBrush);
+
+		//Init()で設定し忘れていた場合はエラー
+		if (RenderTarget == nullptr) {
+			return E_POINTER;
+		}
 
 		hr = RenderTarget->CreateSolidColorBrush(c, &SolidBrush);
 		if (FAILED(hr))
 			return hr;
-		SolidBrush->AddRef();
+
 		return hr;
 	}
 
-	void D2DText::SetText(const std::wstring str)
+	void D2DText::SetText(std::wstring str)
 	{
-		Text = str.c_str();
+		Text = const_cast<WCHAR*>(str.c_str());
 	}
 
-	void D2DText::SetText(const WCHAR * str, int length)
+	void D2DText::SetText(WCHAR * str, int length)
 	{
 		Text = str;
 		TextLength = length;
@@ -195,6 +184,11 @@ void D2DText::UninitText()
 	void D2DText::SetRect(D2D1_RECT_F rect)
 	{
 		DrawRect = rect;
+	}
+
+	void D2DText::SetDrawFlag(bool enable)
+	{
+		DrawFlag = enable;
 	}
 
 	void D2DText::SetFontSize(float size)

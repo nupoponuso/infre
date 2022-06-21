@@ -161,7 +161,7 @@
     <ClCompile Include="D2DFunctions.cpp" />
     <ClCompile Include="D2DRenderTargetsAndDWrite.cpp" />
     <ClCompile Include="D2DText.cpp" />
-    <ClCompile Include="D2DTextManager.cpp" />
+    <ClCompile Include="D2DDrawMng.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Enemy_1.cpp" />
@@ -198,6 +198,7 @@
     <ClCompile Include="MoverList.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RenderTargetResources.cpp" />
     <ClCompile Include="RM.cpp" />
     <ClCompile Include="SceneManager_infure.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
@@ -223,7 +224,7 @@
     <ClInclude Include="D2DFunctions.h" />
     <ClInclude Include="D2DRenderTargetsAndDWrite.h" />
     <ClInclude Include="D2DText.h" />
-    <ClInclude Include="D2DTextManager.h" />
+    <ClInclude Include="D2DDrawMng.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enemy_1.h" />
@@ -264,6 +265,7 @@
     <ClInclude Include="MoverList.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RenderTargetResources.h" />
     <ClInclude Include="RM.h" />
     <ClInclude Include="SceneManager_infure.h" />
     <ClInclude Include="SceneTitle.h" />

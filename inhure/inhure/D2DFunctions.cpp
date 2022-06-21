@@ -1,6 +1,5 @@
 ﻿#include "D2DFunctions.h"
 
-#include <assert.h>	// 今はassertにしているが、例外処理の方が適しているかもしれない
 
 #define SAFE_RELEASE(x) if(x) {x->Release(); x=nullptr;}
 
@@ -8,73 +7,31 @@
 namespace D2DFunctions
 {
 	// staticメンバーの初期化
-	//F_lib_Render::RenderingEngine* Engine = nullptr;
 	// 利用するインターフェース
-	ID2D1Factory*			D2DFuncComponent::D2DFactory   = nullptr;
-	ID2D1RenderTarget*		D2DFuncComponent::RenderTarget = nullptr;
-	// デフォルトブラシ
-	ID2D1SolidColorBrush*	D2DFuncComponent::BlackBrush   = nullptr;
-	ID2D1SolidColorBrush*	D2DFuncComponent::BlueBrush    = nullptr;
-	ID2D1SolidColorBrush*	D2DFuncComponent::GreenBrush   = nullptr;
-	ID2D1SolidColorBrush*	D2DFuncComponent::RedBrush     = nullptr;
-	// Init済みFlag
-	bool D2DFuncComponent::InitedFlag = false;
+	ID2D1Factory*	D2DFuncComponent::D2DFactory   = nullptr;
 	// デフォルト描画順
 	const int D2DFuncComponent::defDrawOrder = 100;
 
 
 #pragma region D2DFuncInitialize
-	HRESULT D2DFuncComponent::InitD2DFunc(ID2D1Factory * factory, ID2D1RenderTarget * target)
+	HRESULT D2DFuncComponent::Init(ID2D1Factory * factory)
 	{
 		HRESULT hr = S_OK;
 
-		if (InitedFlag == false) {	// static変数が初期化されていなかったら処理する
-			if (factory == nullptr) hr = E_FAIL;
+		// 必須インターフェースのポインタを取得
+		if (D2DFactory == nullptr) {
 			D2DFactory = factory;
-			if (target == nullptr) hr = E_FAIL;
-			RenderTarget = target;
-
 			D2DFactory->AddRef();
-			RenderTarget->AddRef();
-			InitedFlag = true;
-
-			if (BlackBrush == nullptr) {
-				hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(1.0F, 1.0F, 1.0F, 1.0F), &BlackBrush);
-				if (FAILED(hr)) return hr;
-			}
-			if (BlueBrush == nullptr) {
-				hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(0.0F, 0.0F, 1.0F, 1.0F), &BlueBrush);
-				if (FAILED(hr)) return hr;
-			}
-			if (GreenBrush == nullptr) {
-				hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(0.0F, 1.0F, 0.0F, 1.0F), &GreenBrush);
-				if (FAILED(hr)) return hr;
-			}
-			if (RedBrush == nullptr) {
-				hr = RenderTarget->CreateSolidColorBrush(D2D1::ColorF(1.0F, 0.0F, 0.0F, 1.0F), &RedBrush);
-				if (FAILED(hr)) return hr;
-			}
-		} else {
-			//何もしない
 		}
 
 		return hr;
 	}
 
-	void D2DFuncComponent::UninitD2DFunc()
+	void D2DFuncComponent::Uninit()
 	{
-		if (InitedFlag == true) {
-			SAFE_RELEASE(D2DFactory);
-			SAFE_RELEASE(RenderTarget);
-			SAFE_RELEASE(BlackBrush);
-			SAFE_RELEASE(BlueBrush);
-			SAFE_RELEASE(GreenBrush);
-			SAFE_RELEASE(RedBrush);
-			InitedFlag = false;
-		} else {
-			// なにもしない
-		}
+		SAFE_RELEASE(D2DFactory);
 	}
+
 	void D2DFuncComponent::Draw()
 	{
 	}
@@ -85,7 +42,6 @@ namespace D2DFunctions
 	D2DFuncComponent::D2DFuncComponent()
 		:DrawOrder(defDrawOrder)
 	{
-		assert(InitedFlag == true);	//Init()済みでなければならない
 	}
 
 	D2DFuncComponent::~D2DFuncComponent()

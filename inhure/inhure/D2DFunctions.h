@@ -5,6 +5,8 @@
 
 #include <d2d1.h>
 
+#include "RenderTargetResources.h"	// レンダーターゲットリソースをまとめてあるクラス
+
 // lib指定
 #pragma comment(lib,"d2d1.lib")
 
@@ -15,19 +17,11 @@
 
 namespace D2DFunctions
 {
-	class D2DFuncComponent
+	class D2DFuncComponent : public F_lib_Render::RenderTargetResources
 	{
 	protected:
 		// 利用するインターフェース
-		static ID2D1Factory*			D2DFactory;
-		static ID2D1RenderTarget*		RenderTarget;
-		// デフォルトブラシ
-		static ID2D1SolidColorBrush*	BlackBrush;
-		static ID2D1SolidColorBrush*	BlueBrush;
-		static ID2D1SolidColorBrush*	GreenBrush;
-		static ID2D1SolidColorBrush*	RedBrush;
-		// Init済みFlag
-		static bool InitedFlag;		// true:済み/false:未初期化
+		static ID2D1Factory*	D2DFactory;
 		// デフォルト描画順
 		static const int defDrawOrder;
 
@@ -37,8 +31,8 @@ namespace D2DFunctions
 
 		// static変数を初期化(それぞれプログラム中に1回呼べば良い)
 		// 初期化済の引数を取るのでコンストラクタには含めない設計にした->COMをきちんと利用すればできるかも?
-		static HRESULT InitD2DFunc(ID2D1Factory* factory, ID2D1RenderTarget * target);
-		static void UninitD2DFunc();
+		static HRESULT Init(ID2D1Factory* factory);
+		static void Uninit();
 
 		virtual void Draw();
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "comon.h"
 #include "D2DText.h"
+
 
 class GameTimer
 {

@@ -12,8 +12,10 @@ using namespace F_lib_Render;
 SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
 	: SceneBase(_R)
 {
+	Resource->TM->loadTex();
 	Text = _R->meshM->getText();
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
+
 
 	D2DText* d2dtext;
 	//std::wstring wstr = L"d2dtext test line.";
@@ -43,6 +45,12 @@ void SceneTitle::update()
 
 void SceneTitle::Draw()
 {
+	s->setPosition(XMFLOAT2());
+	s->setSize(50);
+	s->setTexture(Resource->TM->gettex(0));
+	s->RDraw(true);
+
+	Text->setalpa(0.5);
 	Text->draw(scenename);
 
 }

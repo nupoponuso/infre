@@ -1,7 +1,11 @@
 #pragma once
 
-#include "D2DText.h"
+#include <Windows.h>
 
+namespace F_lib_Render
+{
+	class D2DTextParams;
+}
 
 class GameTimer
 {
@@ -21,6 +25,6 @@ private:
 	bool Pause;		// ˆêŽž’âŽ~ true:‚µ‚Ä‚¢‚é/false:‚µ‚Ä‚¢‚È‚¢
 	DWORD CurrentTime;
 	double TimerCount;
-	F_lib_Render::D2DText* CountText;
+	F_lib_Render::D2DTextParams* CountText;
 };
 

@@ -13,11 +13,12 @@ GameTimer::GameTimer()
 	, TimerCount(0.0f)
 {
 	restart();
-	CountText = new D2DText();
+	CountText = new D2DTextParams();
 }
 
 GameTimer::~GameTimer()
 {
+	delete CountText;
 }
 
 void GameTimer::restart()
@@ -48,24 +49,42 @@ void GameTimer::Update()
 		restart();
 	}
 #ifdef _DEBUG
-	TCHAR str[256];
-	_stprintf_s(str, 256, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
+	TCHAR str[MAXCHAR];
+	_stprintf_s(str, MAXCHAR, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
 	
-	int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
-	WCHAR* wstr = new WCHAR[nLen];
-	if (wstr) {
-		//•ÏŠ·
-		nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
-		if (nLen == 0) {
-			delete	wstr;
-			wstr = NULL;
-		}
-	}
-	CountText->SetText(wstr);
-	CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
+	//int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
+	//WCHAR* wstr = new WCHAR[nLen];
+	//if (wstr) {
+	//	//•ÏŠ·
+	//	nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
+	//	if (nLen == 0) {
+	//		delete	wstr;
+	//		wstr = NULL;
+	//	}
+	//}
 
-	delete wstr;
-	wstr = nullptr;
+	TextData td;
+	td.Str = str;
+	td.Rect = { 400, 0, 600, 200 };
+	td.Data->font = Font::Arial;
+	td.Data->fontSize = 30;
+	td.Data->Opacity = 0.6f;
+	if (GetKeyPress(VK_SPACE)) {
+		td.DrawFlag = !td.DrawFlag;
+	}
+	//FontData fd;
+	//fd.font = Font::MeiryoUI;
+	//fd.fontSize = 10;
+	//fd.Opacity = 0.5f;
+	//getEngine()->getD2DText()->SetFont(&fd);
+	CountText->SetData(&td);
+	//delete fd;
+	//getEngine()->getD2DText()->SetFont(&fd);
+	//CountText->SetText(wstr, nLen);
+	//CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
+
+	//delete wstr;
+	//wstr = nullptr;
 #endif // _DEBUG
 
 }

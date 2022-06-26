@@ -56,7 +56,9 @@ struct RenderingDat_Billbord
 namespace F_lib_Render
 {
 	class D2DRenderTargetsandDWrite;
+	class D2DText;
 	class D2DTextMng;
+	class D2DFuncMng;
 }
 
 namespace F_lib_Render
@@ -94,7 +96,9 @@ namespace F_lib_Render
 		XMFLOAT2 getWindowsize() { return windowsize; }
 		class Text* getText() { return text; }
 		D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }	// ’Ç‰Á
-		D2DTextMng* getD2DTextMng() { return D2DTextMng; } //’Ç‰Á
+		D2DText* getD2DText() { return D2Dtext; }	//’Ç‰Á
+		D2DTextMng* getD2DTextMng() { return D2DtextMng; } //’Ç‰Á
+		D2DFuncMng* getD2DFuncMng() { return D2DfuncMng; } //’Ç‰Á
 
 	private:
 		void listRender_3D();
@@ -125,7 +129,9 @@ namespace F_lib_Render
 		
 		// ’Ç‰Á
 		D2DRenderTargetsandDWrite* D2DTargets;
-		D2DTextMng* D2DTextMng;
+		D2DText* D2Dtext;
+		D2DTextMng* D2DtextMng;
+		D2DFuncMng* D2DfuncMng;
 		// ‚±‚±‚Ü‚Å
 	};
 }

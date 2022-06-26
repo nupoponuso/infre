@@ -15,43 +15,37 @@
 *	利用しているRenderTargetごとの利用方法と設定を調べること
 */
 
+// 前方宣言
+namespace F_lib_Render
+{
+	class D2DFuncMng;
+}
+//ここまで
+
 namespace D2DFunctions
 {
 	class D2DFuncComponent : public F_lib_Render::RenderTargetResources
 	{
 	protected:
-		// 利用するインターフェース
-		static ID2D1Factory*	D2DFactory;
 		// デフォルト描画順
 		static const int defDrawOrder;
 
 	public:
 		D2DFuncComponent();
 		virtual ~D2DFuncComponent();
-
-		// static変数を初期化(それぞれプログラム中に1回呼べば良い)
-		// 初期化済の引数を取るのでコンストラクタには含めない設計にした->COMをきちんと利用すればできるかも?
-		static HRESULT Init(ID2D1Factory* factory);
-		static void Uninit();
-
-		virtual void Draw();
-
-		//getter
-		int	GetDrawOrder() const { return DrawOrder; }
-
 	private:
-		int DrawOrder;
-	};
+		//Init用ヘルパー
+		HRESULT Init(ID2D1Factory* factory, F_lib_Render::D2DFuncMng* drawer);
+		//計算用ヘルパー
+		D2D_POINT_2F CalcCartesianCoordinate(FLOAT fAngle, FLOAT fRadius);
 
-	class D2DGauge : public D2DFuncComponent
-	{
 	public:
-		D2DGauge();
-		~D2DGauge();
-
-		void Draw() override;
-
-		// Draw関数群
+		virtual void Draw() = 0;
+		/*	@brief : Draw Functions
+		*	Inherited classes should implement the desired behavior using the following set of functions.
+		*	Describe in "Draw()"
+		*	Mostly wrapper functions, and using the D2D1:: implementation.
+		*/
 		void DrawCircleGauge();
 		void DrawRoundRectangle();
 		HRESULT DrawArc(ID2D1PathGeometry *pGeometry, D2D_POINT_2F ptCenterF,
@@ -63,40 +57,27 @@ namespace D2DFunctions
 			FLOAT fOuterRadius, FLOAT fInnerRadius,
 			D2D1_FILL_MODE fillMode, D2D1_FIGURE_BEGIN figureBegin, D2D1_FIGURE_END figureEnd);
 
-	private://ヘルパー
-		D2D_POINT_2F CalcCartesianCoordinate(FLOAT fAngle, FLOAT fRadius);
+		//setter
+		void SetDrawOrder(int drawOrder);
+		void SetDrawFlag(bool enable) { DrawFlag = enable; }
+		//getter
+		int		GetDrawOrder()	const { return DrawOrder; }
+		bool	GetDrawFlag()	const { return DrawFlag; }
+
+	private:
+		int		DrawOrder;
+		bool	DrawFlag;	// Drawerに描画させるかを指示(true:描画する/false:しない)
+		F_lib_Render::D2DFuncMng* Manager;	// 描画管理クラス
+		ID2D1Factory* D2DFactory;			// 利用するインターフェース
 	};
 
+	class D2DGauge : public D2DFuncComponent
+	{
+	public:
+		D2DGauge();
+		~D2DGauge();
 
-	/*
-	*	Note : 下記関数群はテスト用に記述
-	*	原因	 :	①Window.cpp(藤岡製not標準Windows)でのDraw内記述でSceneDrawがRenderTargetのクリア前に行われている
-	*			②そもそもDrawコールの実装内容がRenderingEngine(藤岡製)の***_Listへのpush_backになっている
-	*			(つまり***_List->render()以外のグローバルなDrawコールは全部無視される)
-	*	結論 : RenderingEngineのDrawコールは実質push_back命令の実装になっているのでそれに合わせた記述が必要
-	*			また、機能追加する際はRenderingEngine側に専用の***_Listを作成しなければならない
-	*			(グローバル関数として好きなタイミングで呼べないので、静的なlibに手を加えなければいけない)
-	*/
+		void Draw() override;
 
-	//// この関数群を使う際はInit()､Uninit()を呼ぶこと
-	//void InitD2DFunctions(ID2D1Factory* factory, ID2D1RenderTarget* render_target);
-	//void UninitD2DFunctions();
-
-	//void DrawCircleGauge();	//テスト
-	//void DrawRoundRectangle();//テスト
-
-	//HRESULT DrawArc(ID2D1PathGeometry *pGeometry, D2D_POINT_2F ptCenterF,
-	//	FLOAT fRotationAngle, FLOAT fSweepAngle,
-	//	FLOAT fRadius,
-	//	D2D1_FILL_MODE fillMode, D2D1_FIGURE_BEGIN figureBegin, D2D1_FIGURE_END figureEnd);
-
-	//HRESULT DrawPie(ID2D1PathGeometry *pGeometry, D2D_POINT_2F ptCenterF,
-	//	FLOAT fRotationAngle, FLOAT fSweepAngle,
-	//	FLOAT fOuterRadius, FLOAT fInnerRadius,
-	//	D2D1_FILL_MODE fillMode, D2D1_FIGURE_BEGIN figureBegin, D2D1_FIGURE_END figureEnd);
-
-	//D2D_POINT_2F CalcCartesianCoordinate(FLOAT fAngle, FLOAT fRadius);
-
-
+	};
 }
-

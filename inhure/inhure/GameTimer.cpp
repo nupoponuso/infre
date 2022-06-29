@@ -13,7 +13,7 @@ GameTimer::GameTimer()
 	, TimerCount(0.0f)
 {
 	restart();
-	CountText = new D2DText();
+	//CountText = new D2DText();
 }
 
 GameTimer::~GameTimer()
@@ -48,24 +48,24 @@ void GameTimer::Update()
 		restart();
 	}
 #ifdef _DEBUG
-	TCHAR str[256];
-	_stprintf_s(str, 256, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
-	
-	int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
-	WCHAR* wstr = new WCHAR[nLen];
-	if (wstr) {
-		//•ÏŠ·
-		nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
-		if (nLen == 0) {
-			delete	wstr;
-			wstr = NULL;
-		}
-	}
-	CountText->SetText(wstr);
-	CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
-
-	delete wstr;
-	wstr = nullptr;
+	//TCHAR str[256];
+	//_stprintf_s(str, 256, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
+	//
+	//int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
+	//WCHAR* wstr = new WCHAR[nLen];
+	//if (wstr) {
+	//	//•ÏŠ·
+	//	nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
+	//	if (nLen == 0) {
+	//		delete	wstr;
+	//		wstr = NULL;
+	//	}
+	//}
+	//CountText->SetText(wstr);
+	//CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
+	//
+	//delete wstr;
+	//wstr = nullptr;
 #endif // _DEBUG
 
 }

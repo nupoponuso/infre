@@ -1,5 +1,7 @@
 #pragma once
 
+#include "singlton.h"
+
 //ゲームに必要な入力の種類
 enum class GameInput
 {
@@ -14,11 +16,10 @@ enum class GameInput
 
 /* @brief : Wrapper of input.h.Bind "Action Button" to device input.
 */
-class CustomInput
+class CustomInput : public Singleton<CustomInput>
 {
 public:
-	CustomInput();
-	~CustomInput();
+	friend class Singleton <CustomInput>;
 
 	void Update();		// ボタンが押されているかどうかを更新する
 
@@ -32,6 +33,10 @@ public:
 	bool GetCustomInputPress(GameInput input);		//ボタンが押されている間はtrueを返す
 	bool GetCustomInputTrigger(GameInput input);	//ボタンが押された瞬間だけtrueを返す
 	bool GetCustomInputRelease(GameInput input);	//ボタンが離された瞬間だけtrueを返す
+
+protected:
+	CustomInput();
+	virtual ~CustomInput();
 
 private:
 	bool gameInputState[static_cast<int>(GameInput::GAME_INPUT_NUM)];		//全てのボタンごとに、押されているかどうかを記録する変数

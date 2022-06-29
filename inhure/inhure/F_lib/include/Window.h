@@ -63,8 +63,8 @@ namespace F_lib_Fremworker
 	protected:
 		void process();
 		virtual void init();
-		void Update();
-		void Draw();
+		virtual void Update();
+		virtual void Draw();
 
 		HWND hWnd;
 

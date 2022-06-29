@@ -209,7 +209,6 @@ namespace F_lib_Fremworker
 	//XV
 	void GameWindow::Update()
 	{
-		//inputm->update();
 		Scene->updateScene();
 
 	}

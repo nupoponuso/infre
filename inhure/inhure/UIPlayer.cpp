@@ -11,7 +11,7 @@ UIPlayer::UIPlayer(F_lib_Fremworker::ResourceManager *_R, Player *_p)
 	:UI(_R), p(_p)
 {
 	Text = _R->meshM->getText();
-	Textrue = _R->TM->gettex(0);
+	//Textrue = _R->TM->gettex(0);
 }
 
 void UIPlayer::Update()
@@ -21,10 +21,10 @@ void UIPlayer::Update()
 void UIPlayer::Draw()
 {
 
-	s->reset();
-	s->setSize(1280, 800);
-	s->setTexture(Textrue);
-	s->RDraw(true);
+	//s->reset();
+	//s->setSize(1280, 800);
+	//s->setTexture(Textrue);
+	//s->RDraw(true);
 
 	textpos.x = 100;
 	textpos.y = 460;

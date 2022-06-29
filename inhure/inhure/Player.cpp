@@ -183,7 +183,6 @@ void Player::Move()
 	//	if (movedirold != movedir)
 	//		movedirold = movedir;
 	//}
-	
 	//ù‰ñ§Œä
 	//if (GetKeyPress(VK_A)) Angle.y += -rotspeed;
 	//else if (GetKeyPress(VK_D)) Angle.y += rotspeed;

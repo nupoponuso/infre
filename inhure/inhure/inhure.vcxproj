@@ -162,6 +162,7 @@
     <ClCompile Include="D2DRenderTargetsAndDWrite.cpp" />
     <ClCompile Include="D2DText.cpp" />
     <ClCompile Include="D2DDrawMng.cpp" />
+    <ClCompile Include="DisplayMover.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Enemy_1.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="D2DRenderTargetsAndDWrite.h" />
     <ClInclude Include="D2DText.h" />
     <ClInclude Include="D2DDrawMng.h" />
+    <ClInclude Include="DisplayMover.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enemy_1.h" />

@@ -271,6 +271,7 @@ namespace F_lib_Render
 		
 		text->render();
 		D2DtextMng->Render();
+		D2DfuncMng->Render();
 
 		//D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	

@@ -35,31 +35,20 @@ std::wstring D2DText::StringToWString(std::string str)
 
 #pragma region TextLine
 	D2DText::D2DText(IDWriteFactory* factory, ID2D1RenderTarget* target)
-		//: RenderTargetResources(target)
 		: TextLayout(nullptr)
 		, Setting(new FontData())
-		//, Text()
-		//, DrawRect(D2D1_RECT_F{ 0,0,10.0f,10.0f })
-		//, DrawOrder(defDrawOrder)
-		//, DrawFlag(true)
+		, Origin(ORIGIN::LEFTTOP)
+		, Y_Axis(false)
 	{
-		//外部インスタンスの取得(今回は場所が特定されているので直接取得している)
 		RenderTarget = target;
 		RenderTarget->AddRef();
 		DWriteFactory = factory;
 		DWriteFactory->AddRef();
-		//Manager = getEngine()->getD2DTextMng();
-		//TextFormat, SolidBrushの生成
 		SetFont(Setting);
-
-		// 生成したら即登録
-		//Manager->Add(this);
 	}
 
 	D2DText::~D2DText()
 	{
-		//Manager->Remove(this);
-		//Manager = nullptr;
 		delete Setting;
 		Setting = nullptr;
 		SAFE_RELEASE(RenderTarget);
@@ -82,9 +71,37 @@ std::wstring D2DText::StringToWString(std::string str)
 			&TextLayout);
 		// 描画位置の確定
 		D2D1_POINT_2F points;
-		points.x = pos.x;
-		points.y = pos.y;
-		// 描画の開始
+		D2D1_POINT_2F srcpos;
+		//フラグによる位置の調整
+		if (Y_Axis) {
+			srcpos.x = pos.x;
+			srcpos.y = -pos.y;
+		} else {
+			srcpos = pos;
+		}
+		switch (Origin) {
+		case F_lib_Render::D2DText::ORIGIN::LEFTTOP:
+			points.x = srcpos.x;
+			points.y = srcpos.y;
+			break;
+		case F_lib_Render::D2DText::ORIGIN::RIGHTTOP:
+			points.x = TargetSize.width + srcpos.x;
+			points.y = srcpos.y;
+			break;
+		case F_lib_Render::D2DText::ORIGIN::LEFTBOTTOM:
+			points.x = srcpos.x;
+			points.y = TargetSize.height + srcpos.y;
+			break;
+		case F_lib_Render::D2DText::ORIGIN::RIGHTBOTTOM:
+			points.x = TargetSize.width + srcpos.x;
+			points.y = TargetSize.height + srcpos.y;
+			break;
+		case F_lib_Render::D2DText::ORIGIN::CENTER:
+			points.x = TargetSize.width / 2 + srcpos.x;
+			points.y = TargetSize.height / 2 + srcpos.y;
+			break;
+		}
+	// 描画の開始
 		RenderTarget->BeginDraw();
 		// 描画処理
 		RenderTarget->DrawTextLayout(points, TextLayout, SolidBrush, options);
@@ -96,12 +113,36 @@ std::wstring D2DText::StringToWString(std::string str)
 	{
 		// 文字列の変換
 		std::wstring wstr = StringToWString(str.c_str());
+		// ターゲットサイズの取得
+		D2D1_SIZE_F TargetSize = RenderTarget->GetSize();
+		D2D1_RECT_F rects;
+		//Y_Axisの影響は受けない
+		//フラグによる位置の調整
+		switch (Origin) {
+		case F_lib_Render::D2DText::ORIGIN::LEFTTOP:
+			rects = rect;
+			break;
+		case F_lib_Render::D2DText::ORIGIN::RIGHTTOP:
+			rects = { rect.left + TargetSize.width, rect.top, rect.right + TargetSize.width, rect.bottom };
+			break;
+		case F_lib_Render::D2DText::ORIGIN::LEFTBOTTOM:
+			rects = { rect.left, rect.top + TargetSize.height, rect.right, rect.bottom + TargetSize.height };
+			break;
+		case F_lib_Render::D2DText::ORIGIN::RIGHTBOTTOM:
+			rects = { rect.left + TargetSize.width, rect.top + TargetSize.height,
+				rect.right + TargetSize.width, rect.bottom + TargetSize.height };
+			break;
+		case F_lib_Render::D2DText::ORIGIN::CENTER:
+			rects = { rect.left + TargetSize.width / 2, rect.top + TargetSize.height / 2,
+				rect.right + TargetSize.width / 2, rect.bottom + TargetSize.height / 2 };
+			break;
+		}
 		// 描画の開始
 		RenderTarget->BeginDraw();
 		// 描画処理
 		RenderTarget->DrawText(
 			wstr.c_str(), (UINT32)wstr.size(),
-			TextFormat, rect, SolidBrush, options);
+			TextFormat, rects, SolidBrush, options);
 		// 描画の終了
 		RenderTarget->EndDraw();
 	}
@@ -174,56 +215,19 @@ std::wstring D2DText::StringToWString(std::string str)
 		return S_OK;
 	}
 
+	void D2DText::SetOrigin(ORIGIN pos)
+	{
+		Origin = pos;
+	}
+
+	void D2DText::ReverseYAxis(bool enable)
+	{
+		Y_Axis = enable;
+	}
 
 
-	//void D2DText::SetText(const std::wstring str)
-	//{
-	//	Text = str;
-	//}
 
-	//void D2DText::SetText(const WCHAR * str, int length)
-	//{
-	//	Text = std::wstring(str);
-	//	//TextLength = length;
-	//}
 
-	//void D2DText::SetRect(D2D1_RECT_F rect)
-	//{
-	//	DrawRect = rect;
-	//}
-
-	//void D2DText::SerDrawOrder(int drawOrder)
-	//{
-	//	Manager->ChangeDrawOrder(this, drawOrder);
-	//	DrawOrder = drawOrder;
-	//}
-
-	//void D2DText::SetDrawFlag(bool enable)
-	//{
-	//	DrawFlag = enable;
-	//}
-
-	//void D2DText::SetFontSize(float size)
-	//{
-	//	//WCHAR pre_font[MAXCHAR];
-	//	//TextFormat->GetFontFamilyName(pre_font, MAXCHAR);
-
-	//	//CreateTextFormat(pre_font, size);
-	//}
-
-	//// ID2D1SolidColorBrushのラッパー
-	//void D2DText::SetColor(const D2D1_COLOR_F & color)
-	//{
-	//	//CreateSolidBrush(color, SolidBrush);
-	//}
-
-	//// ID2D1SolidColorBrushのラッパー
-	//void D2DText::SetOpacity(float alpha)
-	//{
-	//	//D2D1_COLOR_F pre_color = SolidBrush->GetColor();
-	//	//CreateSolidBrush(pre_color, SolidBrush);
-	//	//SolidBrush->SetOpacity(alpha);
-	//}
 #pragma endregion TextLine
 
 #pragma region TextParam
@@ -235,7 +239,9 @@ std::wstring D2DText::StringToWString(std::string str)
 	D2DTextParams::D2DTextParams()
 		: TextSetting(new TextData())
 		, DrawOrder(defDrawOrder)
+		, DrawFlag(true)
 	{
+		//外部インスタンスの場所が判明しているので、今回は直接取得している
 		TextComponent = getEngine()->getD2DText();
 		Manager = getEngine()->getD2DTextMng();
 		Manager->Add(this);
@@ -271,7 +277,7 @@ std::wstring D2DText::StringToWString(std::string str)
 
 	void D2DTextParams::Draw()
 	{
-		if (TextSetting->DrawFlag == true) {
+		if (DrawFlag == true) {
 			TextComponent->SetFont(TextSetting->Data);
 			switch (TextSetting->Form)
 			{
@@ -292,13 +298,16 @@ std::wstring D2DText::StringToWString(std::string str)
 		TextSetting->Pos = data->Pos;
 		TextSetting->Rect = data->Rect;
 		TextSetting->Form = data->Form;
-		TextSetting->DrawFlag = data->DrawFlag;
 		TextSetting->Data = data->Data;
 	}
 	void D2DTextParams::SetDrawOrder(int drawOrder)
 	{
 		Manager->ChangeDrawOrder(this, drawOrder);
 		DrawOrder = drawOrder;
+	}
+	void D2DTextParams::SetDrawFlag(bool enable)
+	{
+		DrawFlag = enable;
 	}
 #pragma endregion
 }

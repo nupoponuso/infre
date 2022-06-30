@@ -57,7 +57,7 @@ namespace F_lib_Render
 		}
 	}
 
-	void D2DTextMng::ChangeDrawOrder(F_lib_Render::D2DTextParams * text, int drawOrder)
+	void D2DTextMng::ChangeDrawOrder(D2DTextParams * text, int drawOrder)
 	{
 		auto iter = std::find(List.begin(), List.end(), text);
 		if ((*iter)->GetDrawOrder() == drawOrder) {
@@ -74,17 +74,6 @@ namespace F_lib_Render
 		if (List.size()) {
 			for (auto&& t : List) {
 				t->Draw();
-				//t->GetRenderTarget()->BeginDraw();
-				//if (t->GetDrawFlag()) {	// •`‰æw¦‚³‚ê‚½‚Ì‚à‚¾‚¯•`‰æ‚·‚é
-				//	t->GetRenderTarget()->DrawText(
-				//		t->GetText().c_str(),
-				//		t->GetText().size(),
-				//		t->GetTextFormat(),
-				//		t->GetDrawRect(),
-				//		t->GetSolidBrush(),
-				//		D2D1_DRAW_TEXT_OPTIONS_NONE);
-				//}
-				//t->GetRenderTarget()->EndDraw();
 			}
 		}
 	}
@@ -103,7 +92,7 @@ namespace F_lib_Render
 	}
 
 
-	void D2DFuncMng::Add(D2DFunctions::D2DFuncComponent * comp)
+	void D2DFuncMng::Add(D2DFuncComponent * comp)
 	{
 		// ƒ\[ƒgÏ‚İ‚Ì”z—ñ‚Å‘}“ü“_‚ğŒ©‚Â‚¯‚é
 		int myDrawOrder = comp->GetDrawOrder();
@@ -119,7 +108,7 @@ namespace F_lib_Render
 		List.insert(iter, comp);
 	}
 
-	void D2DFuncMng::Remove(D2DFunctions::D2DFuncComponent * comp)
+	void D2DFuncMng::Remove(D2DFuncComponent * comp)
 	{
 		auto iter = std::find(List.begin(), List.end(), comp);
 		List.erase(iter);
@@ -132,7 +121,7 @@ namespace F_lib_Render
 		}
 	}
 
-	void D2DFuncMng::ChangeDrawOrder(D2DFunctions::D2DFuncComponent * comp, int drawOrder)
+	void D2DFuncMng::ChangeDrawOrder(D2DFuncComponent * comp, int drawOrder)
 	{
 		auto iter = std::find(List.begin(), List.end(), comp);
 		if ((*iter)->GetDrawOrder() == drawOrder) {
@@ -149,9 +138,7 @@ namespace F_lib_Render
 	{
 		if (List.size()) {
 			for (auto&& c : List) {
-				if (c->GetDrawFlag()) {
-					c->Draw();
-				}
+				c->Render();
 			}
 		}
 	}

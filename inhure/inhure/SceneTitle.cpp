@@ -30,10 +30,12 @@ SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
 	//text2->SetOpacity(0.5f);
 	//HRESULT hr = text2->CreateTextFormat(L"BIZ UD ƒSƒVƒbƒN", 25);
 	GTimer = new GameTimer();
+	getEngine()->getD2DText()->SetOrigin(D2DText::ORIGIN::LEFTTOP);
+	getEngine()->getD2DText()->ReverseYAxis(false);
 
 	TextData td1;
 	td1.Str = "super long long long text line.";
-	td1.Rect = { 0, 100, 200, 300 };
+	td1.Rect = { 600, 100, 900, 300 };
 	td1.Data->Opacity = 1.0f;
 	td1.Data->Color = D2D1::ColorF(RGB(255, 0, 0));
 	td1.Data->fontSize = 80;
@@ -45,11 +47,17 @@ SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
 	//std::string str1 = "str test line.";
 	//D2D1_RECT_F strrect1 = { 300, 0,  600, 200 };
 	//d2dtext->DrawString(str1, strrect1);
+
+	DisplayFontList();
+
+	Gauge = new D2DCircleGauge();
+	Gauge->Create({ 500, 500 }, 50, 20);
 }
 
 SceneTitle::~SceneTitle()
 {
 	delete GTimer;
+	delete Gauge;
 	getEngine()->getD2DTextMng()->RemoveAll();
 }
 

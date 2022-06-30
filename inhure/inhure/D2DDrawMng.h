@@ -18,10 +18,10 @@
 namespace F_lib_Render
 {
 	class D2DTextParams;
+	class D2DFuncComponent;
 }
 namespace D2DFunctions
 {
-	class D2DFuncComponent;
 }
 //‚±‚±‚Ü‚Å
 
@@ -51,13 +51,13 @@ namespace F_lib_Render
 		~D2DFuncMng();
 
 		void Add(D2DFuncComponent* comp);
-		void Remove(D2DFunctions::D2DFuncComponent* comp);
+		void Remove(F_lib_Render::D2DFuncComponent* comp);
 		void RemoveAll();
-		void ChangeDrawOrder(D2DFunctions::D2DFuncComponent* comp, int drawOrder);
+		void ChangeDrawOrder(F_lib_Render::D2DFuncComponent* comp, int drawOrder);
 		void Render();
 
 	private:
-		std::vector<D2DFunctions::D2DFuncComponent*> List;
+		std::vector<F_lib_Render::D2DFuncComponent*> List;
 	};
 
 }

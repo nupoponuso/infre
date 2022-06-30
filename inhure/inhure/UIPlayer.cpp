@@ -11,7 +11,7 @@ UIPlayer::UIPlayer(F_lib_Fremworker::ResourceManager *_R, Player *_p)
 	:UI(_R), p(_p)
 {
 	Text = _R->meshM->getText();
-	Textrue = _R->TM->gettex(0);
+	Textrue = _R->TM->gettex(4);
 }
 
 void UIPlayer::Update()

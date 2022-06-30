@@ -56,6 +56,8 @@ namespace F_lib_Render
 		MSGothic,
 		MSMincho,
 		MSUIGothic,
+		Meiryo,
+		MeiryoUI,
 		SmallFonts,
 		Symbol,
 		System,
@@ -63,9 +65,7 @@ namespace F_lib_Render
 		TimesNewRoman,
 		TrebuchetMS,
 		Verdana,
-		Webdings,
-		Meiryo,
-		MeiryoUI
+		Webdings
 	};
 
 	//=============================================================================
@@ -91,6 +91,8 @@ namespace F_lib_Render
 			L"ＭＳ ゴシック",
 			L"ＭＳ 明朝",
 			L"MS UI Gothic",
+			L"メイリオ",
+			L"Meiryo UI",
 			L"Small Fonts",
 			L"Symbol",
 			L"System",
@@ -98,9 +100,7 @@ namespace F_lib_Render
 			L"Times New Roman",
 			L"Trebuchet MS",
 			L"Verdana",
-			L"Webdings",
-			L"メイリオ",
-			L"Meiryo UI"
+			L"Webdings"
 		};
 	}
 
@@ -142,6 +142,14 @@ namespace F_lib_Render
 	class D2DText
 	{
 	public:
+		enum class ORIGIN {
+			LEFTTOP,
+			RIGHTTOP,
+			LEFTBOTTOM,
+			RIGHTBOTTOM,
+			CENTER
+		};
+	public:
 		D2DText(IDWriteFactory* factory, ID2D1RenderTarget* target);
 		~D2DText();
 		
@@ -166,13 +174,18 @@ namespace F_lib_Render
 			DWRITE_FONT_STYLE fontStyle, DWRITE_FONT_STRETCH fontStretch, FLOAT fontSize,
 			WCHAR const* localeName, DWRITE_TEXT_ALIGNMENT textAlignment, D2D1_COLOR_F color, FLOAT opacity
 			, FontData* out_preFont = nullptr);
-	
+		// @brief 座標原点の変更
+		void SetOrigin(ORIGIN pos);
+		void ReverseYAxis(bool enable);
 	private:
 		// 生成メンバ : 各インスタンスは固有値を保持するものとする
 		IDWriteTextFormat*		TextFormat;	// フォーマット情報 : struct FontDataで生成する
 		ID2D1SolidColorBrush*	SolidBrush; // 描画色
 		IDWriteTextLayout*		TextLayout;	// レイアウト
 		FontData*				Setting;	// フォント設定
+		//以下は同一シーンの全てのデータに適用されるので注意
+		ORIGIN					Origin;		// 座標原点の位置
+		bool					Y_Axis;		// Y座標の反転
 		// 外部インスタンスのポインタ
 		ID2D1RenderTarget* RenderTarget;		// 利用するレンダーターゲット
 		IDWriteFactory* DWriteFactory;			// 利用するインターフェース
@@ -192,7 +205,6 @@ namespace F_lib_Render
 		D2D1_POINT_2F	Pos;		// 文字列の開始点
 		D2D1_RECT_F		Rect;		// 文字列を描画する長方形
 		FORM			Form;		// D2DText.DrawString()のうち、どちらを使うか指定
-		bool			DrawFlag;	// Drawerに描画させるかを指示(true:描画する/false:しない)
 		FontData*		Data;		// フォント情報(フォント名,サイズ,色など)
 		
 		TextData()	//初期値
@@ -200,7 +212,6 @@ namespace F_lib_Render
 			Pos = { 0,0 };
 			Rect = { 0,0,10,10 };
 			Form = FORM::Rect;
-			DrawFlag = true;
 			Data = new FontData();
 		}
 	};
@@ -221,6 +232,7 @@ namespace F_lib_Render
 
 		void SetData(TextData* data);
 		void SetDrawOrder(int drawOrder);
+		void SetDrawFlag(bool enable);
 		void Draw();
 
 		int GetDrawOrder() const { return DrawOrder; }
@@ -228,8 +240,46 @@ namespace F_lib_Render
 		TextData* TextSetting;
 	private:
 		int	DrawOrder;	// 文字列の描画順を指定する(大きいほど手前表示)
+		bool DrawFlag;	// Drawerに描画させるかを指示(true:描画する/false:しない)
 		// 外部インスタンスのポインタ
 		D2DText* TextComponent;
 		F_lib_Render::D2DTextMng*	Manager;	// 描画管理クラス
 	};
+}
+
+
+namespace
+{
+	// デバッグ用関数
+	// 登録されているフォントを一覧で表示する
+	void DisplayFontList(void)
+	{
+		using namespace F_lib_Render;
+		D2DTextParams* texts[static_cast<int>(Font::Webdings) + 1];
+		TextData td[static_cast<int>(Font::Webdings) + 1];
+		for (auto&& s : texts) {
+			s = new D2DTextParams();
+		}
+
+		float y = 0;
+		int num = 0;
+		for (auto&& d : td) {
+			d.Str = "This is Japan.";
+			d.Pos = { 0,0 + y };
+			y += 25;
+			d.Form = TextData::FORM::Point;
+			d.Data->fontSize = 20;
+			d.Data->font = static_cast<Font>(num);
+			num++;
+		}
+		for (int i = 0; i < static_cast<int>(Font::Webdings) + 1; i++) {
+			texts[i]->SetData(&td[i]);
+		}
+
+		//deleteされないのでメモリリークする。
+		//修正は後ほど
+	//	for (auto&& t : texts) {
+	//		delete t;
+	//	}
+	}
 }

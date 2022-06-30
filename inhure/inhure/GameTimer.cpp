@@ -70,7 +70,10 @@ void GameTimer::Update()
 	td.Data->fontSize = 30;
 	td.Data->Opacity = 0.6f;
 	if (GetKeyPress(VK_SPACE)) {
-		td.DrawFlag = !td.DrawFlag;
+		CountText->SetDrawFlag(false);
+		//td.DrawFlag = !td.DrawFlag;
+	} else {
+		CountText->SetDrawFlag(true);
 	}
 	//FontData fd;
 	//fd.font = Font::MeiryoUI;

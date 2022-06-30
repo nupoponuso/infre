@@ -88,6 +88,12 @@
     <Filter Include="ヘッダー ファイル\additional">
       <UniqueIdentifier>{df1124ae-7ffd-449e-824f-6593c1befd25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\mover\debug">
+      <UniqueIdentifier>{5f6dc2d6-5520-446b-b419-0401f454fa84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\mover\debug">
+      <UniqueIdentifier>{f88cc831-0d33-45b5-a47b-346db54f60ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -266,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="D2DDrawMng.cpp">
       <Filter>ソース ファイル\additional</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayMover.cpp">
+      <Filter>ソース ファイル\mover\debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +466,9 @@
     </ClInclude>
     <ClInclude Include="D2DDrawMng.h">
       <Filter>ヘッダー ファイル\additional</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayMover.h">
+      <Filter>ヘッダー ファイル\mover\debug</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

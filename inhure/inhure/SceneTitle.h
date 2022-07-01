@@ -3,6 +3,7 @@
 #include "F_lib/include/SceneManeger.h"
 #include "F_lib/include/Text.h"
 #include "GameTimer.h"
+#include "D2DFunctions.h"
 
 class SceneTitle : public F_lib_Fremworker::SceneBase
 {
@@ -17,5 +18,6 @@ private:
 	F_lib_Render::Text* Text;
 	std::wstring scenename;
 	GameTimer* GTimer;
+	F_lib_Render::D2DCircleGauge* Gauge;
 };
 

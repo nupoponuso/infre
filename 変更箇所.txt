@@ -13,10 +13,10 @@ newの後deleteされていないものが多い
 CustomInput(h,cpp)
 D2DFunctions(h,cpp)
 D2DRenderTargetAndDWrite(h,cpp)
-D2Text(h,cpp)
+D2DText(h,cpp)
 D2DDrawMng(h,cpp)
 GameTimer(h,cpp)
-RenderTargetResource(h,cpp)
+**(不要/未削除)RenderTargetResource(h,cpp)
 Shop(h,cpp)
 
 
@@ -39,19 +39,23 @@ Shop(h,cpp)
  	デストラクタ追加
  	D2DRenderTargetのポインタ、及びgetter
  	D2DTextMngのポインタ、及びgetter
+ 	D2DFuncMngのポインタ、及びgetter
  - cpp
  	デストラクタ()
  		D2DRenderTargetのdelete
- 		D2DText関係のdelete
- 		D2DFunction関係のdelete
- 		RenderTargetResourceのdelete
+ 		Mng(Text, Func)のdelete
+ 		2DText関係のdelete
+ 		**(削除)D2DFunction関係のdelete
+ 		**(削除)RenderTargetResourceのdelete
  	Init()
  		D2DRenderTargetsの初期化
- 		RenderTargetResourceの初期化
- 		D2DTextの初期化、レンダー用リスト管理クラスTextMngの生成
- 		D2DFunctionの初期化、レンダー用リスト管理クラスFuncMngの生成(途中)
+ 		**(削除)RenderTargetResourceの初期化
+ 		レンダー用リスト管理クラスの生成
+ 			TextMng, FuncMng
+ 		2DTextの初期化
+ 		**(修正中)D2DFunctionの初期化
  	Renderring()
- 		D2D描画の記述(BeginDraw,EndDraw)
+ 		**(削除)D2D描画の記述(BeginDraw,EndDraw)
  		D2DText描画
  		D2DFunc描画
 

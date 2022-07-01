@@ -103,6 +103,9 @@ namespace F_lib_Render
 			hr = D2DFactory->CreateDxgiSurfaceRenderTarget(DXGISurface, &props, &DxgiRenderTarget);
 			if (FAILED(hr))
 				return hr;
+
+			// アンチエイリアシングモード
+			DxgiRenderTarget->SetTextAntialiasMode(D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE);
 		}
 		return hr;
 	}

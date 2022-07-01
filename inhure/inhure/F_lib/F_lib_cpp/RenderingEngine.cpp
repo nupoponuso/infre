@@ -7,9 +7,7 @@
 
 #include "../D2DRenderTargetsAndDWrite.h"
 #include "../D2DDrawMng.h"
-#include "../RenderTargetResources.h"
 #include "../D2DText.h"
-#include "../D2DFunctions.h"
 
 namespace F_lib_Render
 {
@@ -35,10 +33,9 @@ namespace F_lib_Render
 	// 追加
 	RenderingEngine::~RenderingEngine()
 	{
-		::F_lib_Render::D2DText::Uninit();
-		::D2DFunctions::D2DFuncComponent::Uninit();
-		::F_lib_Render::RenderTargetResources::DeleteResources();
-		delete D2DTextMng;
+		delete D2Dtext;
+		delete D2DtextMng;
+		delete D2DfuncMng;
 		delete D2DTargets;
 	}
 	// ここまで
@@ -173,11 +170,9 @@ namespace F_lib_Render
 		*	HwndRenderTarget,DCRenderTargetへの対応はしていないので注意
 		*	(今利用しているRenderingEngine(藤岡製)のRenderTerget.hの設定に依っている)
 		*/
-		RenderTargetResources::Create(D2DTargets->GetDxgiRenderTarget());
-		D2DTextMng = new ::F_lib_Render::D2DTextMng();
-		D2DText::Init(D2DTargets->GetDWriteFactory(), D2DTextMng);
-		::D2DFunctions::D2DFuncComponent::Init(D2DTargets->GetD2DFactory());
-
+		D2DtextMng = new ::F_lib_Render::D2DTextMng();
+		D2DfuncMng = new ::F_lib_Render::D2DFuncMng();
+		D2Dtext = new D2DText(D2DTargets->GetDWriteFactory(), D2DTargets->GetDxgiRenderTarget());
 		// ここまで
 
 	}
@@ -262,7 +257,7 @@ namespace F_lib_Render
 		listRender_2D(true);
 
 		Mainterget->RenderClser(DeviceContext);		//ノンスクリーンレンダリングした物をスプライトで描画
-		D2DTargets->GetDxgiRenderTarget()->BeginDraw();	// D2Dの描画開始
+		//D2DTargets->GetDxgiRenderTarget()->BeginDraw();	// D2Dの描画開始
 														// 呼出はレンダーターゲットのクリア後~SwapChain.Present()の間に1回のみ
 		setRasterrize(RASTER_BACK);
 		setBlend(BLEND_ALPHABLEND);
@@ -275,9 +270,10 @@ namespace F_lib_Render
 		s->Draw();
 		
 		text->render();
-		D2DTextMng->Render();
+		D2DtextMng->Render();
+		D2DfuncMng->Render();
 
-		D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
+		//D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	
 		Render3DList.clear();
 		Render2DListBack.clear();

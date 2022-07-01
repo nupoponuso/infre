@@ -155,6 +155,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AreaEnemySpawner.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossArea.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletHoming.cpp" />
     <ClCompile Include="CustomInput.cpp" />
@@ -163,10 +166,12 @@
     <ClCompile Include="D2DText.cpp" />
     <ClCompile Include="D2DDrawMng.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyArea.cpp" />
     <ClCompile Include="EnemySpawner.cpp" />
     <ClCompile Include="Enemy_1.cpp" />
     <ClCompile Include="Enemy_2.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Equipment1.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\Camera.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\colision.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\EffekseerManeger.cpp" />
@@ -189,6 +194,7 @@
     <ClCompile Include="F_lib\F_lib_cpp\texture.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp" />
     <ClCompile Include="F_lib\F_lib_cpp\Window.cpp" />
+    <ClCompile Include="gameArea.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
@@ -218,6 +224,9 @@
     <ClCompile Include="Wepon_MissileLunther.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AreaEnemySpawner.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossArea.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletHoming.h" />
     <ClInclude Include="CustomInput.h" />
@@ -226,10 +235,12 @@
     <ClInclude Include="D2DText.h" />
     <ClInclude Include="D2DDrawMng.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyArea.h" />
     <ClInclude Include="EnemySpawner.h" />
     <ClInclude Include="Enemy_1.h" />
     <ClInclude Include="Enemy_2.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Equipment1.h" />
     <ClInclude Include="F_lib\include\Camera.h" />
     <ClInclude Include="F_lib\include\Colision.h" />
     <ClInclude Include="F_lib\include\comon.h" />
@@ -256,6 +267,7 @@
     <ClInclude Include="F_lib\include\texture.h" />
     <ClInclude Include="F_lib\include\TextureManeger.h" />
     <ClInclude Include="F_lib\include\Window.h" />
+    <ClInclude Include="gameArea.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="item.h" />

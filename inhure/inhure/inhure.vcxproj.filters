@@ -88,6 +88,9 @@
     <Filter Include="ヘッダー ファイル\additional">
       <UniqueIdentifier>{df1124ae-7ffd-449e-824f-6593c1befd25}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\mover\boss">
+      <UniqueIdentifier>{4e8c45a2-94ed-4dfc-b5bc-9e6ea5dcf070}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -268,6 +271,21 @@
       <Filter>ソース ファイル\additional</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
+      <Filter>ソース ファイル\mover\boss</Filter>
+    </ClCompile>
+    <ClCompile Include="gameArea.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="BossArea.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyArea.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="AreaEnemySpawner.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment1.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -462,6 +480,21 @@
       <Filter>ヘッダー ファイル\additional</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="gameArea.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="BossArea.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyArea.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="AreaEnemySpawner.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment1.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

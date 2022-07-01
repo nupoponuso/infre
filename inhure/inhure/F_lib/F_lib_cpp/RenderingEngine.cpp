@@ -351,7 +351,7 @@ namespace F_lib_Render
 	void RenderingEngine::listRender_Billbord()
 	{
 		setRasterrize(RASTER_BACK);
-		setZBffer(false);
+		setZBffer(true);
 		setBlend(BLEND_ALPHABLEND);
 		b->reset();
 

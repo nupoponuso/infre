@@ -21,7 +21,6 @@ void EnemySpawner::update()
 	}
 	else count++;
 
-
 }
 
 void EnemySpawner::Spawne()
@@ -39,10 +38,15 @@ void EnemySpawner::Spawne()
 		SpawneData.pos.x += SpowneLen * sindeg(angle);
 		SpawneData.pos.z += SpowneLen * cosdeg(angle);
 
-		m = new Enemy_1(SpawneData);
+		m = CreateEnemy();
 
 		list->listPush(m);
 
 	}
 
+}
+
+Mover2D * EnemySpawner::CreateEnemy()
+{
+	return  new Enemy_1(SpawneData);
 }

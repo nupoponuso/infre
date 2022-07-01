@@ -26,11 +26,13 @@ public:
 
 	void update();
 
-private:
+protected:
 
 	void Spawne();
+	virtual Mover2D* CreateEnemy();
 
 	MoverList* list;
+	class GameArea* area;
 	initenemydata SpawneData;
 	int count,countmax,spawnenum;
 	float SpowneLen;

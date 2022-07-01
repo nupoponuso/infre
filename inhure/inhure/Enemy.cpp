@@ -31,7 +31,7 @@ Enemy::~Enemy()
 
 }
 
-void Enemy::update()
+void Enemy::Update()
 {
 	if (hp < 0)
 		Alive = false;
@@ -45,7 +45,7 @@ void Enemy::update()
 
 void Enemy::Draw()
 {
-
+	mesh->setangle(Angle);
 	mesh->setPosition(Position);
 	mesh->RDraw();
 

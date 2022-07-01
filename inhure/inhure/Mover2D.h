@@ -18,7 +18,7 @@ public:
 	Mover2D(F_lib_Fremworker::ResourceManager* _R) :F_lib_Mover::MoverBase(_R) {}
 	virtual ~Mover2D() {};
 
-	virtual void update() = 0;
+	virtual void Update() = 0;
 	virtual void Draw() = 0;
 	virtual void terhit(Mover2D*) = 0;
 	virtual void herhit(Mover2D*) = 0;

@@ -23,7 +23,7 @@ class Obstacle : public Mover2D
 public:
 	Obstacle(initObstacledata);
 
-	void update() {}
+	void Update() {}
 	void Draw();
 
 };

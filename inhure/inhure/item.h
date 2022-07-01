@@ -27,7 +27,7 @@ public:
 	Item(InitItemData);
 
 
-	virtual void update();
+	virtual void Update();
 	virtual void Draw();
 
 	void terhit(Mover2D*) {}

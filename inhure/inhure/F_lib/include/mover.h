@@ -25,7 +25,7 @@ namespace F_lib_Mover
 		MoverBase(F_lib_Fremworker::ResourceManager*); //座標、角度などの初期化
 
 		//メンバ関数
-		virtual void update() = 0;
+		virtual void Update() = 0;
 		virtual void Draw() = 0;
 		
 		//ゲッター

@@ -26,8 +26,6 @@ void Enemy_1::move()
 
 	}
 
-	
-
 }
 
 void Enemy_1::myAtack()

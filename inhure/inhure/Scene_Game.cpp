@@ -1,3 +1,5 @@
+
+//インクルード
 #include "Scene_Game.h"
 #include "RM.h"
 #include "MeshM.h"
@@ -5,9 +7,14 @@
 #include "input.h"
 #include "F_lib/include/Light.h"
 #include "item.h"
+#include "gameArea.h"
 
 #include "UIPlayer.h"
 
+//定数宣言
+#define AREAPOS (110)
+
+//
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
 {
@@ -31,34 +38,55 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 	hit = L"何かしらがプレイヤーに当たっている";
 
-	InitItemData itemdata;
-	itemdata.R = Resource;
-	itemdata.pos = XMFLOAT3(50, 0, 0);
+	//InitItemData itemdata;
+	//itemdata.R = Resource;
+	//itemdata.pos = XMFLOAT3(50, 0, 0);
 
-	initenemydata datEnemy;
-	datEnemy.pos=XMFLOAT3(0,0,100);
-	datEnemy.R = Resource;
-	datEnemy.speed = 0.51;
-	datEnemy.p = (Player*)p;
-	datEnemy.mylist = elist;
+	InitGameArea areadata;
+	areadata.eblist = eblist;
+	areadata.elist = elist;
+	areadata.p = dynamic_cast<Player*> (p);
+	areadata.R = Resource;
 
-	initEnemySpawner spawn;
-	spawn.dat = datEnemy;
-	spawn.list = elist;
-	spawn.count = 2;
-	spawn.spawnenum = 6;
-	spawn.SpowneLen = 25;
-	spawner = new EnemySpawner(spawn);
+	XMFLOAT2 areapos;
 
+	for (int i = 0; i < 4; i++)
+	{
+		areapos.x = ((i % 2 == 0) ? 1 : -1) * AREAPOS;
+		areapos.y = ((i < 2) ? 1 : -1)* AREAPOS;
+		areadata.pos = areapos;
+		area[i] = new GameArea(areadata);
+	}
+
+	//areapos.x = AREAPOS;
+	//areapos.y = AREAPOS;
+	//areadata.pos = areapos;
+	//area[0] = new gameArea(areadata);
+	//
+	//areapos.x = -AREAPOS;
+	//areapos.y = AREAPOS;
+	//areadata.pos = areapos;
+	//area[1] = new gameArea(areadata);
+	//
+	//areapos.x = AREAPOS;
+	//areapos.y = -AREAPOS;
+	//areadata.pos = areapos;
+	//area[2] = new gameArea(areadata);
+	//
+	//areapos.x = -AREAPOS;
+	//areapos.y = -AREAPOS;
+	//areadata.pos = areapos;
+	//area[3] = new gameArea(areadata);
+	//
 	pui = new UIPlayer(_ResouseManeger, dynamic_cast<Player*>( p));
 
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
-	
+	b = Resource->meshM->getBillbord();
+
 }
 
 void SceneGame::update()
 {
-	UpdateInput();
 
 	if (GetKeyTrigger(VK_T))next = F_lib_Fremworker::Scene_title;
 	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
@@ -73,11 +101,13 @@ void SceneGame::update()
 	
 	}
 
+	for (int i = 0; i < 4; i++)
+		area[i]->Update();
+
 	//if (GetKeyTrigger(VK_C))
-		 p->update();
+		 p->Update();
 	//else p->update();
 
-	spawner->update();
 	elist->update();
 	Itemlist->update();
 	blist->update();
@@ -87,7 +117,16 @@ void SceneGame::update()
 
 void SceneGame::Draw()
 {
-	fild->RDraw();
+	b->reset();
+	b->setColor(0, 0, 0);
+	b->setPosition(XMFLOAT3(0, -40, 0));
+	b->setSize(1000);
+	b->RDraw();
+
+	//fild->RDraw();
+	for (int i = 0; i < 4; i++)
+		area[i]->Draw();
+
 	elist->Draw();
 	Itemlist->Draw();
 	p->Draw();

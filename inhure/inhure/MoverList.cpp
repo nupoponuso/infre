@@ -7,7 +7,7 @@ void MoverList::update()
 	{
 		Mover2D* m = list[i];
 		if (m->Alive)
-			m->update();
+			m->Update();
 
 		if(!m->Alive)
 		{

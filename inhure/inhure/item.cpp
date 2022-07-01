@@ -12,7 +12,7 @@ Item::Item(InitItemData _data) :Mover2D(_data.R), b(_data.R->meshM->getBillbord(
 
 }
 
-void Item::update()
+void Item::Update()
 {
 }
 

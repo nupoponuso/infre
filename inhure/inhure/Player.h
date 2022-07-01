@@ -5,6 +5,7 @@
 #include "F_lib/include/Mesh_Fbxmodel.h"
 
 #include "Wepon.h"
+#include "Equipment.h"
 
 struct initplayerdata
 {
@@ -19,6 +20,12 @@ struct PlayerStetasData
 
 };
 
+struct PlayerStetasDataBase
+{
+	int hpMax, defense;
+
+};
+
 struct PlayerWeponData
 {
 	class Wepon** wepon;
@@ -30,7 +37,7 @@ class Player:public Mover2D
 public:
 	Player(initplayerdata);
 
-	void update();
+	void Update();
 	void Draw();
 
 	void terhit(Mover2D*);
@@ -50,20 +57,21 @@ protected:
 	void Move();
 	void UseWepon();
 	void levelManagement();
+	void StetasManegement();
 
 	bool CreateWepon(enum weponId);
 	void CreateRelic();
 
-	
 	std::vector<class Equipment*> relicList;
 	F_lib_Render::Mesh_Fbx* mesh;
 	MoverList* mybList, *ebList, *enemyList, *itemList,*oList;
 	XMFLOAT3 cPos;
 
-	//initWepondata datInitWepon;
 	bool isMove,isLevelUp;
 	PlayerStetasData stetas;
 	PlayerWeponData wepon;
+	PlayerStetasDataBase baseStetas;
+	StrengtheningDataPlayer pdataOll;
 	int speedRot;
 	float moveDir;
 

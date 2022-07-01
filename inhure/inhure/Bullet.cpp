@@ -21,7 +21,7 @@ Bullet::Bullet(initbulletdata _dat) :Mover2D(_dat.R),atacklist(_dat.atacklist)
 
 }
 
-void Bullet::update()
+void Bullet::Update()
 {
 	if (!Alive) 
 		return;

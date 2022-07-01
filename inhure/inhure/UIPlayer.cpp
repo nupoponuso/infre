@@ -40,6 +40,17 @@ void UIPlayer::Draw()
 	textpos.x = 100;
 	textpos.y += TEXTPOSVALY;
 	Text->setPosition(textpos);
+	string = L"Å‘åhp:";
+	Text->draw(string);
+
+	textpos.x += TEXTPOSVALX;
+	Text->setPosition(textpos);
+	string = std::to_wstring(p->getStetas().hpMax);
+	Text->draw(string);
+
+	textpos.x = 100;
+	textpos.y += TEXTPOSVALY;
+	Text->setPosition(textpos);
 	string = L"ŒoŒ±’l:";
 	Text->draw(string);
 	

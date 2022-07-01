@@ -4,8 +4,13 @@
 
 struct StrengtheningDataPlayer
 {
-	float hp,speed;
-	int atack, defense, ep;
+	//float speed;
+	int hp, atack, defense, ep;//強化値　実際に使用するときには　変数の値×0.01fということになる
+	StrengtheningDataPlayer()
+	{
+		hp = atack = defense = ep = 0;
+
+	}
 
 };
 

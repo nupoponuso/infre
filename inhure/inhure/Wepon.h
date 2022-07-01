@@ -33,7 +33,7 @@ class Wepon :public Mover2D
 public:
 	Wepon(initWepondata);
 
-	void update();
+	void Update();
 	virtual void Draw() = 0;
 
 	void terhit(Mover2D*) {};

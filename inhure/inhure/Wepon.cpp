@@ -11,7 +11,7 @@ Wepon::Wepon(initWepondata _dat) :Mover2D(_dat.R), enemyList(_dat.EnemyList), p(
 
 }
 
-void Wepon::update()
+void Wepon::Update()
 {
 	if (!Alive) return;
 

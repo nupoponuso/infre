@@ -21,7 +21,7 @@ public:
 	Enemy(initenemydata);
 	~Enemy();
 
-	void update();
+	virtual void Update();
 	void Draw();
 	void terhit(Mover2D*);
 	void herhit(Mover2D*);
@@ -44,7 +44,7 @@ protected:
 	MoverList* bulletList,*myList;
 	int hp, atack, defense, ep;
 	float speed;
-	bool isAtack;
+	bool isAtack, ismove;;
 
 };
 

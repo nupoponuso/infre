@@ -11,10 +11,10 @@
 #include "WeponFlamethrower.h"
 #include "WeponLyzer.h"
 
-#include "Equipment.h"
+#include "Equipment1.h"
+
 #include "item.h"
 
-class Wepon_MissileLunther;
 
 using namespace F_lib_Mover;
 using namespace F_lib_Render;
@@ -25,16 +25,15 @@ Player::Player(initplayerdata _dat)
 	Position = XMFLOAT3();
 	mesh = _dat.R->meshM->getModel(0);
 
-	
 	speed = 1.25f;
 	speedRot = 10;//•ûŒü§Œä‚ÌŽž
 	//rotspeed = 4;//ù‰ñ§Œä‚ÌŽž
 	wepon.weponNum = 0;
 	isLevelUp = false;
-	stetas.hp = stetas.hpMax = 1000;
+	baseStetas.hpMax =  stetas.hp = stetas.hpMax = 1000;
 	stetas.epMax = 100;
 	stetas.ep = 0;
-	stetas.defense = 0;
+	baseStetas.defense = stetas.defense = 0;
 	stetas.level = 1;
 	atack = 0;
 
@@ -56,7 +55,7 @@ Player::Player(initplayerdata _dat)
 
 }
 
-void Player::update()
+void Player::Update()
 {
 	levelManagement();
 	Move();
@@ -84,8 +83,6 @@ void Player::Draw()
 
 void Player::terhit(Mover2D *_m)
 {
-	Item* item;
-
 	switch (_m->getMyid())
 	{
 	case mover_enemy:
@@ -95,8 +92,8 @@ void Player::terhit(Mover2D *_m)
 
 		break;
 	case mover_item:
-		
-		item = dynamic_cast<Item*>(_m);
+	{
+		Item* item = dynamic_cast<Item*>(_m);
 		if (item != nullptr)
 		{
 			ItemWepon* Iwepon;
@@ -116,6 +113,7 @@ void Player::terhit(Mover2D *_m)
 		}
 
 		break;
+	}
 	case mover_obstacle:
 		break;
 	}
@@ -203,9 +201,12 @@ void Player::Move()
 
 void Player::UseWepon()
 {
-	//StrengtheningDataPlayer pdataOll;
-	//StrengtheningDataPlayer* pdata;
+	if (GetKeyTrigger(VK_0))
+		CreateRelic();
 
+	for (auto relic : relicList)
+		relic->update();
+	
 	if (wepon.weponNum == wepon.weponMaxNum)
 	{
 		if (GetKeyTrigger(VK_LEFT))
@@ -228,21 +229,8 @@ void Player::UseWepon()
 	//	CreateWepon(Weponid::Wepon_missilelunther);
 	//}
 
-	for (auto relic : relicList)
-	{
-		relic->update();
-
-		//if (relic->getdataP() != nullptr)
-		//{
-		//	pdata = relic->getdataP();
-		//
-		//}
-
-	}
-
 	for (int i = 0; i < wepon.weponNum; i++)
-		wepon.wepon[i]->update();
-
+		wepon.wepon[i]->Update();
 
 }
 
@@ -268,9 +256,20 @@ void Player::levelManagement()
 
 			speed += 0.02;
 			stetas.epMax += 50;
+			//baseStetas.hpMax += 50;
 
 		}
+
 	}
+
+}
+
+void Player::StetasManegement()
+{
+	//pdataOll
+	stetas.hpMax = baseStetas.hpMax + (baseStetas.hpMax * float(0.01f*pdataOll.hp));
+	stetas.defense = baseStetas.defense + (baseStetas.defense * float(0.01f*pdataOll.defense));
+
 
 }
 
@@ -317,8 +316,25 @@ bool Player::CreateWepon(weponId _id)
 
 void Player::CreateRelic()
 {
+	StrengtheningDataPlayer* pdata;
 
-	
+	pdataOll.atack = pdataOll.hp = pdataOll.ep = pdataOll.defense = 0;
+	relicList.push_back(new Equipment1());
 
+	for (auto relic : relicList)
+	{
+		if (relic->getdataP() != nullptr)
+		{
+			pdata = relic->getdataP();
+			pdataOll.atack += pdata->atack;
+			pdataOll.hp += pdata->hp;
+			pdataOll.ep += pdata->ep;
+			pdataOll.defense += pdata->defense;
+
+		}
+
+	}
+
+	StetasManegement();
 
 }

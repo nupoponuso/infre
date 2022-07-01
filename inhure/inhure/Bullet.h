@@ -19,7 +19,7 @@ class Bullet :public Mover2D
 {
 public:
 	Bullet(initbulletdata);
-	void update();
+	void Update();
 	void Draw();
 
 	void terhit(Mover2D*);

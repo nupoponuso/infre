@@ -23,7 +23,9 @@ private:
 	Mover2D* p;
 	MoverList* elist, *eblist,* blist,*Itemlist;
 	F_lib_Render::Mesh_Fbx* fild;
-	EnemySpawner* spawner;
+	F_lib_Render::Mesh_billbord* b;
+	class EnemySpawner* spawner;
+	class GameArea* area[4];
 
 };
 

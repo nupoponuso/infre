@@ -54,7 +54,7 @@ F_lib_Mover::Colision_2D * DisplayMover::getcol()
 	return nullptr;
 }
 
-void DisplayMover::update()
+void DisplayMover::Update()
 {
 }
 

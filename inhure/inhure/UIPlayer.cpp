@@ -11,11 +11,7 @@ UIPlayer::UIPlayer(F_lib_Fremworker::ResourceManager *_R, Player *_p)
 	:UI(_R), p(_p)
 {
 	Text = _R->meshM->getText();
-<<<<<<< HEAD
-	//Textrue = _R->TM->gettex(0);
-=======
-	Textrue = _R->TM->gettex(4);
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
+
 }
 
 void UIPlayer::Update()

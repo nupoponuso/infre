@@ -57,19 +57,19 @@ void CustomInput::Update()
 		GetKeyPress(VK_RETURN);
 }
 
-bool CustomInput::GetCustomInputPress(GameInput input)
+bool CustomInput::getPress(GameInput input)
 {
 	//ボタンが押しっぱなし = 現在のフレームで押されている
 	return gameInputState[SC_I(input)] == true;
 }
 
-bool CustomInput::GetCustomInputTrigger(GameInput input)
+bool CustomInput::getTrigger(GameInput input)
 {
 	//ボタンが押された瞬間 = 現在のフレームで押されている＋１フレーム前には押されていない
 	return gameInputState[SC_I(input)] == true && gameInputStateOld[SC_I(input)] == false;
 }
 
-bool CustomInput::GetCustomInputRelease(GameInput input)
+bool CustomInput::getRelease(GameInput input)
 {
 	//ボタンが離された瞬間 = 現在のフレームでは離されている＋１フレーム前には押されていた
 	return gameInputState[SC_I(input)] == false && gameInputStateOld[SC_I(input)] == true;

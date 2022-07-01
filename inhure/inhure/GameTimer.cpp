@@ -13,11 +13,8 @@ GameTimer::GameTimer()
 	, TimerCount(0.0f)
 {
 	restart();
-<<<<<<< HEAD
-	//CountText = new D2DText();
-=======
 	CountText = new D2DTextParams();
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
+
 }
 
 GameTimer::~GameTimer()
@@ -53,31 +50,9 @@ void GameTimer::Update()
 		restart();
 	}
 #ifdef _DEBUG
-<<<<<<< HEAD
-	//TCHAR str[256];
-	//_stprintf_s(str, 256, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
-	//
-=======
 	TCHAR str[MAXCHAR];
 	_stprintf_s(str, MAXCHAR, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
 	
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
-	//int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
-	//WCHAR* wstr = new WCHAR[nLen];
-	//if (wstr) {
-	//	//�ϊ�
-	//	nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
-	//	if (nLen == 0) {
-	//		delete	wstr;
-	//		wstr = NULL;
-	//	}
-	//}
-<<<<<<< HEAD
-	//CountText->SetText(wstr);
-	//CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
-	//
-=======
-
 	TextData td;
 	td.Str = str;
 	td.Rect = { 400, 0, 600, 200 };
@@ -101,9 +76,6 @@ void GameTimer::Update()
 	//CountText->SetText(wstr, nLen);
 	//CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
 
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
-	//delete wstr;
-	//wstr = nullptr;
 #endif // _DEBUG
 
 }

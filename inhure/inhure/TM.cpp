@@ -9,21 +9,6 @@ HRESULT TexM::loadTex()
 {
 
 	ID3D11ShaderResourceView* tex;
-
-	CreateTextureFromFile(Device, L"data/t/EXMemory.png", &tex);
-	list.push_back(tex);
-
-	CreateTextureFromFile(Device, L"data/t/EXMemory.png", &tex);
-	list.push_back(tex);
-
-	CreateTextureFromFile(Device, L"data/t/EXBar.png", &tex);
-	list.push_back(tex);
-
-	CreateTextureFromFile(Device, L"data/t/EXBar.png", &tex);
-	list.push_back(tex);
-
-
-=======
 	//0
 	CreateTextureFromFile(Device, L"data/t/EXBar.png", &tex);
 	list.push_back(tex);
@@ -44,6 +29,5 @@ HRESULT TexM::loadTex()
 	CreateTextureFromFile(Device, L"data/t/UI��.png", &tex);
 	list.push_back(tex);
 
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
-	return E_NOTIMPL;
+	return 0;
 }

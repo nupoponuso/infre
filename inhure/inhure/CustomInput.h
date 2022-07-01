@@ -30,9 +30,9 @@ public:
 	*  #define SC_I(param) static_cast<int>(param)
 	*  #undef SC_I
 	*/
-	bool GetCustomInputPress(GameInput input);		//ボタンが押されている間はtrueを返す
-	bool GetCustomInputTrigger(GameInput input);	//ボタンが押された瞬間だけtrueを返す
-	bool GetCustomInputRelease(GameInput input);	//ボタンが離された瞬間だけtrueを返す
+	bool getPress(GameInput input);		//ボタンが押されている間はtrueを返す
+	bool getTrigger(GameInput input);	//ボタンが押された瞬間だけtrueを返す
+	bool getRelease(GameInput input);	//ボタンが離された瞬間だけtrueを返す
 
 protected:
 	CustomInput();

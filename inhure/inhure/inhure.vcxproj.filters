@@ -1,519 +1,504 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover">
-      <UniqueIdentifier>{f049cbf8-7bd0-49d5-9b6b-d64ba1b88c99}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\bullet">
-      <UniqueIdentifier>{29b746c1-d898-4af1-892b-8c93aab48648}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\player">
-      <UniqueIdentifier>{2e5221bf-3fe1-4f2d-ab01-91487ea87d68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\enemy">
-      <UniqueIdentifier>{2d42b375-f31f-4d02-b883-5e155c0a3580}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\Obstract">
-      <UniqueIdentifier>{f909d15d-4dcf-4565-bd86-6356f53e5f79}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\item">
-      <UniqueIdentifier>{9442a133-2873-441f-b033-e7bc38301a2d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\comon">
-      <UniqueIdentifier>{0c7ab7ee-182b-41a7-9708-89f6e85d0870}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\ui">
-      <UniqueIdentifier>{4b4ee15a-fb1c-4bba-9d76-271fa8ddba1d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\scene">
-      <UniqueIdentifier>{47eca74d-7b8e-426e-8586-debb86dd4faa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\comon">
-      <UniqueIdentifier>{3c28c517-77e1-445e-a212-de6c87d3bbc2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover">
-      <UniqueIdentifier>{baa8b39f-07cc-478b-874d-be2c9cb31c25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\scene">
-      <UniqueIdentifier>{e259f222-1bbf-4ead-b463-04748c675689}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\ui">
-      <UniqueIdentifier>{acc70d05-f368-4f30-8c74-3bc935bdec38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\enemy">
-      <UniqueIdentifier>{f31a53af-1016-438b-a4a4-b2981115c95f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\bullet">
-      <UniqueIdentifier>{b7040a2d-334b-4151-b632-574c98dbe6ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\player">
-      <UniqueIdentifier>{00c6ccb9-b075-463f-9231-711dbf7e677a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\obstruct">
-      <UniqueIdentifier>{fb29fd54-cabf-46cc-b0cc-0f6df13599be}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\item">
-      <UniqueIdentifier>{f666a77d-3f67-4186-806d-4a99bed1618a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\mover\Wepon">
-      <UniqueIdentifier>{937f4189-cf29-4ada-aa6e-3d69c710640e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\wepon">
-      <UniqueIdentifier>{9c6b2352-61ce-4983-9bfa-c73f0cf53cc7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="F_lib">
-      <UniqueIdentifier>{6f993c71-eef5-48a9-97fe-949e601cd611}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="F_lib\cpp">
-      <UniqueIdentifier>{c97874cc-82be-49a2-a4e1-b202ec0e4553}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="F_lib\h">
-      <UniqueIdentifier>{85950120-3ec9-4cf2-a589-e1740f465cad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\additional">
-      <UniqueIdentifier>{d506e9e0-3078-41c0-b2bb-0277080b44f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\additional">
-      <UniqueIdentifier>{df1124ae-7ffd-449e-824f-6593c1befd25}</UniqueIdentifier>
-    </Filter>
-<<<<<<< HEAD
-    <Filter Include="ソース ファイル\mover\boss">
-      <UniqueIdentifier>{4e8c45a2-94ed-4dfc-b5bc-9e6ea5dcf070}</UniqueIdentifier>
-=======
-    <Filter Include="ヘッダー ファイル\mover\debug">
-      <UniqueIdentifier>{5f6dc2d6-5520-446b-b419-0401f454fa84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\mover\debug">
-      <UniqueIdentifier>{f88cc831-0d33-45b5-a47b-346db54f60ec}</UniqueIdentifier>
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="DisplayMover.cpp">
+      <Filter>ソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>ソース ファイル\mover\bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletHoming.cpp">
-      <Filter>ソース ファイル\mover\bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>ソース ファイル\mover\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_1.cpp">
-      <Filter>ソース ファイル\mover\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_2.cpp">
-      <Filter>ソース ファイル\mover\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemySpawner.cpp">
-      <Filter>ソース ファイル\mover\enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
-    <ClCompile Include="input.cpp">
-      <Filter>ソース ファイル\comon</Filter>
-    </ClCompile>
-    <ClCompile Include="item.cpp">
-      <Filter>ソース ファイル\mover\item</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>ソース ファイル\comon</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル\mover\player</Filter>
-    </ClCompile>
-    <ClCompile Include="Obstacle.cpp">
-      <Filter>ソース ファイル\mover\obstruct</Filter>
-    </ClCompile>
-    <ClCompile Include="MoverList.cpp">
-      <Filter>ソース ファイル\mover</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Corection.cpp">
-      <Filter>ソース ファイル\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager_infure.cpp">
-      <Filter>ソース ファイル\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Game.cpp">
-      <Filter>ソース ファイル\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>ソース ファイル\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshM.cpp">
-      <Filter>ソース ファイル\comon</Filter>
-    </ClCompile>
-    <ClCompile Include="RM.cpp">
-      <Filter>ソース ファイル\comon</Filter>
-    </ClCompile>
-    <ClCompile Include="Wepon.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="Wepon_MissileLunther.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponSword.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="TM.cpp">
-      <Filter>ソース ファイル\comon</Filter>
-    </ClCompile>
-    <ClCompile Include="UIPlayer.cpp">
-      <Filter>ソース ファイル\ui</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponLyzer.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponBoomerang.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="WeponFlamethrower.cpp">
-      <Filter>ソース ファイル\mover\wepon</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Mesh.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Mesh_billbord.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Fbxmodel.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Mesh_ShaderDat.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Sprite.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\MeshManeger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\mover.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\moverManeger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\RenderingEngine.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\ResderTerget.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\ResourceManager.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Text.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Window.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Camera.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\colision.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\EffekseerManeger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Fpsmaneger.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\Light.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\sound.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\texture.cpp">
-      <Filter>F_lib\cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTimer.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="Shop.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DFunctions.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomInput.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DRenderTargetsAndDWrite.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DText.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderTargetResources.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DDrawMng.cpp">
-      <Filter>ソース ファイル\additional</Filter>
-    </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="Boss.cpp">
-      <Filter>ソース ファイル\mover\boss</Filter>
-    </ClCompile>
-    <ClCompile Include="gameArea.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソースファイル\mover\Boss</Filter>
     </ClCompile>
     <ClCompile Include="BossArea.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソースファイル\mover\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletHoming.cpp">
+      <Filter>ソースファイル\mover\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>ソースファイル\mover\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソースファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_1.cpp">
+      <Filter>ソースファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_2.cpp">
+      <Filter>ソースファイル\mover\enemy</Filter>
     </ClCompile>
     <ClCompile Include="EnemyArea.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソースファイル\mover\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>ヘッダーファイル</Filter>
     </ClCompile>
     <ClCompile Include="AreaEnemySpawner.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソースファイル\mover\factly</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\colision.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Camera.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Window.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\TextureManeger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\texture.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Text.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\ResourceManager.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\ResderTerget.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\RenderingEngine.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\moverManeger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\mover.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\MeshManeger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Sprite.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_billbord.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_Fbxmodel.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh_ShaderDat.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Mesh.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Light.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\Fpsmaneger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\EffekseerManeger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomInput.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DDrawMng.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DFunctions.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DRenderTargetsAndDWrite.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="D2DText.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>ソースファイル\mover\item</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponSword.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Wepon_MissileLunther.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponBoomerang.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponFlamethrower.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="WeponLyzer.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>ソースファイル\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPlayer.cpp">
+      <Filter>ソースファイル\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Corection.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager_infure.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Game.cpp">
+      <Filter>ソースファイル\Scene\game</Filter>
+    </ClCompile>
+    <ClCompile Include="gameArea.cpp">
+      <Filter>ソースファイル\Scene\game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>ソースファイル\Scene\game</Filter>
+    </ClCompile>
+    <ClCompile Include="MoverList.cpp">
+      <Filter>ソースファイル\mover</Filter>
+    </ClCompile>
+    <ClCompile Include="Obstacle.cpp">
+      <Filter>ソースファイル\mover\Obstraut</Filter>
+    </ClCompile>
+    <ClCompile Include="TM.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetResources.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="RM.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\sound.cpp">
+      <Filter>ソースファイル\window</Filter>
     </ClCompile>
     <ClCompile Include="Equipment1.cpp">
-      <Filter>ソース ファイル</Filter>
-=======
-    <ClCompile Include="DisplayMover.cpp">
-      <Filter>ソース ファイル\mover\debug</Filter>
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソースファイル\mover\player</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySpawner.cpp">
+      <Filter>ソースファイル\mover\factly</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshM.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="input.cpp">
+      <Filter>ソースファイル\window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h">
-      <Filter>ヘッダー ファイル\mover\bullet</Filter>
+    <ClInclude Include="DisplayMover.h">
+      <Filter>ヘッダーファイル</Filter>
     </ClInclude>
-    <ClInclude Include="BulletHoming.h">
-      <Filter>ヘッダー ファイル\mover\bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>ヘッダー ファイル\mover\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_1.h">
-      <Filter>ヘッダー ファイル\mover\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_2.h">
-      <Filter>ヘッダー ファイル\mover\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemySpawner.h">
-      <Filter>ヘッダー ファイル\mover\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment.h">
-      <Filter>ヘッダー ファイル\mover\player</Filter>
-    </ClInclude>
-    <ClInclude Include="item.h">
-      <Filter>ヘッダー ファイル\mover\item</Filter>
-    </ClInclude>
-    <ClInclude Include="Mover2D.h">
-      <Filter>ヘッダー ファイル\mover</Filter>
-    </ClInclude>
-    <ClInclude Include="MoverList.h">
-      <Filter>ヘッダー ファイル\mover</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstacle.h">
-      <Filter>ヘッダー ファイル\mover\Obstract</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>ヘッダー ファイル\mover\player</Filter>
-    </ClInclude>
-    <ClInclude Include="input.h">
-      <Filter>ヘッダー ファイル\comon</Filter>
-    </ClInclude>
-    <ClInclude Include="MainWindow.h">
-      <Filter>ヘッダー ファイル\comon</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshM.h">
-      <Filter>ヘッダー ファイル\comon</Filter>
-    </ClInclude>
-    <ClInclude Include="RM.h">
-      <Filter>ヘッダー ファイル\comon</Filter>
-    </ClInclude>
-    <ClInclude Include="TM.h">
-      <Filter>ヘッダー ファイル\comon</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Corection.h">
-      <Filter>ヘッダー ファイル\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene_Game.h">
-      <Filter>ヘッダー ファイル\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager_infure.h">
-      <Filter>ヘッダー ファイル\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ヘッダー ファイル\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>ヘッダー ファイル\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponSword.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="Wepon_MissileLunther.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="Wepon.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="UIPlayer.h">
-      <Filter>ヘッダー ファイル\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponLyzer.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponBoomerang.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="WeponFlamethrower.h">
-      <Filter>ヘッダー ファイル\mover\Wepon</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Light.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Mesh.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Mesh_billbord.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Mesh_Fbxmodel.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Mesh_ShaderDat.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Mesh_Sprite.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\MeshManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\mover.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\moverManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\paramerter.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\RenderingEngine.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\ResderTerget.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\ResourceManager.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\SceneManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\singlton.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\sound.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Text.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\texture.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\TextureManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Window.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Camera.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Colision.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\comon.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\datemaneger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\EffekseerManeger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="F_lib\include\Fpsmaneger.h">
-      <Filter>F_lib\h</Filter>
-    </ClInclude>
-    <ClInclude Include="Shop.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTimer.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="D2DFunctions.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomInput.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="D2DRenderTargetsAndDWrite.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="D2DText.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderTargetResources.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-    <ClInclude Include="D2DDrawMng.h">
-      <Filter>ヘッダー ファイル\additional</Filter>
-    </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Boss.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="gameArea.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダーファイル\mover\Boss</Filter>
     </ClInclude>
     <ClInclude Include="BossArea.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダーファイル\mover\Boss</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyArea.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Bullet.h">
+      <Filter>ヘッダーファイル\mover\bullet</Filter>
     </ClInclude>
-    <ClInclude Include="AreaEnemySpawner.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="BulletHoming.h">
+      <Filter>ヘッダーファイル\mover\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ヘッダーファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_1.h">
+      <Filter>ヘッダーファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_2.h">
+      <Filter>ヘッダーファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Camera.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Colision.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\comon.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\datemaneger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\EffekseerManeger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Fpsmaneger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Light.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Mesh.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Mesh_billbord.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Mesh_Fbxmodel.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Mesh_ShaderDat.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Mesh_Sprite.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\MeshManeger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\mover.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\moverManeger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\paramerter.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\RenderingEngine.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\ResderTerget.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\ResourceManager.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\SceneManeger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Text.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\texture.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\TextureManeger.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\Window.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Wepon_MissileLunther.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponBoomerang.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponLyzer.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponSword.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="WeponFlamethrower.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>ヘッダーファイル\mover\player</Filter>
     </ClInclude>
     <ClInclude Include="Equipment1.h">
-      <Filter>ヘッダー ファイル</Filter>
-=======
-    <ClInclude Include="DisplayMover.h">
-      <Filter>ヘッダー ファイル\mover\debug</Filter>
->>>>>>> D2D機能導入、及びカスタムインプット開発開始
+      <Filter>ヘッダーファイル\mover\player</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyArea.h">
+      <Filter>ヘッダーファイル\mover\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Mover2D.h">
+      <Filter>ヘッダーファイル\mover</Filter>
+    </ClInclude>
+    <ClInclude Include="MoverList.h">
+      <Filter>ヘッダーファイル\mover</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstacle.h">
+      <Filter>ヘッダーファイル\mover\Obstraut</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Corection.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager_infure.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>ヘッダーファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPlayer.h">
+      <Filter>ヘッダーファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>ヘッダーファイル\mover\item</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\singlton.h">
+      <Filter>f_lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="TM.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="MainWindow.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshM.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetResources.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="RM.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="F_lib\include\sound.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomInput.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DDrawMng.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DFunctions.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DRenderTargetsAndDWrite.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="D2DText.h">
+      <Filter>ヘッダーファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Game.h">
+      <Filter>ヘッダーファイル\Scene\game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>ヘッダーファイル\Scene\game</Filter>
+    </ClInclude>
+    <ClInclude Include="gameArea.h">
+      <Filter>ヘッダーファイル\Scene\game</Filter>
+    </ClInclude>
+    <ClInclude Include="AreaEnemySpawner.h">
+      <Filter>ヘッダーファイル\mover\factly</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySpawner.h">
+      <Filter>ヘッダーファイル\mover\factly</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ヘッダーファイル">
+      <UniqueIdentifier>{3dd50d4b-80e0-4428-8f49-f6917ed572ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル">
+      <UniqueIdentifier>{e4fc217f-69b0-49d7-b80e-b856e1d664f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover">
+      <UniqueIdentifier>{06e4c458-2fce-4082-81f9-116a25caaa97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\enemy">
+      <UniqueIdentifier>{f89dfd75-fc51-4d7b-84d7-a86b1095549d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\player">
+      <UniqueIdentifier>{42fa3b7a-0981-45a4-ac95-6c327df393a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\Obstraut">
+      <UniqueIdentifier>{ececbb52-ae74-4a7d-90bc-fa1068d44e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\Boss">
+      <UniqueIdentifier>{b9b37b3a-1363-4281-8b1e-6790338993d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\bullet">
+      <UniqueIdentifier>{d3b78f4d-4bb9-4b8d-8696-4d174d8b1373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover">
+      <UniqueIdentifier>{1ebd18e8-58bb-4dcb-81bc-677f64eb45cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\enemy">
+      <UniqueIdentifier>{e93ef0a2-cf08-41ae-ac99-64c6bf75b1f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\Boss">
+      <UniqueIdentifier>{487f4fbe-f765-4dc2-bcbe-b3b7908e60e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\player">
+      <UniqueIdentifier>{68920401-cc9a-42b1-860d-679cc51a45ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\Obstraut">
+      <UniqueIdentifier>{d931fd6e-3d5f-48fc-b2f5-9d1ba6357199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\Bullet">
+      <UniqueIdentifier>{3e4b1ea0-b060-4ccc-856f-c05059faeb0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="f_lib">
+      <UniqueIdentifier>{c018f53d-dcff-4fc8-82db-78faa3c50123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\UI">
+      <UniqueIdentifier>{c10731c9-67ef-445b-b4c3-d96a6bc6ebc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Scene">
+      <UniqueIdentifier>{da5ef519-82fb-4bb4-bc9f-5bb6c6e1dd66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="f_lib\h">
+      <UniqueIdentifier>{88f76628-52af-4534-a608-00e61d63415f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="f_lib\cpp">
+      <UniqueIdentifier>{187e6f01-0b24-4a42-b2ae-844ee96596e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\item">
+      <UniqueIdentifier>{386216fd-f778-4ebc-b423-475150a003e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\window">
+      <UniqueIdentifier>{c2f0ffe3-76f6-4801-8dc3-bea33bb24f4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\Scene\game">
+      <UniqueIdentifier>{8e76872c-c8aa-452a-a256-03582d7ad20a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\mover\factly">
+      <UniqueIdentifier>{47d15f4a-1f10-4cd7-bb18-979d88636964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\item">
+      <UniqueIdentifier>{b7c5584b-099f-4087-a24d-1f4f61d0aabd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\window">
+      <UniqueIdentifier>{964a2ed0-522d-42db-8c31-e0edcab75114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\ui">
+      <UniqueIdentifier>{e65a4aee-60a9-45ec-8e11-65c67bfc6b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\Scene">
+      <UniqueIdentifier>{22d29fd9-a0c7-4333-97e5-77f5d857dd85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\mover\factly">
+      <UniqueIdentifier>{4b73ca97-ca89-4d39-8c13-9aad7bbde278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\Scene\game">
+      <UniqueIdentifier>{d3565ceb-8da2-42a0-acaa-884fb5a4292f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

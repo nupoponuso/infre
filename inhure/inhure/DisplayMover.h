@@ -29,7 +29,7 @@ public:
 
 	F_lib_Mover::Colision_2D* getcol() override;
 
-	void update();
+	void Update();
 	void Draw();
 
 private:

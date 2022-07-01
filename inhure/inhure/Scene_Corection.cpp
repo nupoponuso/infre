@@ -36,7 +36,7 @@ void SceneCorection::update()
 	else if (GetKeyTrigger(VK_G))next = F_lib_Fremworker::Scene_game;
 	
 	for (auto&& m : models) {
-		m->update();
+		m->Update();
 	}
 }
 

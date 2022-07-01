@@ -10,21 +10,19 @@ MeshM::MeshM(RenderingEngine * _R) :F_lib_Fremworker::MeshManeger(_R)
 
 void MeshM::detaLode(int)
 {
-	Mesh_ShaderDat3D * shader;
-	shader = new Mesh_ShaderDat3D(L"data/s/3Dshader.hlsl", false, Device);
 
 	Mesh_Fbx* m;
 	//0
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(),c,l);
 	m->InitModel("data/m/Boss.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	fbxlist.push_back(m);
 
 	//1
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/tikafild.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine); 
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(1, 0.5, 1));
@@ -33,7 +31,7 @@ void MeshM::detaLode(int)
 	//2
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/teki3.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setSize(0.01f);
 	m->setRenderingEngine(Engine);
 	fbxlist.push_back(m);
@@ -41,7 +39,7 @@ void MeshM::detaLode(int)
 	//3
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/maru.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setSize(5);
 	m->setRenderingEngine(Engine);
 	fbxlist.push_back(m);
@@ -50,7 +48,7 @@ void MeshM::detaLode(int)
 	//4
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/coreunit_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -59,7 +57,7 @@ void MeshM::detaLode(int)
 	//5
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/coreunit_01_fist.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -68,7 +66,7 @@ void MeshM::detaLode(int)
 	//6
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/coreunit_01_fist_incolor.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -77,7 +75,7 @@ void MeshM::detaLode(int)
 	//7
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/coreunit_01_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -86,7 +84,7 @@ void MeshM::detaLode(int)
 	//8
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/coreunit_01_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -95,7 +93,7 @@ void MeshM::detaLode(int)
 	//9
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/timeboss.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -105,7 +103,7 @@ void MeshM::detaLode(int)
 	//10
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -114,7 +112,7 @@ void MeshM::detaLode(int)
 	//11
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_01_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -123,7 +121,7 @@ void MeshM::detaLode(int)
 	//12
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_01_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -132,7 +130,7 @@ void MeshM::detaLode(int)
 	//13
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_01_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -141,7 +139,7 @@ void MeshM::detaLode(int)
 	//14
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -150,7 +148,7 @@ void MeshM::detaLode(int)
 	//15
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_02_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -159,7 +157,7 @@ void MeshM::detaLode(int)
 	//16
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_02_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -168,7 +166,7 @@ void MeshM::detaLode(int)
 	//17
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_02_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -177,7 +175,7 @@ void MeshM::detaLode(int)
 	//18
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -186,7 +184,7 @@ void MeshM::detaLode(int)
 	//19
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_03_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -195,7 +193,7 @@ void MeshM::detaLode(int)
 	//20
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_03_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -204,7 +202,7 @@ void MeshM::detaLode(int)
 	//21
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_03_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -213,7 +211,7 @@ void MeshM::detaLode(int)
 	//22
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_04.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -222,7 +220,7 @@ void MeshM::detaLode(int)
 	//23
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_04_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -231,7 +229,7 @@ void MeshM::detaLode(int)
 	//24
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_04_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -240,7 +238,7 @@ void MeshM::detaLode(int)
 	//25
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_04_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -249,7 +247,7 @@ void MeshM::detaLode(int)
 	//26
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_05.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -258,7 +256,7 @@ void MeshM::detaLode(int)
 	//27
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_05_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -267,7 +265,7 @@ void MeshM::detaLode(int)
 	//28
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_05_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -276,7 +274,7 @@ void MeshM::detaLode(int)
 	//29
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/enemy/battleship_05_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -286,7 +284,7 @@ void MeshM::detaLode(int)
 	//30
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -295,7 +293,7 @@ void MeshM::detaLode(int)
 	//31
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_01.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -304,7 +302,7 @@ void MeshM::detaLode(int)
 	//32
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_02.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -313,7 +311,7 @@ void MeshM::detaLode(int)
 	//33
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_03.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -322,7 +320,7 @@ void MeshM::detaLode(int)
 	//34
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_04.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -331,7 +329,7 @@ void MeshM::detaLode(int)
 	//35
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_05.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.1f, 0.1f, 0.1f));
@@ -340,7 +338,7 @@ void MeshM::detaLode(int)
 	//36
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/player/playership_01_incolor_06.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(0.01f, 0.01f, 0.01f));
@@ -349,7 +347,7 @@ void MeshM::detaLode(int)
 	//37
 	m = new Mesh_Fbx(Engine->getDevice(), Engine->getDeviceContext(), c, l);
 	m->InitModel("data/m/boss/untitled.fbx");
-	m->setShader(shader);
+	m->setShader(shder3D);
 	m->setRenderingEngine(Engine);
 	m->setPosition(XMFLOAT3(0, -20, 0));
 	m->setSize(XMFLOAT3(1.0f, 1.0f, 1.0f));

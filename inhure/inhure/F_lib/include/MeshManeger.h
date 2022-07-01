@@ -42,6 +42,7 @@ namespace F_lib_Fremworker
 		F_lib_Render::Camera* c;
 		F_lib_Render::Light_Point* l;
 		F_lib_Render::Text* text;
+		F_lib_Render::Mesh_ShaderDat* shder2D, *shder3D, *shder3DB;
 
 	};
 

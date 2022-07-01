@@ -47,8 +47,6 @@ void SceneTitle::update()
 
 void SceneTitle::Draw()
 {
-
-
 	Text->setalpa(0.5);
 	Text->draw(scenename);
 

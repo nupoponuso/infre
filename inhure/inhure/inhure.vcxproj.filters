@@ -31,9 +31,6 @@
     <ClCompile Include="main.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Shop.cpp">
-      <Filter>ヘッダーファイル</Filter>
-    </ClCompile>
     <ClCompile Include="AreaEnemySpawner.cpp">
       <Filter>ソースファイル\mover\factly</Filter>
     </ClCompile>
@@ -198,6 +195,12 @@
     </ClCompile>
     <ClCompile Include="input.cpp">
       <Filter>ソースファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemFactory.cpp">
+      <Filter>ソースファイル\mover\factly</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>ソースファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -409,6 +412,9 @@
       <Filter>ヘッダーファイル\mover\factly</Filter>
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
+      <Filter>ヘッダーファイル\mover\factly</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemFactory.h">
       <Filter>ヘッダーファイル\mover\factly</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,7 +24,7 @@ struct InitGameArea
 {
 	F_lib_Fremworker::ResourceManager* R;
 	class Player* p;
-	class EnemySpawner* spawner;
+	class ItemFactory* factry;
 	MoverList*	elist, *eblist;
 	XMFLOAT2 pos;
 
@@ -39,8 +39,11 @@ public:
 	void Update();	//XVˆ—
 	void Draw();	//•`‰æˆ—
 
-	bool getActive()   { return Active; }
-	bool getIsUpdate() { return isUpdate; }
+	XMFLOAT2 getPosition() { return Position; }
+	float    getSize()	   { return size; }
+	bool     getActive()   { return Active; }
+	bool     getIsUpdate() { return isUpdate; }
+
 	F_lib_Mover::Colision_2D* getCol() { return col; }
 
 protected:

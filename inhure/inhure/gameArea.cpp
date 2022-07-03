@@ -27,6 +27,7 @@ GameArea::GameArea(InitGameArea _data) :p(_data.p), R(_data.R), elist(_data.elis
 	enemyData.speed = 0.51;
 	enemyData.bulletlist = eblist;
 	enemyData.mylist = elist;
+	enemyData.itemfactory = _data.factry;
 
 	spdata.R = R;
 	spdata.list = elist;

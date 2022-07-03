@@ -11,10 +11,12 @@ struct initEnemySpawner
 
 	int count, spawnenum;
 	float SpowneLen;
+
 	initEnemySpawner()
 	{
 		spawnenum = 1;
 		SpowneLen = 100;
+
 	}
 
 };
@@ -29,6 +31,7 @@ public:
 protected:
 
 	void Spawne();
+	virtual void PositionSet();
 	virtual Mover2D* CreateEnemy();
 
 	MoverList* list;

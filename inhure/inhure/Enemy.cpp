@@ -1,18 +1,27 @@
+
+
+//インクルード
 #include "Enemy.h"
 
 #include "RM.h"
 #include "F_lib/include/mover.h"
 //#include "Bullet.h"
 #include "Player.h"
+#include <random>
+#include "ItemFactory.h"
 
+
+//名前空間スコープ処理
 using namespace F_lib_Mover;
 using namespace F_lib_Render;
 
 
-Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist), p(_dat.p)
+//コンストラクタ
+//初期化
+Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist), p(_dat.p),itemfactory(_dat.itemfactory)
 {
 	ep = 0;
-
+	
 	speed = _dat.speed;
 	Myid = mover_enemy;
 	myList = _dat.mylist;
@@ -24,13 +33,27 @@ Enemy::Enemy(initenemydata _dat) : Mover2D(_dat.R), bulletList(_dat.bulletlist),
 
 }
 
+
+//デストラクタ
+//死んだとき
 Enemy::~Enemy()
 {
 	p->addEp(ep);
 
+	std::random_device rnd;
+	std::mt19937 mt(rnd());
+	std::uniform_int_distribution<> rand(0, 10);
+	
+	int i = rand(mt);
+
+	if (i == 0)
+		itemfactory->Create(Position);
 
 }
 
+
+//Update関数
+//敵の全体的な行動
 void Enemy::Update()
 {
 	if (hp < 0)
@@ -43,6 +66,9 @@ void Enemy::Update()
 		myList->Ishit(this);
 }
 
+
+//　Draw関数
+//　描画処理
 void Enemy::Draw()
 {
 	mesh->setangle(Angle);
@@ -51,6 +77,9 @@ void Enemy::Draw()
 
 }
 
+
+//terhit関数
+//能動的ヒットイベント
 void Enemy::terhit(Mover2D * _m)
 {
 
@@ -71,6 +100,9 @@ void Enemy::terhit(Mover2D * _m)
 	}
 }
 
+
+//herhit関数
+//受動的ヒットイベント
 void Enemy::herhit(Mover2D *_m)
 {
 	switch (_m->getMyid())
@@ -92,6 +124,9 @@ void Enemy::herhit(Mover2D *_m)
 	 
 }
 
+
+//getcol関数
+//当たり判定の取得
 F_lib_Mover::Colision_2D * Enemy::getcol()
 {
 	col->getColdata()->pos = XMFLOAT2(Position.x, Position.z);

@@ -26,6 +26,7 @@ private:
 	F_lib_Render::Mesh_billbord* b;
 	class EnemySpawner* spawner;
 	class GameArea* area[4];
+	class ItemFactory* itemfactory;
 
 };
 

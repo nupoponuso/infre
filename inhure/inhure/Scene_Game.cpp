@@ -8,12 +8,14 @@
 #include "F_lib/include/Light.h"
 #include "item.h"
 #include "gameArea.h"
-
+#include "ItemFactory.h"
 #include "UIPlayer.h"
 
 //定数宣言
 #define AREAPOS (110)
 
+
+//
 //
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
@@ -22,6 +24,7 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	_ResouseManeger->meshM->getCamera()->setangle(XMFLOAT3(-89.99f, 0, 0));
 	Resource->TM->loadTex();
 	fild = _ResouseManeger->meshM->getModel(1);
+	
 	elist  = new MoverList();
 	eblist = new MoverList();
 	blist  = new MoverList();
@@ -38,15 +41,14 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 	hit = L"何かしらがプレイヤーに当たっている";
 
-	//InitItemData itemdata;
-	//itemdata.R = Resource;
-	//itemdata.pos = XMFLOAT3(50, 0, 0);
+	itemfactory = new ItemFactory(Resource, Itemlist);
 
 	InitGameArea areadata;
 	areadata.eblist = eblist;
 	areadata.elist = elist;
-	areadata.p = dynamic_cast<Player*> (p);
+	areadata.p = dynamic_cast<Player*>(p);
 	areadata.R = Resource;
+	areadata.factry = itemfactory;
 
 	XMFLOAT2 areapos;
 
@@ -56,50 +58,22 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 		areapos.y = ((i < 2) ? 1 : -1)* AREAPOS;
 		areadata.pos = areapos;
 		area[i] = new GameArea(areadata);
+
 	}
 
-	//areapos.x = AREAPOS;
-	//areapos.y = AREAPOS;
-	//areadata.pos = areapos;
-	//area[0] = new gameArea(areadata);
-	//
-	//areapos.x = -AREAPOS;
-	//areapos.y = AREAPOS;
-	//areadata.pos = areapos;
-	//area[1] = new gameArea(areadata);
-	//
-	//areapos.x = AREAPOS;
-	//areapos.y = -AREAPOS;
-	//areadata.pos = areapos;
-	//area[2] = new gameArea(areadata);
-	//
-	//areapos.x = -AREAPOS;
-	//areapos.y = -AREAPOS;
-	//areadata.pos = areapos;
-	//area[3] = new gameArea(areadata);
-	//
 	pui = new UIPlayer(_ResouseManeger, dynamic_cast<Player*>( p));
-
-	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
 	b = Resource->meshM->getBillbord();
 
 }
 
+
+//
+//
 void SceneGame::update()
 {
 
 	if (GetKeyTrigger(VK_T))next = F_lib_Fremworker::Scene_title;
 	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
-
-	if (GetKeyTrigger(VK_P))
-	{
-		InitItemData itemdata;
-		itemdata.R = Resource;
-		itemdata.pos = XMFLOAT3(50, 0, 0);
-	
-		Itemlist->listPush(new ItemWepon(itemdata, Wepon_boomerang));
-	
-	}
 
 	for (int i = 0; i < 4; i++)
 		area[i]->Update();
@@ -115,6 +89,9 @@ void SceneGame::update()
 	pui->Update();
 }
 
+
+//
+//
 void SceneGame::Draw()
 {
 	b->reset();
@@ -123,7 +100,6 @@ void SceneGame::Draw()
 	b->setSize(1000);
 	b->RDraw();
 
-	//fild->RDraw();
 	for (int i = 0; i < 4; i++)
 		area[i]->Draw();
 

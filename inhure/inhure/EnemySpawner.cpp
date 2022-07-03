@@ -25,24 +25,30 @@ void EnemySpawner::update()
 
 void EnemySpawner::Spawne()
 {
-	std::random_device rnd;     
-	std::mt19937 mt(rnd());     
-	std::uniform_int_distribution<> rand100(0, 360);
 	Mover2D* m;
 
 	for (int i = 0; i < spawnenum; i++)
 	{
-		float angle = (float)rand100(mt);
-
-		SpawneData.pos = SpawneData.p->getPosition();
-		SpawneData.pos.x += SpowneLen * sindeg(angle);
-		SpawneData.pos.z += SpowneLen * cosdeg(angle);
-
+		PositionSet();
 		m = CreateEnemy();
 
 		list->listPush(m);
 
 	}
+
+}
+
+void EnemySpawner::PositionSet()
+{
+	std::random_device rnd;
+	std::mt19937 mt(rnd());
+	std::uniform_int_distribution<> rand(0, 360);
+
+	float angle = (float)rand(mt);
+
+	SpawneData.pos = SpawneData.p->getPosition();
+	SpawneData.pos.x += SpowneLen * sindeg(angle);
+	SpawneData.pos.z += SpowneLen * cosdeg(angle);
 
 }
 

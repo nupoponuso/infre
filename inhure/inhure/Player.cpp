@@ -291,8 +291,8 @@ bool Player::CreateWepon(weponId _id)
 			waitWepon = new Wepon_MissileLunther(datInitWepon, mybList);
 			break;
 		//case Wepon_lyzer:
-			waitWepon = new WeponLyzer(datInitWepon);
-			break;
+		//	waitWepon = new WeponLyzer(datInitWepon);
+		//	break;
 		case Wepon_flamethrower:
 			waitWepon = new WeponFlamethrower(datInitWepon, mybList);
 			break;
@@ -301,7 +301,9 @@ bool Player::CreateWepon(weponId _id)
 			break;
 		case Wepon_boomerang:
 			waitWepon = new WeponBoomerang(datInitWepon);
-
+			break;
+		default:
+			waitWepon = new WeponFlamethrower(datInitWepon, mybList);
 			break;
 		}
 

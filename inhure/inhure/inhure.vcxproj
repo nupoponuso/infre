@@ -199,6 +199,7 @@
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="item.cpp" />
+    <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="MeshM.cpp" />
@@ -273,6 +274,7 @@
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="item.h" />
+    <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="MeshM.h" />
     <ClInclude Include="Mover2D.h" />

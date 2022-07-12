@@ -72,7 +72,7 @@ namespace F_lib_Render
 	{
 	public:
 		RenderingEngine();
-		~RenderingEngine();	// ’Ç‰Á
+		~RenderingEngine();
 
 		void Iint(HWND, int _width,int _height);
 
@@ -95,10 +95,10 @@ namespace F_lib_Render
 		IDXGISwapChain*	getSwapChain() { return SwapChain; }
 		XMFLOAT2 getWindowsize() { return windowsize; }
 		class Text* getText() { return text; }
-		D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }	// ’Ç‰Á
-		D2DText* getD2DText() { return D2Dtext; }	//’Ç‰Á
-		D2DTextMng* getD2DTextMng() { return D2DtextMng; } //’Ç‰Á
-		D2DFuncMng* getD2DFuncMng() { return D2DfuncMng; } //’Ç‰Á
+		D2DRenderTargetsandDWrite* getD2DTargets() { return D2DTargets; }
+		D2DText* getD2DText() { return D2Dtext; }
+		D2DTextMng* getD2DTextMng() { return D2DtextMng; }
+		D2DFuncMng* getD2DFuncMng() { return D2DfuncMng; }
 
 	private:
 		void listRender_3D();
@@ -127,11 +127,9 @@ namespace F_lib_Render
 		Mesh_ShaderDat*Shader;
 		XMFLOAT2 windowsize;
 		
-		// ’Ç‰Á
 		D2DRenderTargetsandDWrite* D2DTargets;
 		D2DText* D2Dtext;
 		D2DTextMng* D2DtextMng;
 		D2DFuncMng* D2DfuncMng;
-		// ‚±‚±‚Ü‚Å
 	};
 }

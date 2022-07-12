@@ -2,8 +2,11 @@
 #include "RM.h"
 #include "MeshM.h"
 
-#include "CustomInput.h"
 #include "input.h"
+
+#ifdef _DEBUG
+#include "Debug_Infure.h"
+#endif // _DEBUG
 
 #include "RenderingEngine.h"
 #include "D2DDrawMng.h"
@@ -13,41 +16,42 @@ using namespace F_lib_Render;
 SceneTitle::SceneTitle(F_lib_Fremworker::ResourceManager * _R)
 	: SceneBase(_R)
 {
-	Resource->TM->loadTex();
 	Text = _R->meshM->getText();
 	scenename = L"タイトル\nゲーム本編：gキー\n図鑑：bキー";
 
 
-	GTimer = new GameTimer();
-	getEngine()->getD2DText()->SetOrigin(D2DText::ORIGIN::LEFTTOP);
-	getEngine()->getD2DText()->ReverseYAxis(false);
 
-	//std::string str1 = "str test line.";
-	//D2D1_RECT_F strrect1 = { 300, 0,  600, 200 };
-	//d2dtext->DrawString(str1, strrect1);
+#ifdef _DEBUG
+	DebugSceneString("Title", Scene_Text);
+
+#endif // _DEBUG
+
 
 }
 
 SceneTitle::~SceneTitle()
 {
-	delete GTimer;
+#ifdef _DEBUG
+	delete Scene_Text;
+#endif // _DEBUG
 	getEngine()->getD2DTextMng()->RemoveAll();
 }
 
 void SceneTitle::update()
 {
-	if (GetKeyTrigger(VK_G))next = F_lib_Fremworker::Scene_game;
-	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
+	UpdateInput();
 
-	if (CustomInput::getins()->getTrigger(GameInput::OK))
-		int i = 0;
+	//if (GetKeyTrigger(VK_G))next = F_lib_Fremworker::Scene_game;
+	//else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
+#ifdef _DEBUG
+	DebugSceneChange(this);
 
-	GTimer->Update();
+#endif // _DEBUG
+
 }
 
 void SceneTitle::Draw()
 {
-	Text->setalpa(0.5);
 	Text->draw(scenename);
 
 }

@@ -11,10 +11,19 @@
 
 #include "UIPlayer.h"
 
+#include "RenderingEngine.h"
+#include "D2DDrawMng.h"
+#include "D2DText.h"
+
+#ifdef _DEBUG
+#include "Debug_Infure.h"
+#endif // _DEBUG
+using namespace F_lib_Render;
+
 //定数宣言
 #define AREAPOS (110)
 
-//
+
 SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	: SceneBase(_ResouseManeger)
 {
@@ -83,13 +92,32 @@ SceneGame::SceneGame(F_lib_Fremworker::ResourceManager * _ResouseManeger)
 	//デバックで500体で負荷が出るリリース100000体で負荷が起きる60,000で運用か
 	b = Resource->meshM->getBillbord();
 
+#ifdef _DEBUG
+	DebugSceneString("Game", Scene_Text);
+
+#endif // _DEBUG
+
+}
+
+SceneGame::~SceneGame()
+{
+#ifdef _DEBUG
+	delete Scene_Text;
+#endif // _DEBUG
+	getEngine()->getD2DTextMng()->RemoveAll();
 }
 
 void SceneGame::update()
 {
+	UpdateInput();
 
-	if (GetKeyTrigger(VK_T))next = F_lib_Fremworker::Scene_title;
-	else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
+	//if (GetKeyTrigger(VK_T))next = F_lib_Fremworker::Scene_title;
+	//else if (GetKeyTrigger(VK_B))next = F_lib_Fremworker::Scene_book;
+
+#ifdef _DEBUG
+	DebugSceneChange(this);
+
+#endif // _DEBUG
 
 	if (GetKeyTrigger(VK_P))
 	{

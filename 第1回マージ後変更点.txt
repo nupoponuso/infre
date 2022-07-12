@@ -1,0 +1,64 @@
+# 既知の問題
+康君の作ったデータが重すぎてシーン遷移が上手くいかない
+
+
+
+
+# プロジェクト関係
+RenderTargetResourcesをビルド対象から外す
+	共通リソース用ファイルとして作成したが、使用を保留としたため。
+	将来的には活用した方が良いが、上手い方法を思いつかない
+SceneManager(h,cpp)
+	ソースフォルダ(F_Lib以外のファイルがあるフォルダ)にあるファイル
+	おそらくF_LibにあるSceneManegerのコピー(ファイル名がManagerとManegerで違うので注意)
+	使用していないので削除して良いと思われる
+	SceneManager_infureに取って代わられたせいか？
+SceneManager_infure(h,cpp)
+	F_libのSceneManegerの子クラス
+	シーン管理を担当しているが、各シーンの登録(enum)はF_Lib内にあるenumで行っている
+	この状態はOKなのか？
+D2DText(h,cpp)
+	D2DTextParamsの引数ありコンストラクタを修正。使用可能に変更。	
+	標準の表示位置をORIGIN::Center、Y_Axis=true、FORM::Point、に変更。(画面中央を原点とするため)
+	- h
+		DisplayFontListの表示座標を指示できるよう変更。
+SceneManager_infure(cpp)
+	デバッグ用記述追加。デバッグモードでは、SceneTestが最初に呼ばれるように。
+GameTimer(h,cpp)
+	不要なコメント削除。処理内容のコメント追加。デバッグ用機能に#ifdef追加。
+
+
+# 追加ファイル一覧
+Scene***** を追加、SceneTestは実験用シーンなので、なにか試したいときはココで行えば他に影響がない
+SceneTest
+	- h
+		コンストラクタの引数を短縮形から読める長さに変更
+
+
+
+# F_libの変更箇所
+- SceneManeger(h)
+ - h
+ 	enumにシーン種類を追加
+ 	デバッグ用setterを追加
+
+- RenderingEngin(h,cpp)
+ - h
+ 	//旧Textを削除
+ 	不要なコメント削除
+ 	
+ - cpp
+ 	//旧textを削除
+ 	Renderring()
+ 		2D用の不要なコメント削除
+
+
+
+# ソースファイルの変更箇所
+- Scene****(h,cpp)
+ - h, cpp
+ 	全シーンにデバッグ用シーンチェンジ、及び表示を追加
+ 	
+ 	
+
+

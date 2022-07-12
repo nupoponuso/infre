@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="DisplayMover.cpp">
-      <Filter>ソースファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>ソースファイル\mover\Boss</Filter>
     </ClCompile>
@@ -139,21 +136,6 @@
     <ClCompile Include="UIPlayer.cpp">
       <Filter>ソースファイル\ui</Filter>
     </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソースファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Corection.cpp">
-      <Filter>ソースファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager_infure.cpp">
-      <Filter>ソースファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp">
-      <Filter>ソースファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene_Game.cpp">
-      <Filter>ソースファイル\Scene\game</Filter>
-    </ClCompile>
     <ClCompile Include="gameArea.cpp">
       <Filter>ソースファイル\Scene\game</Filter>
     </ClCompile>
@@ -199,11 +181,41 @@
     <ClCompile Include="input.cpp">
       <Filter>ソースファイル\window</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayMover.cpp">
+      <Filter>ソースファイル\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="F_lib\F_lib_cpp\SceneManeger.cpp">
+      <Filter>f_lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Achivement.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Collection.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Game.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_PlayRecord.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Setting.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager_infure.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Test.cpp">
+      <Filter>ソースファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug_Infure.cpp">
+      <Filter>ソースファイル\debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DisplayMover.h">
-      <Filter>ヘッダーファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>ヘッダーファイル\mover\Boss</Filter>
     </ClInclude>
@@ -336,15 +348,6 @@
     <ClInclude Include="Obstacle.h">
       <Filter>ヘッダーファイル\mover\Obstraut</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_Corection.h">
-      <Filter>ヘッダーファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager_infure.h">
-      <Filter>ヘッダーファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ヘッダーファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="UI.h">
       <Filter>ヘッダーファイル\UI</Filter>
     </ClInclude>
@@ -396,9 +399,6 @@
     <ClInclude Include="D2DText.h">
       <Filter>ヘッダーファイル\window</Filter>
     </ClInclude>
-    <ClInclude Include="Scene_Game.h">
-      <Filter>ヘッダーファイル\Scene\game</Filter>
-    </ClInclude>
     <ClInclude Include="GameTimer.h">
       <Filter>ヘッダーファイル\Scene\game</Filter>
     </ClInclude>
@@ -410,6 +410,36 @@
     </ClInclude>
     <ClInclude Include="EnemySpawner.h">
       <Filter>ヘッダーファイル\mover\factly</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayMover.h">
+      <Filter>ヘッダーファイル\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Achivement.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Collection.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Game.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_PlayRecord.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Setting.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager_infure.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Test.h">
+      <Filter>ヘッダーファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug_Infure.h">
+      <Filter>ヘッダーファイル\debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -499,6 +529,12 @@
     </Filter>
     <Filter Include="ソースファイル\Scene\game">
       <UniqueIdentifier>{d3565ceb-8da2-42a0-acaa-884fb5a4292f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル\debug">
+      <UniqueIdentifier>{2c0875d9-8a15-4387-8a33-c208f25ee663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル\debug">
+      <UniqueIdentifier>{6d3b1a3d-0741-4622-975e-f99e760f004a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

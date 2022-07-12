@@ -165,6 +165,7 @@
     <ClCompile Include="D2DRenderTargetsAndDWrite.cpp" />
     <ClCompile Include="D2DText.cpp" />
     <ClCompile Include="D2DDrawMng.cpp" />
+    <ClCompile Include="Debug_Infure.cpp" />
     <ClCompile Include="DisplayMover.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyArea.cpp" />
@@ -205,12 +206,18 @@
     <ClCompile Include="MoverList.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="RenderTargetResources.cpp" />
+    <ClCompile Include="RenderTargetResources.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="RM.cpp" />
     <ClCompile Include="SceneManager_infure.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
-    <ClCompile Include="Scene_Corection.cpp" />
+    <ClCompile Include="Scene_Achivement.cpp" />
+    <ClCompile Include="Scene_Collection.cpp" />
     <ClCompile Include="Scene_Game.cpp" />
+    <ClCompile Include="Scene_PlayRecord.cpp" />
+    <ClCompile Include="Scene_Setting.cpp" />
+    <ClCompile Include="Scene_Test.cpp" />
     <ClCompile Include="Shop.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -235,6 +242,7 @@
     <ClInclude Include="D2DRenderTargetsAndDWrite.h" />
     <ClInclude Include="D2DText.h" />
     <ClInclude Include="D2DDrawMng.h" />
+    <ClInclude Include="Debug_Infure.h" />
     <ClInclude Include="DisplayMover.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyArea.h" />
@@ -279,12 +287,18 @@
     <ClInclude Include="MoverList.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="RenderTargetResources.h" />
+    <ClInclude Include="RenderTargetResources.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="RM.h" />
     <ClInclude Include="SceneManager_infure.h" />
     <ClInclude Include="SceneTitle.h" />
-    <ClInclude Include="Scene_Corection.h" />
+    <ClInclude Include="Scene_Achivement.h" />
+    <ClInclude Include="Scene_Collection.h" />
     <ClInclude Include="Scene_Game.h" />
+    <ClInclude Include="Scene_PlayRecord.h" />
+    <ClInclude Include="Scene_Setting.h" />
+    <ClInclude Include="Scene_Test.h" />
     <ClInclude Include="Shop.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>

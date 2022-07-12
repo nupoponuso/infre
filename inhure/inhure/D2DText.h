@@ -211,7 +211,7 @@ namespace F_lib_Render
 		{
 			Pos = { 0,0 };
 			Rect = { 0,0,10,10 };
-			Form = FORM::Rect;
+			Form = FORM::Point;
 			Data = new FontData();
 		}
 	};
@@ -223,11 +223,10 @@ namespace F_lib_Render
 
 	public:
 		//引数有コンストラクタ、もしくはSetで各パラメータを設定すること。
-		//Note : 引数ありコンストラクタがうまく機能していないので、一旦使用禁止
 		D2DTextParams();
-		//D2DTextParams(TextData* data, int drawOrder = defDrawOrder);
-		//D2DTextParams(std::string str, D2D1_POINT_2F pos, D2D1_RECT_F rect, 
-		//	TextData::FORM form, int flag, FontData* data, int drawOrder = defDrawOrder);
+		D2DTextParams(TextData* data, int drawOrder = defDrawOrder);
+		D2DTextParams(std::string str, D2D1_POINT_2F pos, D2D1_RECT_F rect, 
+			TextData::FORM form, FontData* data, int drawOrder = defDrawOrder);
 		~D2DTextParams();
 
 		void SetData(TextData* data);
@@ -252,7 +251,7 @@ namespace
 {
 	// デバッグ用関数
 	// 登録されているフォントを一覧で表示する
-	void DisplayFontList(void)
+	void DisplayFontList(D2D1_POINT_2F pos)
 	{
 		using namespace F_lib_Render;
 		D2DTextParams* texts[static_cast<int>(Font::Webdings) + 1];
@@ -265,8 +264,8 @@ namespace
 		int num = 0;
 		for (auto&& d : td) {
 			d.Str = "This is Japan.";
-			d.Pos = { 0,0 + y };
-			y += 25;
+			d.Pos = { pos.x,pos.y + y };
+			y -= 25;
 			d.Form = TextData::FORM::Point;
 			d.Data->fontSize = 20;
 			d.Data->font = static_cast<Font>(num);

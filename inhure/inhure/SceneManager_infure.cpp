@@ -2,14 +2,23 @@
 #include "RM.h"
 #include "SceneTitle.h"
 #include "Scene_Game.h"
-#include "Scene_Corection.h"
+#include "Scene_Collection.h"
+#include "Scene_Achivement.h"
+#include "Scene_PlayRecord.h"
+#include "Scene_Setting.h"
+#include "Scene_Test.h"
+
 
 using namespace F_lib_Fremworker;
 
 SceneManeger_inhure::SceneManeger_inhure(F_lib_Render::RenderingEngine * _engine)
 {
 	Resource = new RM(_engine);
+#ifdef _DEBUG
+	Scene = new SceneTest(Resource);
+#else
 	Scene = new SceneTitle(Resource);
+#endif // _DEBUG
 	isload = true;
 
 }
@@ -31,9 +40,22 @@ void SceneManeger_inhure::strtSceneChange(Scene_type next)
 		Scene = new SceneGame(Resource);
 		break;
 	case Scene_type::Scene_book:
-		Scene = new SceneCorection(Resource);
+		Scene = new SceneCollection(Resource);
 		break;
-
+	case Scene_type::Scene_achievement:
+		Scene = new SceneAchivement(Resource);
+		break;
+	case Scene_type::Scene_record:
+		Scene = new ScenePlayRecord(Resource);
+		break;
+	case Scene_type::Scene_setting:
+		Scene = new SceneSetting(Resource);
+		break;
+	case Scene_type::Scene_test:
+		Scene = new SceneTest(Resource);
+		break;
+	default:
+		break;
 	}
 
 

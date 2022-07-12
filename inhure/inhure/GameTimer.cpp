@@ -13,13 +13,16 @@ GameTimer::GameTimer()
 	, TimerCount(0.0f)
 {
 	restart();
+#ifdef _DEBUG
 	CountText = new D2DTextParams();
-
+#endif // _DEBUG
 }
 
 GameTimer::~GameTimer()
 {
+#ifdef _DEBUG
 	delete CountText;
+#endif // _DEBUG
 }
 
 void GameTimer::restart()
@@ -35,11 +38,14 @@ double GameTimer::elapsed()
 
 void GameTimer::Update()
 {
+#ifdef _DEBUG
+	// ポーズ機能テスト用
 	if (GetKeyTrigger(VK_K)) {
 		Pause = true;
 	} else if(GetKeyTrigger(VK_I)) {
 		Pause = false;
 	}
+#endif // _DEBUG
 
 	if (!Pause) {
 		TimerCount += elapsed();
@@ -49,32 +55,25 @@ void GameTimer::Update()
 		TimerCount += elapsed();
 		restart();
 	}
+
 #ifdef _DEBUG
+	// 経過時間のチェック用
 	TCHAR str[MAXCHAR];
 	_stprintf_s(str, MAXCHAR, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
 	
 	TextData td;
 	td.Str = str;
-	td.Rect = { 400, 0, 600, 200 };
+	td.Pos = { 0,800 / 2 };
+	td.Rect = { 0, 800/2, 600, 200 };
 	td.Data->font = Font::Arial;
 	td.Data->fontSize = 30;
 	td.Data->Opacity = 0.6f;
-	if (GetKeyPress(VK_SPACE)) {
+	if (GetKeyPress(VK_P)) {
 		CountText->SetDrawFlag(false);
-		//td.DrawFlag = !td.DrawFlag;
 	} else {
 		CountText->SetDrawFlag(true);
 	}
-	//FontData fd;
-	//fd.font = Font::MeiryoUI;
-	//fd.fontSize = 10;
-	//fd.Opacity = 0.5f;
-	//getEngine()->getD2DText()->SetFont(&fd);
 	CountText->SetData(&td);
-	//delete fd;
-	//getEngine()->getD2DText()->SetFont(&fd);
-	//CountText->SetText(wstr, nLen);
-	//CountText->SetRect(D2D_RECT_F{ 400,0,600,200 });
 
 #endif // _DEBUG
 
@@ -82,24 +81,6 @@ void GameTimer::Update()
 
 void GameTimer::Draw()
 {
-	//TCHAR str[256];
-	//_stprintf_s(str, 256, TEXT("Pause : %d / TimerCount : %10.2f"), Pause, TimerCount);
-
-	//int nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, -1, NULL, 0);
-	//WCHAR* wstr = new WCHAR[nLen];
-	//if (wstr) {
-	//	//変換
-	//	nLen = ::MultiByteToWideChar(CP_THREAD_ACP, 0, str, (int)::strlen(str) + 1, wstr, nLen);
-	//	if (nLen == 0) {
-	//		delete	wstr;
-	//		wstr = NULL;
-	//	}
-	//}
-	//CountText->setPosition(XMFLOAT2(100.0f, 10.0f));
-	//CountText->draw(wstr);
-
-	//delete wstr;
-	//wstr = nullptr;
 }
 
 bool GameTimer::IsPause()

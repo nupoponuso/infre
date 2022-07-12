@@ -22,9 +22,11 @@ public:
 	bool IsPause();
 
 private:
-	bool Pause;		// 一時停止 true:している/false:していない
-	DWORD CurrentTime;
-	double TimerCount;
-	F_lib_Render::D2DTextParams* CountText;
+	bool Pause;			// 一時停止 true:している/false:していない
+	DWORD CurrentTime;	// 計算用現在時間
+	double TimerCount;	// 出力用経過時間
+#ifdef _DEBUG
+	F_lib_Render::D2DTextParams* CountText;	// デバッグ用カウント表示
+#endif // _DEBUG
 };
 

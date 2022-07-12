@@ -28,6 +28,10 @@ namespace F_lib_Fremworker
 		Scene_title = 0,	//ƒ^ƒCƒgƒ‹
 		Scene_game,
 		Scene_book,
+		Scene_achievement,
+		Scene_record,
+		Scene_setting,
+		Scene_test = 99,
 
 		Scene_Num			//”Ô•º
 	};
@@ -55,6 +59,9 @@ namespace F_lib_Fremworker
 
 		bool getfade() { return usefade; }
 		bool getfadein() { return fadein; }
+#ifdef _DEBUG
+		void setNextScene(Scene_type _next) { next = _next; }
+#endif // _DEBUG
 
 	protected:
 		HRESULT	hr;

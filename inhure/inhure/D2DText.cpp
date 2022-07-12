@@ -37,8 +37,8 @@ std::wstring D2DText::StringToWString(std::string str)
 	D2DText::D2DText(IDWriteFactory* factory, ID2D1RenderTarget* target)
 		: TextLayout(nullptr)
 		, Setting(new FontData())
-		, Origin(ORIGIN::LEFTTOP)
-		, Y_Axis(false)
+		, Origin(ORIGIN::CENTER)
+		, Y_Axis(true)
 	{
 		RenderTarget = target;
 		RenderTarget->AddRef();
@@ -247,23 +247,22 @@ std::wstring D2DText::StringToWString(std::string str)
 		Manager->Add(this);
 	}
 
-	//D2DTextParams::D2DTextParams(TextData * data, int drawOrder) : D2DTextParams()
-	//{
-	//	SetData(data);
-	//	DrawOrder = drawOrder;
-	//}
+	D2DTextParams::D2DTextParams(TextData * data, int drawOrder) : D2DTextParams()
+	{
+		SetData(data);
+		DrawOrder = drawOrder;
+	}
 
-	//D2DTextParams::D2DTextParams(std::string str, D2D1_POINT_2F pos, D2D1_RECT_F rect,
-	//	TextData::FORM form, int flag, FontData * data, int drawOrder) : D2DTextParams()
-	//{
-	//	TextSetting->Str = str;
-	//	TextSetting->Pos = pos;
-	//	TextSetting->Rect = rect;
-	//	TextSetting->Form = form;
-	//	TextSetting->DrawFlag = flag;
-	//	TextSetting->Data = data;
-	//	DrawOrder = drawOrder;
-	//}
+	D2DTextParams::D2DTextParams(std::string str, D2D1_POINT_2F pos, D2D1_RECT_F rect,
+		TextData::FORM form, FontData * data, int drawOrder) : D2DTextParams()
+	{
+		TextSetting->Str = str;
+		TextSetting->Pos = pos;
+		TextSetting->Rect = rect;
+		TextSetting->Form = form;
+		TextSetting->Data = data;
+		DrawOrder = drawOrder;
+	}
 	
 	D2DTextParams::~D2DTextParams()
 	{

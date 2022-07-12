@@ -257,8 +257,7 @@ namespace F_lib_Render
 		listRender_2D(true);
 
 		Mainterget->RenderClser(DeviceContext);		//ノンスクリーンレンダリングした物をスプライトで描画
-		//D2DTargets->GetDxgiRenderTarget()->BeginDraw();	// D2Dの描画開始
-														// 呼出はレンダーターゲットのクリア後~SwapChain.Present()の間に1回のみ
+
 		setRasterrize(RASTER_BACK);
 		setBlend(BLEND_ALPHABLEND);
 		setZBffer(false);
@@ -273,7 +272,6 @@ namespace F_lib_Render
 		D2DtextMng->Render();
 		D2DfuncMng->Render();
 
-		//D2DTargets->GetDxgiRenderTarget()->EndDraw();	//D2Dの描画終了
 		SwapChain->Present(1, 0);//画面更新（バックバッファをフロントバッファに）	
 		Render3DList.clear();
 		Render2DListBack.clear();

@@ -1,7 +1,7 @@
 #pragma once
-
 #include "F_lib/include/SceneManeger.h"
 #include "F_lib/include/Text.h"
+
 
 namespace F_lib_Render
 {
@@ -11,11 +11,11 @@ namespace F_lib_Render
 
 }
 
-class SceneTitle : public F_lib_Fremworker::SceneBase
+class SceneCollection :public F_lib_Fremworker::SceneBase
 {
 public:
-	SceneTitle(F_lib_Fremworker::ResourceManager* _R);
-	~SceneTitle();
+	SceneCollection(F_lib_Fremworker::ResourceManager* _ResourceManager);
+	~SceneCollection();
 
 	void update();
 	void Draw();
@@ -28,5 +28,6 @@ private:
 	F_lib_Render::D2DTextParams* Scene_Text;
 
 #endif // _DEBUG
+
 };
 
